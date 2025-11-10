@@ -1,0 +1,86 @@
+% \ProvidesPackage{mycommand}[2025A]
+
+
+% 符号
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+
+\newcommand{\calA}{{\cal A}}
+\newcommand{\calB}{{\cal B}}
+\newcommand{\calC}{{\cal C}}
+\newcommand{\calD}{{\cal D}}
+\newcommand{\calE}{{\cal E}}
+\newcommand{\calF}{{\cal F}}
+\newcommand{\calG}{{\cal G}}
+\newcommand{\calH}{{\cal H}}
+\newcommand{\calI}{{\cal I}}
+\newcommand{\calJ}{{\cal J}}
+\newcommand{\calK}{{\cal K}}
+\newcommand{\calL}{{\cal L}}
+\newcommand{\calM}{{\cal M}}
+\newcommand{\calN}{{\cal N}}
+\newcommand{\calO}{{\cal O}}
+\newcommand{\calP}{{\cal P}}
+\newcommand{\calQ}{{\cal Q}}
+\newcommand{\calR}{{\cal R}}
+\newcommand{\calS}{{\cal S}}
+\newcommand{\calT}{{\cal T}}
+\newcommand{\calU}{{\cal U}}
+\newcommand{\calV}{{\cal V}}
+\newcommand{\calW}{{\cal W}}
+\newcommand{\calX}{{\cal X}}
+\newcommand{\calY}{{\cal Y}}
+\newcommand{\calZ}{{\cal Z}}
+
+
+\newcounter{boxlblcounter} 
+\newenvironment{tlis}
+  {\begin{list}
+    {\arabic{boxlblcounter}}
+    {\usecounter{boxlblcounter}
+     \setlength{\labelwidth}{3em}
+     \setlength{\labelsep}{0em}
+     \setlength{\itemsep}{2pt}
+     \setlength{\leftmargin}{1.5cm}
+     \setlength{\rightmargin}{2cm}
+     \setlength{\itemindent}{0em} 
+    }
+  }
+{\end{list}}
+
+
+
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\bmrm}[1]{\boldsymbol{\mathrm{#1}}}
+\newcommand{\mrm}[1]{\mathrm{#1}}
+
+
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Mor}{\operatorname{Mor}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Fct}{\operatorname{Fct}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\idd}{\operatorname{id}}
+\newcommand{\cate}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand{\op}{\ensuremath{\mathrm{op}}}
+\newcommand{\gen}[2]{\left\langle #1 \right\rangle_{#2}}
+
+\newcommand{\Eqv}{\operatorname{Eqv}}
+\newcommand{\Cge}{\operatorname{Cge}}
+\newcommand{\reg}{\operatorname{reg}}
+\newcommand{\inv}{\operatorname{inv}}
+\newcommand{\eqv}{\ensuremath{\mathrm{eqv}}}
+\newcommand{\cge}{\ensuremath{\mathrm{cge}}}
+\newcommand{\nor}{\ensuremath{\mathrm{nor}}}
+\newcommand{\idm}{\operatorname{idm}}
+\newcommand{\Idl}{\operatorname{Idl}}
+\newcommand{\Ldl}{\operatorname{Ldl}}
+\newcommand{\Rdl}{\operatorname{Rdl}}
+\newcommand{\zset}{\{0\}}

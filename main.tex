@@ -1,0 +1,37 @@
+\documentclass{config/Notebook}
+
+\begin{document}
+
+%###############################
+%#          Cover page        ##
+%###############################
+% \frontmatter
+% \include{config/coverpage}
+
+
+%###############################
+%#          Contents          ##
+%###############################
+% \cleardoublepage
+% \pagestyle{fancy}		% 复原页面风格为 fancy
+% \pagenumbering{roman}	% 页码复原为小写罗马字母
+% \setcounter{page}{1}
+% \thispagestyle{empty}
+% \addtocontents{toc}{\protect\thispagestyle{empty}}
+% \tableofcontents
+
+\mainmatter
+
+\include{chapter1.tex}
+\include{chapter2.tex}
+\include{chapter3.tex}
+\include{chapter4.tex}
+% \include{chapter5.tex}
+
+%###############################
+%#         References         ##
+%###############################
+\backmatter
+\printbibliography[heading=bibintoc]
+
+\end{document}

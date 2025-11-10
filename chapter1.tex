@@ -1,0 +1,399 @@
+\chapter{Introduction}
+\section{Basics}
+
+
+\begin{definition}
+  \label{def:intro-basics-bds}\hfill\par 
+  \begin{enumerate}
+    \item\label{intro-basics-bd-1} $S$ is a null semigroup if $\forall x, y \in S (xy = 0)$;
+    \item\label{intro-basics-bd-2} $S$ is a left zero semigroup if $\forall x, y \in S (xy = x)$, the definition for right zero semigroup is obvious;
+    \item\label{intro-basics-bd-3} $I \subset S$ is a proper ideal if $\{ 0 \} \subset I \subsetneq S$ and $IS \subset S \land SI \subset S$;
+    \item\label{intro-basics-bd-4} given a set $X$, the full transformation semigroup is defined as $(\End_{\cate{Set}}(X), \circ)$, where $\circ$ refers the composition of functions;
+    \item\label{intro-basics-bd-5} a morphism $S \xrightarrow[\cate{Smg}]{\phi} \End(X)$ is a \textit{representation} of $S$, and $\varphi$ is faithful if it is injective;
+    \item\label{intro-basics-bd-6} a semigroup $S$ is a rectangular band if $\forall a, b \in S (aba = a)$;
+    \item\label{intro-basics-bd-7} $\gen{\{ a \}}{\mathrm{smg}}$ is called a \textit{monogenic semigroup}.
+  \end{enumerate}
+\end{definition}
+
+
+
+
+% \begin{proposition}
+%   Suppose $S$ is a semigroup, the propositions listed below are equivalent.
+%   \label{prop: smgisgrp}
+%   \begin{enumerate}
+%     \item\label{intro-basics-smggrp-1} $S$ is a group,
+%     \item\label{intro-basics-smggrp-2} for all $a, b \in S$, there exists $x, y \in S$ such that $ax = b \land ya = b$,
+%     \item\label{intro-basics-smggrp-3} $\forall a \in S (aS = Sa = S)$.
+%   \end{enumerate}
+% \end{proposition}
+% \begin{proof}
+%   It is easy to demonstrate that \ref{intro-basics-smggrp-1} $\Rightarrow$ \ref{intro-basics-smggrp-3} and \ref{intro-basics-smggrp-2} $\Leftrightarrow$ \ref{intro-basics-smggrp-3}. So we proceed to prove \ref{intro-basics-smggrp-3} $\Rightarrow$ \ref{intro-basics-smggrp-1}, and it is suffices to show that $S$ has the unique identity, and that for any element, its inverse exists and is unique. Let $ax = ya = a$, and it follows that
+%   \[
+%     x = ax_1 = ay_1a = yay_1a = yx = ax_2ax = ax_2a = y_2a = y.
+%   \]
+%   Thus, we may conclude that every element $a$ in $S$ has an identity $\epsilon_a$ such that $\epsilon_a a = a \epsilon_a = a$. Now, the issue lies in proving $\epsilon_a = \epsilon_b$ for any $a, b$ in $S$, and the method is analogous:
+%   \[
+%     \epsilon_a = by_1 = b y_2 b = b y_2 b \epsilon_b = \epsilon_a \epsilon_b = \epsilon_a a x_2 a = a x_2 a = x_1 a = \epsilon_b.
+%   \]
+%   As for the existence and uniqueness of inverse, it also follows the same manner, so we omit it here. 
+% \end{proof}
+
+
+
+
+% \begin{theorem}
+%   Suppose $S$ is a semigroup, $X = S^1$, then there exists a faithful representation 
+%   \[
+%     \varphi: S \to \End(X).
+%   \]
+% \end{theorem}
+% \begin{proof}
+%   See \cite[Theorem 1.1.2]{John-FundSmg}. Simply stated,
+%   \[
+%     \begin{tikzcd}[row sep = small]
+%       &S
+%         \arrow[r, hook]
+%       &\End(S^1)
+%       \\
+%       &a
+%         \arrow[r, mapsto]
+%       &\left[\varphi_a: x \mapsto xa\right].
+%     \end{tikzcd}
+%   \]
+% \end{proof}
+
+
+
+
+
+% \begin{theorem}
+%   Suppose $S$ is a semigroup, the following propositions are equivalent.
+%   \begin{itemize}
+%     \item $S$ is a rectangular band \ref{intro-basics-bd-6},
+%     \item every $a \in S$ is an idempotent, and $abc = ac$ for all $a, b, c$ in $S$,
+%     \item there exists a left zero semigroup $L$, and a right zero semigroup $R$, such that $S \simeq L \times R$,
+%     \item there exists two sets $A, B$ such that $S \simeq A \times B$, in witch $A \times B$ is a semigroup with the multiplication defined as $(a_1, b_1)(a_2, b_2) = (a_1, b_2)$.
+%   \end{itemize}
+% \end{theorem}
+% \begin{proof}
+%   See \cite[Theorem 1.1.3]{John-FundSmg}.
+% \end{proof}
+
+
+
+
+
+
+% \section{Monogenic Subsemigroup}
+
+% To study the monogenic subsemigroup, we introduce the following concepts. Suppose $a$ is an element in $S$, and its order is finite if not specified.
+% \begin{nabls}{MSD}
+%   \nabitem{intro-monos-msd-0} $\gen{a}{}:= \gen{\{a\}}{\mathrm{smg}}$,
+%   \nabitem{intro-monos-msd-1} $\operatorname{ord}(a) := |\langle a \rangle|$,
+%   \nabitem{intro-monos-msd-2} $\operatorname{idx}(a) := \min \left\{ m \in \Z_{\geq 1}: \exists n \in \Z_{\geq 1} (a^m = a^n \land m \neq n) \right\}$,
+%   \nabitem{intro-monos-msd-3} $\operatorname{prd}(a) := \min \left\{ r \in \Z_{\geq 1}: a^{m+r} = a^m \right\}$,
+%   \nabitem{intro-monos-msd-4} a semigroup is called \textit{periodic} if all its elements are of finite order.
+% \end{nabls}
+% Let $m = \operatorname{idx}(a)$, $r = \operatorname{prd}$, clearly, $a, a^2, \cdots, a^{m+r-1}$ are mutually different, and $\langle a \rangle = \{ a, \cdots, a^{m+r-1} \}$. 
+
+% Let $K_a$ be $\{ a^m, \cdots, a^{m+r-1} \}$, we assert that it is a cyclic group. Consider the quotient ring $\Z / r\Z$, obviously, $\{ [m], \cdots, [m+r-1] \} = \Z / r\Z$. Thus, there exists $0 \leq g \leq r-1$ such that $[m+g] = [1]$, which implies $\forall k ([k] = [k(m+g)])$. Since $a^{(m+g)k} = a^{m+hr} a^{k-m} = a^m a^{k-m}$ for all $k > m$, the $a^{(m+g)k}$ exhaust $K_a$.
+
+
+
+% \begin{proposition}
+%   Suppose $a$ and $b$ are elements of finite order in the same or different subsemigroups, then
+%   \[
+%     \gen{a}{} \simeq \gen{b}{} \Leftrightarrow (\operatorname{idx}(a), \operatorname{prd}(a)) = (\operatorname{idx}(b), \operatorname{prd}(b)).
+%   \]
+% \end{proposition}
+% \begin{proof}
+%   Suppose $\operatorname{idx}(a) = \operatorname{idx}(b) = m$ and $\operatorname{prd}(a) = \operatorname{ord}(b) = r$, the mapping defined below is an isomorphism.
+%   \[
+%     \begin{tikzcd}[row sep = small]
+%       &\{ a, \cdots, a^{m+r-1} \}
+%         \arrow[r, "\sim"]
+%       &\{ b, \cdots, b^{m+r-1} \}
+%       \\
+%       &a^k
+%         \arrow[r, mapsto]
+%       &b^k
+%     \end{tikzcd}
+%   \]
+
+%   For the reverse, assume $\gen{a}{} \xrightarrow[\phi]{\sim} \gen{b}{}$, where $\phi$ maps $a$ to $b^{\xi}$, it is straightforward to verify that $\gen{b^{\xi}}{} = \gen{b}{}$ and that $\operatorname{idx}(a) = \operatorname{idx}(b^{\xi})$, $\operatorname{prd}(a) = \operatorname{prd}(b^{\xi})$. If $\xi = 1$, the proof is over. On the other hand, if $\xi > 1$, then there exists $\mu \geq 1$ such that $b^{\xi\mu} = b$, thus, $\operatorname{idx}(b) = 1$, which implies $\gen{b}{}$ is a cyclic group. Hence, $\gen{a}{}$ is also a cyclic group with the generator $\phi^{-1}(b) = a^{\zeta}$. Since $a$ is a generator, similarly, there exists an integer $\nu$ that makes $a^{\zeta\nu} = a$, and it follows that $\operatorname{idx}(a) = 1$. Furthermore, observe that $\operatorname{prd}(a) = \vert\gen{a}{}\vert = \vert\gen{b}{}\vert = \operatorname{prd}(b)$.
+% \end{proof}
+
+
+
+
+
+% \begin{proposition}
+%   For any pair $(m, r) \in \Z_{\geq 1}^2$, there exists a semigroup $S$ containing an element with $\operatorname{idx}$ of $m$ and $\operatorname{prd}$ of $r$. 
+% \end{proposition}
+% \begin{proof}
+%   See \cite[p.12]{John-FundSmg}. Simply stated, the correspondence is given by $(m, r) \mapsto (12\cdots m+1) \in S_{m+r}$.
+% \end{proof}
+
+
+
+
+
+
+% \section{Relations}
+
+% Given a set $X$, the power set $P(X^2)$ equipped with the multiplication defined as
+% \[
+%   R_1 \circ R_2 := \left\{ (a, b) \in X^2: \exists c \in X((a, c) \in R_1) \land (c, b) \in R_2 \right\},
+% \]
+% where $R_i$ is the element in $P(X^2)$, forms a semigroup. To see this, it is suffices to verify $\circ$ is associative, which is obvious. Some brief definitions are listed as follows.
+% \begin{nabls}{RD}
+%   \nabitem{intro-rela-rd-1} $R(x):= \{ y\in X: (x, y) \in R \}$,
+%   \nabitem{intro-rela-rd-2} $R(A):= \bigcup_{x \in A}R(x)$,
+%   \nabitem{intro-rela-rd-3} $R^{\op}:= \{ (y, x): (x, y) \in R \}$,
+%   \nabitem{intro-rela-rd-4} $\Delta_X: \{ (x, x): x\in X \}$,
+%   \nabitem{intro-rela-rd-5} if it is not specified, $R^n$ represents $R \circ \cdots \circ R$ (n times),
+%   \nabitem{intro-rela-rd-6} given a morphism $f: S \to S'$, then $\ker f:= \{ (x, y) \in S^2: f(x) = f(y) \}$.
+% \end{nabls}
+
+% It can be easily verified that $(R_1 \circ R_2)^{\op} = R_2^{\op} \circ R_1^{\op}$, thus, $(R^n)^{\op} = (R^{\op})^n$. A commonly used conclusion is
+% \[
+%   (a, b) \in R^n \Leftrightarrow \exists (t_i)_{i=1}^n \in X^n \left( a = t_1 \to t_2 \to \cdots \to t_n = b \right),
+% \]
+% where $t_i \to t_{i+1}$ means $t_i R t_{i+1}$.
+
+
+
+
+% We then introduce the definitions of partial orders and equivalent relations from this perspective. A partial order is a relation satisfies the following conditions,
+% % \begin{nabls}{POD}
+% %   \nabitem{intro-rela-pod-1} (reflective) $\Delta_X \subset R$,
+% %   \nabitem{intro-rela-pod-2} (anti-symmetric) $R\cap R^{\op} = \Delta_X$,
+% %   \nabitem{intro-rela-pod-3} (transitive) $R^2 \subset R$. 
+% % \end{nabls}
+% \begin{itemize}
+%   \item (reflective) $\Delta_X \subset R$,
+%   \item (anti-symmetric) $R\cap R^{\op} = \Delta_X$,
+%   \item (transitive) $R^2 \subset R$. 
+% \end{itemize}
+% On another hand, $R$ is an equivalence relation is the conditions below are all hold,
+% % \begin{nabls}{EQD}
+% %   \nabitem{intro-rela-eqd-1} (reflective) $\Delta_X \subset R$,
+% %   \nabitem{intro-rela-eqd-2} (symmetric) $R^{\op} \subset R$,
+% %   \nabitem{intro-rela-eqd-3} (transitive) $R^2 \subset R$. 
+% % \end{nabls}
+% \begin{itemize}
+%   \item (reflective) $\Delta_X \subset R$,
+%   \item (symmetric) $R^{\op} \subset R$,
+%   \item (transitive) $R^2 \subset R$. 
+% \end{itemize}
+
+
+
+% Given a partial ordered set $X$, we have the following concepts, note that the definition of max/supre/upper-case is analogous.
+% \begin{nabls}{LTC}
+%   \nabitem{intro-rela-mmal} Suppose $U \subset X$, $m \in U$ is the \textit{minimal} element if $\nexists a \in U (a < m)$,
+%   \nabitem{intro-rela-mmum} suppose $U \subset X$, $m \in U$ is the \textit{minimum} element if $\forall a \in U(m \leq a)$,
+%   \nabitem{intro-rela-lb} suppose $U \subset X$, $l \in X$ is the \textit{lower bound} of $U$ if $\forall a \in U(l \leq a)$.
+%   \nabitem{intro-rela-mmalc} We say that $X$ satisfies \textit{minimal condition} if every nonempty subset of it has a minimal element.
+%   \nabitem{intro-rela-inf} Suppose $U \subset X$, $i \in X$ is the \textit{infimum}, denoted as $\inf U$, if $i$ is the maximum element of all lower bounds of $U$.
+%   \nabitem{intro-rela-smltc} We say that $X$ is a \textit{complete lower semilattice} if $\forall U \subset X (\exists \inf U)$, and is a \textit{lower semilattice} if $\forall \{x, y\} \subset X (\exists \inf \{x, y\})$. If $X$ is a lower semilattice, the operation $(x, y) \mapsto \inf \{x, y\}$ forms a binary function, denoted as $(\cdot)\land(\cdot)$, as for the upper-case, we denote $x\lor y$ by $\sup\{x, y\}$. 
+%   \nabitem{intro-rela-ltc} We say that $X$ is a \textit{lattice} if it's both an upper semilattice and a lower semilattice.
+% \end{nabls}
+% In addition, in a lower semilattice, it can be verified that
+% \begin{itemize}
+%   \item $x \leq y \Leftrightarrow x = x \land y$,
+%   \item $(x \land y) \land z = x \land (y \land z)$, that is, $(X, \land)$ forms a semigroup.
+% \end{itemize}
+
+
+
+
+% \begin{proposition}
+%   Given a set $X$, a partition $\calA$ is a family of disjoint subsets of $X$ satisfying $\bigsqcup \calA = X$. Then, there exists a bijection
+%   \[
+%     \begin{tikzcd}[row sep = small]
+%       &\{ R \in P(X^2): \text{equivalence relation} \}
+%         \arrow[r, leftrightarrow, "1:1"]
+%       &\{ \calA \in P(X): \text{partition} \}
+%       \\
+%       &R
+%         \arrow[r, mapsto]
+%       &\{ R(x) \}_{x \in X}
+%       \\
+%       &\left[ R: (x, y) \in R \Leftrightarrow \exists A \in \calA (x \in A \land y \in A) \right]
+%       &\calA
+%         \arrow[l, mapsto]
+%     \end{tikzcd}
+%   \]
+% \end{proposition}
+
+
+
+
+
+% \section{Congruences}
+
+% Let $S$ be a semigroup, $R$ is a relation on $S$, here are some definitions:
+% \begin{nabls}{SRD}
+%   \nabitem{intro-cge-srd-1} $aR = a \cdot R := \{ (ax, ay): (x, y) \in R \}$, for the reverse, $Ra:= \{ (xa, ya): (x, y) \in R \}$, in addition, $a R b:= \{ (axb, ayb): (x, y) \in R \}$.
+%   \nabitem{intro-cge-srd-2} $S^{1}R = S^{1}\cdot R := \bigcup_{a\in S^{1}} aR$, the definition of $RS^1$ is analogous, furthermore, $S^1 R S^1$ represents $\bigcup_{(a, b) \in S^1 \times S^1} a R b$.
+%   \nabitem{intro-cge-srd-3} $RR = R\cdot R := \{(x_1x_2, y_1y_2): (x_i, y_i) \in R \land i \in \{1, 2\} \}$, 
+%   \nabitem{intro-cge-srd-4} $R^{\cdot n} := R \cdot R \cdots R$ (n times).
+%   \nabitem{intro-cge-srd-cptlr}  We say that $R$ is \textit{left compatible} if $S^1R \subset R$, similar to \textit{right compatible}.
+%   \nabitem{intro-cge-srd-cpt} We say that $R$ is \textit{compatible} if $S^1 R \subset R \land RS^1 \subset R$, which is equivalent to $RR \subset R$.
+% \end{nabls}
+% We possess to prove the assertion in the last definition above. Since $\Delta_S \subset R$, $RR \subset R$ ensures for all $a \in S^1$ and $(x, y) \in S$, $(ax, ay) \in R$. Conversely, assume $(x_1x_2, y_1y_2) \in RR$. Since $S^1 R \subset R \land RS^1 \subset R$, we obtain that $(x_1x_2, x_1 y_2) \in R$ and $(x_1 y_2, x_2 y_2) \in R$. Thus, $(x_1x_2, y_1y_2) \in R$.
+
+
+
+
+
+% The conclusion below is often used in algebra, especially in situations where an equivalence relation and some operations are imposed on a set to give it an algebraic structure, for example, ideal of rings, the construction of amalgamated product and the construction of tensor product. Its core, precisely, is the concept of congruence in semigroup theory.
+
+
+% \begin{proposition}
+%   Suppose $R$ is an equivalence relation on a semigroup $S$, then
+%   \[
+%     R(x)R(y) := R(xy) \text{ well defined} \Leftrightarrow R \text{ is a congruence}.
+%   \]
+% \end{proposition}
+
+
+
+
+% The following constructions are also important.
+% \begin{enumerate}
+%   \item\label{intro-cge-gen-eqv} $\gen{R}{\eqv} := \bigcup_{n \in \Z_{\geq 1}} \left[ R \cup \Delta_S \cup R^{\op} \right]^n$ is the smallest equivalence relation containing $R$, where $S$ can just be a set.
+%   \item\label{intro-cge-gen-cpt} $\gen{R}{\mathrm{cpt}} := S^1RS^1$ is the smallest compatible relation containing $R$.
+%   \item\label{intro-cge-gen-cge} $\gen{R}{\cge} := \gen{S^1RS^1}{\eqv}$ is the smallest congruence containing $R$.
+% \end{enumerate}
+% \begin{proof}
+%   The proof for \ref{intro-cge-gen-eqv} is on \cite[Proposition 1.4.9]{John-FundSmg}, the proof for \ref{intro-cge-gen-cpt} and \ref{intro-cge-gen-cge} can be found in p.25-p.26 in the same book.
+% \end{proof}
+
+
+
+
+% Both set $\Eqv(S)$ of equivalences and $\Cge(S)$ of congruences on $S$ are partially ordered by $\subset$. In fact, both are complete lattice. Take $\Cge(S)$ as an example, for any subset $\calU \subset \Cge(S)$, it can be verified that $\inf \calU = \bigcap \calU$ and $\sup \calU = \gen{\bigcup \calU}{\cge}$. Notice that for any $R_1, R_2 \in \Cge(S)$
+% \begin{equation}
+%   \gen{R_1 \cup R_2}{\cge} = \gen{R_1 \cup R_2}{\eqv}.
+% \end{equation}
+% Thus, both symbol $\land$ and $\lor$ on lattice $\Eqv(S)$ and $\Eqv(S)$ represent the same operations of sets. Here are some conclusions for supplementation, which can be found in \cite[p.28]{John-FundSmg}. Suppose $R_1, R_2$ are equivalences, then
+% \begin{nabls}{CP}
+%   \nabitem{intro-cge-cp-1} $R_1 \lor R_2 = \gen{R_1 \cup R_2}{\eqv} =\bigcup_{n \in \Z_{\geq 1}}(R_1 \cup R_2)^n = \bigcup_{n \in \Z_{\geq 1}}(R_1 \circ R_2)^n$,
+%   \nabitem{intro-cge-cp-2} $R_1 \circ R_2 = R_2 \circ R_1 \Rightarrow R_1 \lor R_2 = R_1 \circ R_2$.
+% \end{nabls}
+
+
+
+
+
+% \begin{example}
+%   Let $G$ be a group, $E \subset G^2$ be an equivalence, and $N = E(1_G)$ \ref{intro-rela-rd-1}, which is typically denoted as $[1_G]$ in other books. Then,
+%   \[
+%     [a][b] = [ab] \text{ well-defined} \Leftrightarrow N \lhd G \land (a E b \Leftrightarrow ab^{-1} \in E).
+%   \] 
+  
+%   If $E$ is an equivalence on a ring $R$, which is given by the data $(R, +, -, 0_R, \cdot, 1_R)$. Let $I = [0_R]$, then,
+%   \[
+%     [a] + [b] = [a + b] \text{ well-defined} \Leftrightarrow I < R \land (a Eb \Leftrightarrow a - b \in I).
+%   \]
+%   It is nothing but a corollary of the former assertion in the case of an Abelian group $(R, +, -, 0_R)$. Based on this, to let
+%   \[
+%     [a][b] = [ab] 
+%   \]
+%   well-defined, again, we consider it on the semigroup $(R, \cdot)$, and this requires $RE \subset E \land ER \subset E$ \ref{intro-cge-srd-2}. It is easy to verify that $RE \subset E \land ER \subset E \Rightarrow RI \subset I \land IR \subset I$. Conversely, suppose $RI \subset I \land IR \subset I$, it follows that
+%   \[
+%     aEb \Leftrightarrow a - b E 0 \Leftrightarrow a - b \in I \Rightarrow \forall r \in R (ra - rb \in I) \Leftrightarrow \forall r \in R (ra E rb) \Rightarrow RE \subset E,
+%   \]
+%   the procedure of proving $RE \subset E$ follows the same manner.
+% \end{example}
+
+
+
+
+
+
+% \section{Ideals}
+
+% Some definitions are listed below.
+% \begin{nabls}{IDD}
+%   \nabitem{intro-idea-idd-rho} $\rho$ is a mapping from the set of proper ideal of $S$ to $\Cge(S)$, which is given by $I \mapsto I^2 \cup \Delta_S$,
+%   \nabitem{intro-idea-idd-ressid} elements in $\im \rho$ are called \textit{Rees ideals},
+%   \nabitem{intro-idea-idd-ressmor} a morphism $\phi$ is called a \textit{Ress morphism} if $\ker \phi$ \ref{intro-rela-rd-6} is a Ress ideal.
+% \end{nabls}
+% Based on this, we obtain some properties:
+% \begin{itemize}
+%   \item each $\rho(I)$ is a congruence, thus, $S / \rho(I) = \{ I \} \sqcup \{ \{x\}: x \in S \smallsetminus I \}$ forms a semigroup,
+%   \item $I \in S / \rho(I)$ is a zero element.
+%   \item Above all, suppose $I$ is a proper ideal, there exists a bijection \par
+%   \[
+%   \begin{tikzcd}[row sep = small]
+%     &\{I \subset J \subsetneq S: \text{ ideal}\}
+%       \arrow[r, leftrightarrow, "1:1"]
+%     &\{ \bar{J} \subset S / \rho(I): \text{ ideal} \}
+%     \\
+%     &J
+%       \arrow[r, mapsto]
+%     &\rho(I)(J)
+%     \\
+%     &\rho(I)^{-1}(\bar{J}) 
+%     &\bar{J}.
+%       \arrow[l, mapsto]
+%   \end{tikzcd}
+%   \]
+% \end{itemize}
+% % \[
+% %   \begin{tikzcd}[row sep = small]
+% %     &\{I \subset J \subsetneq S: \text{ ideal}\}
+% %       \arrow[r, leftrightarrow, "1:1"]
+% %     &\{ \bar{J} \subset S / \rho(I): \text{ ideal} \}
+% %     \\
+% %     &J
+% %       \arrow[r, mapsto]
+% %     &\rho(I)(J)
+% %     \\
+% %     &\rho(I)^{-1}(\bar{J}) 
+% %     &\bar{J}.
+% %       \arrow[l, mapsto]
+% %   \end{tikzcd}
+% % \]
+
+
+
+
+
+
+
+
+
+% \section{Free Semigroup}
+
+% The definition of free semigroup is similar to other algebraic structures, that is, the initial object in the comma category $(j_X, U)$. To be specific, $(\bmrm{F}(X), \iota)$ is the free semigroup of set $X$, if for any $(S, f)$, where $S$ is a semigroup and $f: X \to S$ is a function, there exists unique semigroup morphism $\phi$ that makes the following diagram commutes.
+% \[
+%   \begin{tikzcd}
+%     &X
+%       \arrow[r, "\iota"]
+%       \arrow[rd, "f"']
+%     &\bmrm{F}(X)
+%       \arrow[d, "\phi", "\exists !"']
+%     \\
+%     &
+%     &S
+%   \end{tikzcd}
+% \]
+
+% The construction is also straightforward, we omit it here.
+
+
+
+% \begin{definition}
+%   Suppose $Y$ is a relation on free semigroup $\bmrm{F}(X)$, let
+%   \[
+%     \gen{X|Y}{} := \bmrm{F}(X) / \gen{Y}{\cge}.
+%   \]
+%   If there exists an epimorphism $\phi: \bmrm{F}(X) \to S$, a semigroup, such that $\ker \phi = \gen{Y}{\cge}$, and hence $\gen{X|Y}{} \simeq S$, we say that $S$ is presented.
+% \end{definition}
+
+

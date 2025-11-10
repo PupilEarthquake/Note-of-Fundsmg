@@ -1,0 +1,57 @@
+% \ProvidesFile{fontset.tex}[2025A]
+% font repo: https://github.com/notofonts/noto-cjk
+
+\setsansfont[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/Tex-Gyre-Heros/},
+	BoldFont = texgyreheros-bold.otf,
+	ItalicFont = texgyreheros-italic.otf
+]{texgyreheros-regular.otf}
+
+
+\setmonofont[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/}
+]{DroidSansMNerdFontMono-Regular.otf}
+
+
+\setCJKmainfont[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/},
+	BoldFont = NotoSerifCJKsc-Bold.otf,
+	ItalicFont = simkai.ttf
+]{NotoSerifCJKsc-Regular.otf}
+
+
+\setCJKsansfont[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/},
+	BoldFont = NotoSansCJKsc-Bold.otf
+]{NotoSansCJKsc-Regular.otf}
+
+
+\setCJKmonofont[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/}
+]{NotoSansCJKsc-Regular.otf}
+
+
+
+\setCJKfamilyfont{kai}[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/},
+]{simkai.ttf}
+
+\setCJKfamilyfont{song}[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/},
+	BoldFont = NotoSerifCJKsc-Bold.otf,
+	ItalicFont = simkai.ttf
+]{NotoSerifCJKsc-Regular.otf}
+
+\setCJKfamilyfont{hei}[
+	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/},
+	BoldFont = NotoSansCJKsc-Bold.otf
+]{NotoSansCJKsc-Regular.otf}
+
+% \setCJKfamilyfont{code}[
+% 	Path = {\string/mnt/Datas/Datas/Fonts-for-Tex/CJKmainfont/}
+% ]{DroidSansMNerdFontMono-Regular.otf}
+
+
+\newcommand\kaishu{\CJKfamily{kai}} % 楷体
+\newcommand\songti{\CJKfamily{song}} % 宋体
+\newcommand\heiti{\CJKfamily{hei}\sffamily} % 黑体

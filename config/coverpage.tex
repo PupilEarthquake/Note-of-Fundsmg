@@ -1,0 +1,53 @@
+\pagestyle{empty}
+
+
+% \vspace*{5em}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1.5in]{config/star.pdf}
+% \end{figure}
+% % \begin{center}
+% %     \textit{Amor fati.}
+% % \end{center}
+% \vfill
+
+
+\begin{tikzpicture}[remember picture, overlay]
+    \node[anchor=center] (star) at ([yshift=5em] current page.center){\includegraphics[width=1in]{config/star.pdf}};
+    \node[anchor=center] (title) at ([yshift=-5em] star.south){\fontsize{32}{32}\textsf{Note-MIAJ}};
+    \node[anchor=center] (author) at ([yshift=-1em] title.south){\fontsize{14}{14}\textsf{Written by Xiao}};
+    \node[anchor=center] (date) at ([yshift=-1em] author.south) {\fontsize{14}{14}\textsf{Compile date: \today}};
+\end{tikzpicture}
+
+
+% \clearpage % Inner page
+% \vspace*{5em}
+
+% \begin{center}
+%     Repository address: \url{https://github.com/PupilEarthquake/???}
+%     % Home page: \url{https://github.com} \\
+% \end{center}
+
+% \vfill
+
+% \begin{tabular*}{\textwidth}{ccc}
+%     \includegraphics{config/ccby.png}
+%     & \begin{minipage}[b]{0.6\textwidth}
+%         \small This work is licensed under Creative Commons Attribution 4.0 International license. Access \url{http://creativecommons.org/licenses/by/4.0/} view the license agreement.
+%     \end{minipage}
+% \end{tabular*}
+% \cleardoublepage
+
+
+% % 废话页
+% \vspace*{10em}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1.5in]{config/star.pdf}
+% \end{figure}
+% \begin{center}
+%     \textit{Amor fati.}
+% \end{center}
+
