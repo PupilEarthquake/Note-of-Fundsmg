@@ -1,0 +1,880 @@
+\chapter{Green's Equivalences; Regular Semigroups}
+
+
+\section{Green's Equivalences}
+
+% Suppose $S$ is a semigroup, here are some basic concepts.
+% \begin{nabls}{GBD}
+%   \nabitem{green-green-gbd-pid} $S^1 a$ is the \textit{principal left ideal} of $a$, same as the right-case,
+%   \nabitem{green-green-gbd-L} $\calL$ is an equivalence defined by $a \calL b \Leftrightarrow S^1 a = S^1 b$,
+%   \nabitem{green-green-gbd-R} $\calR$ is an equivalence defined by $a \calR b \Leftrightarrow aS^1 = bS^1$,
+%   \nabitem{green-green-gbd-J} $\calJ$ is an equivalence defined by $a \calJ b \Leftrightarrow S^1aS^1 = S^1bS^1$,
+%   \nabitem{green-green-gbd-H} $\calH:= \calL \cap \calR$ is also an equivalence,
+%   \nabitem{green-green-gbd-D} $\calD := \gen{\calL \cup \calR}{\mathrm{eqv}} = \calL \lor \calR$, which is equal to $\calL \circ \calR$, the reason is illustrated by \ref{green-green-gbp1-cmt} and \ref{intro-cge-cp-2}.
+% \end{nabls}
+\begin{definition}
+  Let $S$ be a semigroup, and the follows are some basic concepts.
+  \begin{itemize}
+    \item  $S^1 a$ is the principal left ideal of $a$, dually $a S^1$ is the principal right ideal, and $S^1 a S^1$ is the principal ideal of $a$, denoted as $(a)$, which is the \textit{smallest} ideal containing $a$;
+    \item $\calL$ is an equivalence defined by $a \calL b \Leftrightarrow S^1 a = S^1 b$,
+    \item $\calR$ is an equivalence defined by $a \calR b \Leftrightarrow aS^1 = bS^1$,
+    \item $\calJ$ is an equivalence defined by $a \calJ b \Leftrightarrow S^1aS^1 = S^1bS^1$,
+    \item $\calH:= \calL \cap \calR$ is also an equivalence,
+    \item $\calD := \gen{\calL \cup \calR}{\eqv} = \calL \lor \calR$, and it equals to $\calL \circ \calR$.
+  \end{itemize}
+\end{definition}
+% \begin{itemize}
+%   \item  $S^1 a$ is the \textit{principal left ideal} of $a$, same as the right-case,
+%   \item $\calL$ is an equivalence defined by $a \calL b \Leftrightarrow S^1 a = S^1 b$,
+%   \item $\calR$ is an equivalence defined by $a \calR b \Leftrightarrow aS^1 = bS^1$,
+%   \item $\calJ$ is an equivalence defined by $a \calJ b \Leftrightarrow S^1aS^1 = S^1bS^1$,
+%   \item $\calH:= \calL \cap \calR$ is also an equivalence,
+%   \item $\calD := \gen{\calL \cup \calR}{\eqv} = \calL \lor \calR$, which is equal to $\calL \circ \calR$, the reason is illustrated by \ref{green-green-gbp1-cmt} and \ref{intro-cge-cp-2}.
+% \end{itemize}
+% These objects possess these short properties:
+% \begin{nabls}{GBP1}
+%   \nabitem{green-green-gbp1-mtd} ``Mutual divisibility'' means if $a \calL b$, then $a, b$ can divide each other, that is, $\exists x, y \in S^1$ such that $ax = b \land by = a$. Same as the right-cese.
+%   \nabitem{green-green-gbp1-cge} $\calL$ is a \textit{right} congruence, and $\calR$ is a \textit{left} congruence.
+%   \nabitem{green-green-gbp1-cmt} $\calL \circ \calR = \calR \circ \calL$, the proof can be found in \cite[Proposition 2.1.3]{John-FundSmg}.
+%   \nabitem{green-green-gbp1-dj} Obviously, $\calD \subset \calJ$,
+%   \nabitem{green-green-gbp1-s1} Suppose $S$, which has no identity, induces equivalences $\calL, \calR, \calD, \cdots$, and $S^1$ induces $\calL', \calR', \calD', \cdots$. Then, $\calL' = \calL \sqcup \{(1,1)\}$, the same conclusions apply for the remaining equivalences.
+% \end{nabls}
+
+\begin{proposition}
+  \label{prop:green-green-bsp}
+  These objects above possess some properties:
+  \begin{enumerate}
+    \item\label{green-green-bsp-1} $\calL$ is a \textit{right} congruence, and $\calR$ is a \textit{left} congruence;
+    \item\label{green-green-bsp-2} $\calL \circ \calR = \calR \circ \calL$, the proof can be found in \cite[Proposition 2.1.3]{John-FundSmg};
+    \item\label{green-green-bsp-3} $\calD \subset \calJ$;
+    \item\label{green-green-bsp-4} suppose $S$, which has no identity, induces equivalences $\calL, \calR, \calD, \cdots$, and $S^1$ induces $\calL', \calR', \calD', \cdots$, and so, $\calL' = \calL \sqcup \{(1,1)\}$, the same conclusion applies for the remaining equivalences.
+  \end{enumerate}
+\end{proposition}
+
+
+
+
+
+We then can impose a partial order on $S / \calL, S/\calR$ and $S / \calJ$, to be specific,
+\begin{itemize}
+  \item $\calL(a) \leq \calL(b) \Leftrightarrow S^1a \subset S^1 b$,
+  \item $\calR(a) \leq \calR(b) \Leftrightarrow aS^1 \subset bS^1$,
+  \item $\calJ(a) \leq \calJ(b) \Leftrightarrow S^1aS^1 \subset S^1bS^1$.
+\end{itemize}
+Notice that for all $a \in S$ and $x, y \in S^1$,
+\begin{itemize}
+  \item $\calL(xa) \leq \calL(a)$,
+  \item $\calR(ax) \leq \calR(a)$,
+  \item $\calJ(xay) \leq \calJ(a)$,
+  \item $\calL(a) \leq \calL(b) \lor \calR(a) \leq \calR(b) \Rightarrow \calJ(a) \leq \calJ(b)$.
+\end{itemize}
+% % \begin{nabls}{GBOP}
+% %   \nabitem{green-green-gbop-L} $\calL(xa) \leq \calL(a)$,
+% %   \nabitem{green-green-gbop-R} $\calR(ax) \leq \calR(a)$,
+% %   \nabitem{green-green-gbop-J} $\calJ(xay) \leq \calJ(a)$,
+% %   \nabitem{green-green-gbop-LRtJ} $\calL(a) \leq \calL(b) \lor \calR(a) \leq \calR(b) \Rightarrow \calJ(a) \leq \calJ(b)$.
+% % \end{nabls}
+
+
+
+
+
+Noticing the property $\calD \subset \calJ$, we are naturally led to ask when $\calD = \calJ$, and the book \cite{John-FundSmg} gives the following proposition:
+\begin{proposition}
+  \hfill\par
+  \begin{enumerate}
+    \item when $S$ is a group, $\calL = \calR = \calH = \calJ = \calD = S^2$;
+    \item when $S$ is a commutative semigroup, $\calL = \calR = \calH = \calJ = \calD$;
+    \item when $S$ is a periodic semigroup, then $\calD = \calJ$ (see Proposition 2.1.4);
+    \item when $S$ is a semigroup, and both $S / \calL$ and $S / \calR$ as partial ordered sets satisfy the minimal condition, then $\calD = \calJ$ (see Proposition 2.1.5).
+  \end{enumerate}
+\end{proposition}
+% \begin{nabls}{GBP2}
+%   \nabitem{green-green-gbop2-grp} If $S$ is a group, then $\calL = \calR = \calH = \calJ = \calD = S^2$.
+%   \nabitem{green-green-gbop2-cmt} If $S$ is a commutative semigroup, then $\calL = \calR = \calH = \calJ = \calD$.
+%   \nabitem{green-green-gbop2-per} If $S$ is a periodic semigroup \ref{intro-monos-msd-4}, then $\calD = \calJ$ (see Proposition 2.1.4).
+%   \nabitem{green-green-gbop2-min} If $S$ is a semigroup, and both $S / \calL$ and $S / \calR$ as partial ordered sets satisfy the minimal condition \ref{intro-rela-mmalc}, then $\calD = \calJ$ (see Proposition 2.1.5).
+% \end{nabls}
+Note that in the procedure of proving last proposition, we have to verify that if $S/\calL$ possess minimal condition then so does $S^1/\calL'$, where $\calL'$ is originated from semigroup $S^1$, and that $\calD' = \calJ' \Rightarrow \calD = \calJ$. As for the former, let $U'$ be any subset of $S^1/\calL'$, then $U' = \{ \calL'(a): a \in A \land A \subset S^1\}$. According to \ref{green-green-bsp-4} of Proposition \ref{prop:green-green-bsp}, we obtain that $a = 1 \Rightarrow \calL'(a) = \{1\}$ and $a \in S \Rightarrow \calL'(a) = \calL(a)$, thus, if let $U $ be $  \{ \calL(a): a \in A \smallsetminus \{ 1 \}\} \subset S/ \calL$, clearly it contains a minimal element $\calL(m)$, which is also the minimal element of $U'$. 
+
+
+
+
+
+\section{The $\calD$-Classes}
+
+
+
+\begin{proposition}
+  \label{prop:green-dcls-props1} The $\calD$-classes of a semigroup $S$ possess some properties, listed as follows.
+  \begin{enumerate}
+    \item\label{green-dcls-props1-1} $\forall x \in \calD(a) \Rightarrow \calL(x) \subset \calD(a) \land \calR(x) \subset \calD(a) \Rightarrow \calH(x) \subset \calD(a)$;
+    \item\label{green-dcls-props1-2} $\calD(a) = \bigcup_{t \in \calR(a)} \calL(t) = \bigcup_{t \in \calD(a)} \calL(t) = \bigcup_{t \in \calL(a)} \calR(t) = \bigcup_{t \in \calD(a)} \calR(t)$;
+    \item\label{green-dcls-props1-3} $a\calD b \Leftrightarrow \calR(a) \cap \calL(b) \neq \emptyset \Leftrightarrow \calR(b) \cap \calL(a) \neq \emptyset$;
+    \item\label{green-dcls-props1-4} The intersection of an $\calL$-class and an $\calR$-class is either $\emptyset$ or a $\calH$-class, conversely any $\calH$-class is a intersection of an $\calL$-class and an $\calR$-class;
+    \item\label{green-dcls-props1-5} Suppose $S = \bigsqcup_{i \in I} \calL_i = \bigsqcup_{j \in J} \calR_j$, then $S = \bigsqcup_{(i, j) \in I\times J} \calL_i \cap \calR_j$.
+  \end{enumerate}
+\end{proposition}
+Notice that the data $\{ \calL_i \cup \calR_j \}_{(i,j)} = \{ \calH(a): a \in S \} \sqcup \{\emptyset\}$. Moreover, this partition of set $S$ is always described as a table, each cell is either empty or an $\calH$-class.
+\begin{center}
+  % \caption{Your first table.}
+  \begin{tabular}{c|c|c|} % Alignments: 1st column left, 2nd middle, 3rd right
+    % \textbf{Value 1} & \textbf{Value 2} & \textbf{Value 3}\\
+      & $\calL_1$ & $\calL_2$\\
+    \hline
+      $\calR_1$ & & \\
+    \hline
+    $\calR_2$ & & \\
+    \hline
+  \end{tabular}
+\end{center}
+% Here are some properties of $\calD$-Classes:
+% \begin{nabls}{CDP}
+%   \nabitem{green-dcls-cdp-sbs} $\forall x \in \calD(a) \Rightarrow \calL(x) \subset \calD(a) \land \calR(x) \subset \calD(a) \Rightarrow \calH(x) \subset \calD(a)$.
+%   \nabitem{green-dcls-cdp-union} $\calD(a) = \bigcup_{t \in \calR(a)} \calL(t) = \bigcup_{t \in \calD(a)} \calL(t) = \bigcup_{t \in \calL(a)} \calR(t) = \bigcup_{t \in \calD(a)} \calR(t)$.
+%   \nabitem{green-dcls-cdp-dh} $a\calD b \Leftrightarrow \calR(a) \cap \calL(b) \neq \emptyset \Leftrightarrow \calR(b) \cap \calL(a) \neq \emptyset$.
+%   \nabitem{green-dcls-cdp-h} The intersection of an $\calL$-class and an $\calR$-class is either $\emptyset$ or a $\calH$-class, conversely any $\calH$-class is a intersection of an $\calL$-class and an $\calR$-class.
+%   \nabitem{green-dcls-cdp-box} Suppose $S = \bigsqcup_{i \in I} \calL_i = \bigsqcup_{j \in J} \calR_j$, then $S = \bigsqcup_{(i, j) \in I\times J} \calL_i \cap \calR_j$.
+% \end{nabls}
+% Notice that the data $\{ \calL_i \cup \calR_j \}_{(i,j)} = \{ \calH(a): a \in S \} \sqcup \{\emptyset\}$. Moreover, this partition of set $S$ is always described as a table, each cell is either empty or an $\calH$-class.
+% \begin{center}
+%   % \caption{Your first table.}
+%   \begin{tabular}{c|c|c|} % Alignments: 1st column left, 2nd middle, 3rd right
+%     % \textbf{Value 1} & \textbf{Value 2} & \textbf{Value 3}\\
+%       & $\calL_1$ & $\calL_2$\\
+%     \hline
+%       $\calR_1$ & & \\
+%     \hline
+%     $\calR_2$ & & \\
+%     \hline
+%   \end{tabular}
+% \end{center}
+
+
+
+
+\begin{lemma}[Green's Lemma]
+  \label{prop:green-dcls-greenslemma}
+  Let $S$ be a semigroup, and we denote by $\rho_s$ the mapping $x \mapsto xs$, and by $\lambda_s$ the mapping $x \mapsto sx$. Suppose $a \calR b$, then there exists $s, s' \in S^1$ such that $as = b$ and $bs' = a$. One can conclude that:
+  \begin{itemize}
+    \item $\begin{tikzcd} \calL(a) \arrow[r, yshift=0.5mm, "\rho_s"] &\calL(b) = \idd \arrow[l, yshift=-0.5mm, "\rho_{s'}"] \end{tikzcd}$;
+    \item $\forall x, x' \in \calL(a)$, we have $x \calR sx$, $x \calR x' \Rightarrow xs \calR x's$ and $x \calL x' \Rightarrow xs \calL x's$;
+    \item  $\forall x \in \calL(a)$, $\begin{tikzcd} \calH(x) \arrow[r, yshift=0.5mm, "\rho_s"] &\calH(xs) = \idd \arrow[l, yshift=-0.5mm, "\rho_{s'}"] \end{tikzcd}$.
+  \end{itemize}
+  Dually, suppose $a \calL b$, then there exists $s, s' \in S^1$ such that $sa = b$ and $s'b = a$. We obtain:
+  \begin{itemize}
+    \item $\begin{tikzcd} \calR(a) \arrow[r, yshift=0.5mm, "\lambda_s"] &\calR(b) = \idd \arrow[l, yshift=-0.5mm, "\lambda_{s'}"] \end{tikzcd}$;
+    \item $\forall x, x' \in \calR(a)$, we have $x \calL xs$, $x \calL x' \Rightarrow sx \calL sx'$ and $x \calR x' \Rightarrow sx \calR sx'$;
+    \item $\forall x \in \calR(a)$, $\begin{tikzcd} \calH(x) \arrow[r, yshift=0.5mm, "\lambda_s"] &\calH(xs) = \idd \arrow[l, yshift=-0.5mm, "\lambda_{s'}"] \end{tikzcd}$.
+  \end{itemize}
+\end{lemma}
+% \begin{nabls}{GLM}
+%   \nabitem{green-dcls-glm-L} Suppose $a \calR b$, there exists $s, s' \in S^1$ such that $as = b$  $bs' = a$, then, 
+%   \begin{itemize}
+%     \item $\begin{tikzcd} \calL(a) \arrow[r, yshift=0.5mm, "\rho_s"] &\calL(b) = \idd, \arrow[l, yshift=-0.5mm, "\rho_{s'}"] \end{tikzcd}$
+%     \item $\forall x, x' \in \calL(a)$, we have $x \calR sx$, $x \calR x' \Rightarrow xs \calR x's$ and $x \calL x' \Rightarrow xs \calL x's$,
+%     \item $\forall x \in \calL(a)$, $\begin{tikzcd} \calH(x) \arrow[r, yshift=0.5mm, "\rho_s"] &\calH(xs) = \idd. \arrow[l, yshift=-0.5mm, "\rho_{s'}"] \end{tikzcd}$
+%     % $\calH(x) \xrightarrow[\rho_s|_{\calH(x)}]{1:1} \calH(xs)$.
+%   \end{itemize}
+%   \nabitem{green-dcls-glm-R} Suppose $a \calL b$, then there exists $s, s' \in S^1$ such that $sa = b$ and $s'b = a$, we obtain
+%   \begin{itemize}
+%     \item $\begin{tikzcd} \calR(a) \arrow[r, yshift=0.5mm, "\lambda_s"] &\calR(b) = \idd, \arrow[l, yshift=-0.5mm, "\lambda_{s'}"] \end{tikzcd}$
+%     \item $\forall x, x' \in \calR(a)$, we have $x \calL xs$, $x \calL x' \Rightarrow sx \calL sx'$ and $x \calR x' \Rightarrow sx \calR sx'$,
+%     \item $\forall x \in \calR(a)$, $\begin{tikzcd} \calH(x) \arrow[r, yshift=0.5mm, "\lambda_s"] &\calH(xs) = \idd. \arrow[l, yshift=-0.5mm, "\lambda_{s'}"] \end{tikzcd}$
+%     % $\calH(x) \xrightarrow[\lambda_s|_{\calH(x)}]{1:1} \calH(sx)$.
+%   \end{itemize}
+% \end{nabls}
+
+
+
+
+
+Based on Green's Lemma, we have some corollaries.
+\begin{corollary}
+  \label{cor:green-dcls-corofgreenslemma}\hfill\par
+  \begin{enumerate}
+    \item\label{green-dcls-corofgreenslemma-1} $a \calD b \Rightarrow |\calH(a)| = |\calH(b)|$;
+    \item\label{green-dcls-corofgreenslemma-2} $ab \in \calH(a) \Rightarrow \calH(a) \xrightarrow[\sim]{\rho_b}  \calH(a)$;
+    \item\label{green-dcls-corofgreenslemma-3} $ab \in \calH(b) \Rightarrow \calH(b) \xrightarrow[\sim]{\lambda_a} \calH(b)$;
+    % \item\label{green-dcls-corofgreenslemma-3} (Green's Theorem) If $H$ is an $\calH$-class in a semigroup $S$, then either $HH \cap H = \emptyset$ or $HH = H$ and $H$ is a subgroup of $S$;
+    % \item\label{green-dcls-corofgreenslemma-4} if $e$ is an idempotent, then $\calH(e)$ is a subgroup; no $\calH$-class can contain more than one idempotent, since the idempotent in a group is identity.
+  \end{enumerate}
+\end{corollary}
+\begin{proof}
+  \ref{green-dcls-corofgreenslemma-1} Observe that $a \calD b \Rightarrow a \calR c \land c \calL b$, by Green's Lemma, we have
+    \[
+      \begin{tikzcd}[row sep = small]
+        \calL(a)
+          \arrow[r, yshift=0.5mm, "\rho_s"]
+        &\calL(c)
+          \arrow[l, yshift=-0.5mm, "\rho_{s'}"]
+        \\
+        \calH(a)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[r, yshift=0.5mm, "\rho_s"]
+        &\calH(c)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[l, yshift=-0.5mm, "\rho_{s'}"],
+      \end{tikzcd}
+      \begin{tikzcd}[row sep = small]
+        \calR(c)
+          \arrow[r, yshift=0.5mm, "\lambda_t"]
+        &\calR(b)
+          \arrow[l, yshift=-0.5mm, "\lambda_{t'}"]
+        \\
+        \calH(c)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[r, yshift=0.5mm, "\lambda_t"]
+        &\calH(b)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[l, yshift=-0.5mm, "\lambda_{t'}"].
+      \end{tikzcd}
+    \]
+
+  \ref{green-dcls-corofgreenslemma-2} $ab \in \calH(a) \Rightarrow a \calR ab$, and so
+    \[
+      \begin{tikzcd}[row sep = small]
+        \calL(a)
+          \arrow[r, yshift=0.5mm, "\rho_b"]
+        &\calL(ab)
+          \arrow[l, yshift=-0.5mm, "\rho_{s'}"]
+        \\
+        \calH(a)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[r, yshift=0.5mm, "\rho_b"]
+        &\calH(ab)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[l, yshift=-0.5mm, "\rho_{s'}"].
+      \end{tikzcd}
+    \]
+
+  \ref{green-dcls-corofgreenslemma-3} Similar to the previous one.
+\end{proof}
+
+
+
+
+
+
+
+\begin{theorem}
+  \label{theo:green-dcls-greenstheo}
+  If $H$ is an $\calH$-class in a semigroup $S$, then either $HH \cap H = \emptyset$ or $HH = H$ and $H$ is a subgroup of $S$.
+\end{theorem}
+\begin{proof}
+  Suppose $a, b \in H$ and $ab \in H$, then $a \in \calH(ab)$ and $b \in \calH(ab)$. By \ref{green-dcls-corofgreenslemma-2} and \ref{green-dcls-corofgreenslemma-3} of Corollary \ref{cor:green-dcls-corofgreenslemma} above, there exists two isomorphisms
+    $\begin{tikzcd}
+      H
+        \arrow[r, yshift=0.5mm, "\rho_b"]
+      &H
+        \arrow[l, yshift=-0.5mm, "\lambda_a"]
+    \end{tikzcd}$
+    , which implies for any $h \in H$, $hb \in H$ and $ah \in H$. Apply these two proposition again, we obtain that $\begin{tikzcd}
+      H
+        \arrow[r, yshift=0.5mm, "\rho_h"]
+      &H
+        \arrow[l, yshift=-0.5mm, "\lambda_h"]
+    \end{tikzcd}$, furthermore, $HH = H$, and $H$ is a group according to Proposition \ref{prop:intro-basics-smgisgrp}.
+\end{proof}
+
+
+
+\begin{corollary}
+  \label{cor:green-dcls-corofgreenstheo} If $e$ is an idempotent, then $\calH(e)$ is a subgroup; no $\calH$-class can contain more than one idempotent, since the idempotent in a group is identity.
+\end{corollary}
+% \begin{nabls}{GLMC}
+%   \nabitem{green-dcls-glmc-h} $a \calD b \Rightarrow |\calH(a)| = |\calH(b)|$.
+%   % \[
+%   %     a \calD b \Rightarrow a \calR c \land c \calL b \Rightarrow \left\{ \begin{aligned}
+%   %       & as = c & cs' = a\\
+%   %       &tc = b &t'b = c
+%   %     \end{aligned} \right.
+%   %     \Rightarrow
+%   %     \calH(a) \xrightarrow[1:1]{\rho_S} \calH(c) \xrightarrow[1:1]{\lambda_t} \calH(b).
+%   % \]
+%   \begin{proof}
+%     Observe that $a \calD b \Rightarrow a \calR c \land c \calL b$, by Green's Lemma, we have
+%     \[
+%       \begin{tikzcd}[row sep = small]
+%         \calL(a)
+%           \arrow[r, yshift=0.5mm, "\rho_s"]
+%         &\calL(c)
+%           \arrow[l, yshift=-0.5mm, "\rho_{s'}"]
+%         \\
+%         \calH(a)
+%           \arrow[phantom, u, description, sloped, "\subset"]
+%           \arrow[r, yshift=0.5mm, "\rho_s"]
+%         &\calH(c)
+%           \arrow[phantom, u, description, sloped, "\subset"]
+%           \arrow[l, yshift=-0.5mm, "\rho_{s'}"],
+%       \end{tikzcd}
+%       \begin{tikzcd}[row sep = small]
+%         \calR(c)
+%           \arrow[r, yshift=0.5mm, "\lambda_t"]
+%         &\calR(b)
+%           \arrow[l, yshift=-0.5mm, "\lambda_{t'}"]
+%         \\
+%         \calH(c)
+%           \arrow[phantom, u, description, sloped, "\subset"]
+%           \arrow[r, yshift=0.5mm, "\lambda_t"]
+%         &\calH(b)
+%           \arrow[phantom, u, description, sloped, "\subset"]
+%           \arrow[l, yshift=-0.5mm, "\lambda_{t'}"].
+%       \end{tikzcd}
+%     \]
+%   \end{proof}
+%   \nabitem{green-dcls-glmc-r} $ab \in \calH(a) \Rightarrow \calH(a) \xrightarrow[\sim]{\rho_b}  \calH(a)$.
+%   % \[
+%   %   xy \in \calH(x) \Rightarrow xy \calR x \Rightarrow \left\{ \begin{aligned}
+%   %       &xy = xy\\
+%   %       &xyv = x
+%   %     \end{aligned} \right.
+%   %   \Rightarrow \calH(x) \xrightarrow[1:1]{\rho_y} \calH(xy) = \calH(x).
+%   % \]
+%   \begin{proof}
+%     $ab \in \calH(a) \Rightarrow a \calR ab$, and it follows that
+%     \[
+%       \begin{tikzcd}[row sep = small]
+%         \calL(a)
+%           \arrow[r, yshift=0.5mm, "\rho_b"]
+%         &\calL(ab)
+%           \arrow[l, yshift=-0.5mm, "\rho_{s'}"]
+%         \\
+%         \calH(a)
+%           \arrow[phantom, u, description, sloped, "\subset"]
+%           \arrow[r, yshift=0.5mm, "\rho_b"]
+%         &\calH(ab)
+%           \arrow[phantom, u, description, sloped, "\subset"]
+%           \arrow[l, yshift=-0.5mm, "\rho_{s'}"].
+%       \end{tikzcd}
+%     \]
+%   \end{proof}
+%   \nabitem{green-dcls-glmc-l} $ab \in \calH(b) \Rightarrow \calH(b) \xrightarrow[\sim]{\lambda_a} \calH(b)$.
+%   \nabitem{green-dcls-glmc-gt} (Green's Theorem) If $H$ is an $\calH$-class in a semigroup $S$, then either $HH \cap H = \emptyset$ or $HH = H$ and $H$ is a subgroup of $S$.
+%   \begin{proof}
+%     Suppose $a, b \in H$ and $ab \in H$, then $a \in \calH(ab)$ and $b \in \calH(ab)$. By \ref{green-dcls-glmc-l} and \ref{green-dcls-glmc-r} above, there exists two isomorphisms
+%     $\begin{tikzcd}
+%       H
+%         \arrow[r, yshift=0.5mm, "\rho_b"]
+%       &H
+%         \arrow[l, yshift=-0.5mm, "\lambda_a"]
+%     \end{tikzcd}$
+%     . This implies for any $h \in H$, $hb \in H$ and $ah \in H$. Apply these two proposition again, we obtain that $\begin{tikzcd}
+%       H
+%         \arrow[r, yshift=0.5mm, "\rho_h"]
+%       &H
+%         \arrow[l, yshift=-0.5mm, "\lambda_h"]
+%     \end{tikzcd}$, furthermore, $HH = H$, and it can be concluded that $H$ is a group by Proposition \ref{prop: smgisgrp}.
+%   %   Suppose $HH \cap H \neq \emptyset$ and $ab \in H$. clearly,
+%   %   \[
+%   %     \left\{
+%   %     \begin{aligned}
+%   %       & ab \in \calH(a)\\
+%   %       & ab \in \calH(b)
+%   %     \end{aligned} \right.
+%   %     \Rightarrow
+%   %     \left\{
+%   %     \begin{aligned}
+%   %       & H = \calH(a) \xrightarrow{\rho_b} \calH(ab) = H \\
+%   %       & H = \calH(b) \xrightarrow{\lambda_b} \calH(ab) = H.
+%   %     \end{aligned} \right.
+%   %   \]
+%   %   We obtian for any $h \in H$
+%   %   \[
+%   %     \left\{
+%   %     \begin{aligned}
+%   %       & hb \in \calH(b) \\
+%   %       & ab \in \calH(a)
+%   %     \end{aligned} \right.
+%   %     \Rightarrow
+%   %     \left\{
+%   %     \begin{aligned}
+%   %       & H \xrightarrow{\rho_h}  H \\
+%   %       & H \xrightarrow{\lambda_h} H
+%   %     \end{aligned} \right.,
+%   %   \]
+%   % According to Proposition \ref{prop: smgisgrp}, $H$ is a group.
+%   \end{proof}
+%   \nabitem{green-dcls-glmc-gtc} If $e$ is an idempotent, then $\calH(e)$ is a subgroup. No $\calH$-class can contain more than one idempotent, since the idempotent in a group is identity.
+% \end{nabls}
+
+
+
+
+
+
+% % \begin{theorem}[Green's Theorem]
+% %   If $H$ is an $\calH$-class in a semigroup $S$, then either $H^2 \cap H = \emptyset$ or $H^2 = H$ and $H$ is a subgroup of $S$.
+% % \end{theorem}
+
+% % \begin{corollary}
+% %   If $e$ is an idempotent, then $\calH(e)$ is a subgroup. No $\calH$-class can contain more than one idempotent.
+% % \end{corollary}
+
+
+
+
+
+
+
+\section{Regular Semigroup}
+
+\begin{definition}
+  Let $S$ be a semigroup, we then introduce some definitions.
+  \begin{itemize}
+  \item $a \in S$ is \textit{regular} if there exists $x \in S$ such that $axa = a$,
+  \item $a'$ is the inverse of $a$ if $a'aa' = a'$ and $aa'a = a$,
+  \item $\inv(a)$ is the set of all inverses of $a$.
+\end{itemize}
+\end{definition}
+
+
+It immediately follows the propositions below.
+\begin{proposition}
+  \label{prop:green-rs-props1}\hfill\par
+  \begin{enumerate}
+    \item\label{green-rs-props1-1} $\forall x, y \in S$, if $xyx = x$, then $xy \calR x \land yx \calL x$;
+    \item\label{green-rs-props1-2} if $a$ is regular, both $\calL(a)$ and $\calR(a)$ are regular, thus $\calD(a)$ is regular;
+    \item\label{green-rs-props1-3} any $\calD(a)$ contains an idempotent is regular;
+    \item\label{green-rs-props1-4} let $e$ be an idempotent, then $e$ is a left identity in $\calR(e)$, and is a right identity in $\calL(e)$;
+    \item\label{green-rs-props1-5} $a$ is regular $\Leftrightarrow$ $a$ has inverse;
+    \item\label{green-rs-props1-6} if $y \in \inv(x)$, by \ref{green-rs-props1-1} above, $yx \in \calR(y) \cap \calL(x) \land xy \in \calR(x) \cap \calL(y)$;
+    \item\label{green-rs-props1-7} if $D$ is a regular class, then for any $a \in D$, both $\calL(a)$ and $\calR(a)$ contain idempotents.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \ref{green-rs-props1-5} Suppose $axa = a$, namely, $a$ is regular. Let $a' = xax$, and it's indeed an inverse. 
+
+  \ref{green-rs-props1-7} Assuming $axa = a$, and it follows that $xa \calL a, ax \calR a$, where both $xa$ and $ax$ are idempotent.
+\end{proof}
+
+
+
+
+% These propositions are straightforward to verify:
+
+% \begin{nabls}{RGP}
+%   \nabitem{green-reg-rgp-xy} $\forall x, y \in S$, if $xyx = x$, then $xy \calR x \land yx \calL x$.
+%   \nabitem{green-reg-rgp-regD} If $a$ is regular, both $\calL(a)$ and $\calR(a)$ are regular, thus $\calD(a)$ is regular.
+%   \nabitem{green-reg-rgp-Didm} Any $\calD(a)$ contains an idempotent is regular.
+%   \nabitem{green-reg-rgp-idm} Let $e$ be an idempotent, then $e$ is a left identity in $\calR(e)$, and is a right identity in $\calL(e)$.
+%   \nabitem{green-reg-rgp-reginv} $a$ is regular $\Leftrightarrow$ $a$ has inverse.
+%   \begin{proof}
+%     Suppose $axa = a$, namely, $a$ is regular. Let $a' = xax$, and it is indeed an inverse.
+%   \end{proof}
+%   \nabitem{green-reg-rgp-invy} If $y \in \inv(x)$, by \ref{green-reg-rgp-xy}, $yx \in \calR(y) \cap \calL(x) \land xy \in \calR(x) \cap \calL(y)$.
+%   \nabitem{green-reg-rgp-lridm} Suppose $D$ is a regular class, then for any $a \in D$, both $\calL(a)$ and $\calR(a)$ contain idempotents.
+%   \begin{proof}
+%     Assuming $axa = a$, and it follows that $xa \calL a, ax \calR a$.
+%   \end{proof}
+% \end{nabls}
+
+
+
+
+\begin{proposition}
+  \label{prop:green-rs-props2} Let $S$ be a semigroup, with the aid of ``egg box'', we have propositions as follows.
+  \begin{enumerate}
+    \item\label{green-rs-props2-1} Let $a$ be an element of $S$, $a' \in \inv(a)$, then both $aa' \in \calL(a) \cap \calR(a')$ and $a'a \in \calL(a')\cap \calR(a)$ are idempotents. This can be illustrated by the table below.
+    \begin{center}
+      \begin{tabular}{|c|c|}
+        \hline
+        $a$ & $ \exists aa'$ \\
+        \hline
+        $\exists a'a$ & $a'$  \\
+        \hline
+      \end{tabular}
+    \end{center}
+  
+    \item\label{green-rs-props2-2}  Let $a$ be an element of $S$, $e \in \calR(a) \cap \calL(b)$ and $f \in \calR(b) \cap \calL(a)$ are two idempotents, then there exists $a' \in \calH(b)$ such that $a' \in \inv(a)$, that $aa' = e $ and $a'a = f$.
+      \begin{center}
+        \begin{tabular}{|c|c|}
+          \hline
+          $a$ & $e$ \\
+          \hline
+          $f$ & $\exists a'$ \\
+          \hline
+        \end{tabular}
+      \end{center}
+
+    \item\label{green-rs-props2-3} In a semigroup $S$, no $\calH$-calss contains more than one inverse of $a$.
+    
+    \item\label{green-rs-props2-4} Let $e, f$ be idempotents, then, $e \calD f$ if and only if there exists $a$ and $a' \in \inv(a)$ such that $aa'= e \land a'a = f$.
+    \begin{center}
+      \begin{tabular}{|c|c|}
+        \hline
+        $e$ & $\exists a$ \\
+        \hline
+        $\exists a'$ & $f$ \\
+        \hline
+      \end{tabular}
+    \end{center}
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \ref{green-rs-props2-1} is the corollary of \ref{green-rs-props1-6} of Proposition \ref{prop:green-rs-props1}. 
+
+  \ref{green-rs-props2-2} From $a \calR e$ it follows that $\exists x \in S^1 (ax = e)$, let $a' = fxe$, thus, it can be verified that $aa'a = afxea = axa= ea = a$. The proof for $a'aa' = a', aa' = e$ and $a'a = f$ follows the same manner. Observe that $aa'=e \land fxe = a$, this implies $a' \calL e$; similarly, $a' \calR f$.
+
+  \ref{green-rs-props2-3} Suppose $a, a^*$ are two inverses of $a$ in a single $\calH(b)$. Then, by \ref{green-rs-props2-1}, $aa'$ and $aa^*$ are two idempotents in $\calR(a) \cap \calL(b)$, and it follows that $aa' = aa^*$. Similarly, $a'a = a^*a$. Hence, we obtain that
+  \[
+    a^* = a^*aa^* = a^*aa' = a'aa' = a'.
+  \]
+
+  \ref{green-rs-props2-4} Suppose $e \calD f$, then $\exists a \in \calR(e) \cap \calL(f)$. Besides this, by means of \ref{green-rs-props2-2}, there exists $a' \in \inv(a)$ such that $aa' = e \land a'a = f$. Conversely, if there exists $a$ and $a' \in \inv(a)$ such that $aa'=e \land a'a = f$, then $e = aa' \in \calR(a)$ and $f = a'a  \in \calL (a)$ by \ref{green-rs-props2-1}, thus, $e \calD f$.
+\end{proof}
+
+
+
+% The following propositions can be memorized with the aid of ``eggbox''. 
+
+% \begin{nabls}{REB}
+%   \nabitem{green-rg-reb-aa} Let $a$ be an element of a semigroup $S$, $a' \in \inv(a)$, then both $aa' \in \calL(a) \cap \calR(a')$ and $a'a \in \calL(a')\cap \calR(a)$ are idempotents. This can be illustrated by the table below.
+%   % \begin{table}[h!]
+%   \begin{center}
+%     \begin{tabular}{|c|c|}
+%       \hline
+%       $a$ & $ \exists aa'$ \\
+%       \hline
+%       $\exists a'a$ & $a'$  \\
+%       \hline
+%     \end{tabular}
+%   \end{center}
+%   % \end{table}
+
+%   \nabitem{green-rg-reb-ef} Let $a$ be an element of a semigroup $S$, $e \in \calR(a) \cap \calL(b)$ and $f \in \calR(b) \cap \calL(a)$ are two idempotents, then there exists $a' \in \calH(b)$ such that $a' \in \inv(a)$,  $aa' = e $ and $a'a = f$.
+%   % \begin{table}[h!]
+%   \begin{center}
+%     \begin{tabular}{|c|c|}
+%       \hline
+%       $a$ & $e$ \\
+%       \hline
+%       $f$ & $\exists a'$ \\
+%       \hline
+%     \end{tabular}
+%   \end{center}
+%   % \end{table}
+%   \begin{proof}
+%     From $a \calR e$ it follows that $\exists x \in S^1 (ax = e)$, let $a' = fxe$, thus, it can be verified that $aa'a = afxea = axa= ea = a$ \ref{green-reg-rgp-idm}. The proof for $a'aa' = a', aa' = e$ and $a'a = f$ follows the same manner. Observe that $aa'=e \land fxe = a$, this implies $a' \calL e$; similarly, $a' \calR f$.
+%   \end{proof}
+
+%   \nabitem{green-rg-reb-hi} In a semigroup $S$, no $\calH$-calss contains more than one inverse of $a$.
+%   \begin{proof}
+%     Suppose $a, a^*$ are two inverses of $a$ in a single $\calH(b)$. Then, by \ref{green-rg-reb-aa}, $aa'$ and $aa^*$ are two idempotents in $\calR(a) \cap \calL(b)$, and it follows that $aa' = aa^*$ \ref{green-dcls-glmc-gtc}. Similarly, $a'a = a^*a$. Hence, we obtain that
+%     \[
+%       a^* = a^*aa^* = a^*aa' = a'aa' = a'.
+%     \]
+%   \end{proof}
+
+%   \nabitem{green-rg-reb-efa} Let $e, f$ be idempotents, then, $e \calD f$ if and only if there exists $a$ and $a' \in \inv(a)$ such that $aa'= e \land a'a = f$.
+%   \begin{center}
+%     \begin{tabular}{|c|c|}
+%       \hline
+%       $e$ & $\exists a$ \\
+%       \hline
+%       $\exists a'$ & $f$ \\
+%       \hline
+%     \end{tabular}
+%   \end{center}
+%   \begin{proof}
+%     Suppose $e \calD f$, then $\exists a \in \calR(e) \cap \calL(f)$ \ref{green-dcls-cdp-dh}. Besides this, according to \ref{green-rg-reb-ef}, we have $\exists a' \in \inv(a)$ such that $aa' = e \land a'a = f$.
+
+%     Conversely, if there exists $a$ and $a' \in \inv(a)$ such that $aa'=e \land a'a = f$, then $e = aa' \in \calR(a)$ and $f = a'a  \in \calL (a)$ by \ref{green-rg-reb-aa}, thus, $e \calD f$.
+%   \end{proof}
+% \end{nabls}
+
+
+
+
+
+
+
+The following propositions are the comprehensive application of the above propositions and the Green's Lemma.
+\begin{proposition}
+  If $H$ and $K$ are two group $\calH$-class in the same $\calD$-class, then $H$ and $K$ are isomorphic.
+\end{proposition}
+\begin{proof}
+  Since the identity in a group is idempotent, $H$ and $K$ contain idempotents $e$ and $f$ respectively. Notice that $e \calD f$, according to \ref{green-rs-props2-4}, we can find $a \in \calR(e) \cap \calL(f)$ and $\calR(f) \cap \calL(e) \ni a' \in \inv(a)$ that makes $aa' = e$ and $a'a = f$. In addition, we also have $ea = af = a, a'e = fa' = a'$. From $aa'=e \land ea = a$ and $a'a = f \land af = a$, one can construct the following isomorphisms by means of Green's Lemma.
+  \[
+    \begin{tikzcd}[row sep = small]
+        \calL(a)
+          \arrow[r, yshift=0.5mm, "\rho_{a'}"]
+        &\calL(e)
+          \arrow[l, yshift=-0.5mm, "\rho_{a}"]
+        \\
+        \calH(a)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[r, yshift=0.5mm, "\rho_{a'}"]
+        &\calH(e)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[l, yshift=-0.5mm, "\rho_{a}"]
+    \end{tikzcd}
+    \begin{tikzcd}[row sep = small]
+      \calR(a)
+        \arrow[r, yshift=0.5mm, "\lambda_{a'}"]
+      &\calR(f)
+        \arrow[l, yshift=-0.5mm, "\lambda_{a}"]
+      \\
+      \calH(a)
+        \arrow[phantom, u, description, sloped, "\subset"]
+        \arrow[r, yshift=0.5mm, "\lambda_{a'}"]
+      &\calH(f)
+        \arrow[phantom, u, description, sloped, "\subset"]
+        \arrow[l, yshift=-0.5mm, "\lambda_{a}"]
+    \end{tikzcd}
+  \]
+\end{proof}
+
+
+
+
+
+\begin{proposition}
+  Let $a , b$ be elements in a $\calD$-class. Then, $ab \in \calR(a) \cap \calL(b)$ if and only if $\calL(a) \cap \calR(b)$ contains an idempotent. \textcolor{red}{(SIMPLIFY)}
+\end{proposition}
+\begin{proof}
+  The content provided here can serve as a supplement of the original proof of \cite[Proposition 2.3.7]{John-FundSmg}. Suppose $ab \in \calR(a) \cap \calL(b)$, then there exists $\xi, \eta$ such that
+  \[
+    \begin{cases*}
+      ab = ab\\
+      ab\xi = a
+    \end{cases*}
+    \land 
+    \begin{cases*}
+      ab = ab \\
+      \eta ab = b
+    \end{cases*},
+  \]
+  thus, $b\xi = \eta ab \xi = \eta a$. Furthermore, we have $b = \eta ab \calR \eta a$ and $a=ab \xi \calL b\xi$ due to $ab \calR a$ and $ab \calL a$.  Observe that
+  \[
+    \begin{cases*}
+      \eta a  = \eta a\\
+      a \eta a = a b \xi = a 
+    \end{cases*}
+    \land 
+    \begin{cases*}
+      b\xi = b\xi \\
+      b \xi b = \eta a b = b
+    \end{cases*},
+  \]
+  we obtain $a \calL \eta a$ and $b \calR b \xi$. Hence
+  \[
+    \calH(b\xi) = \calR(b\xi) \cap \calL(b\xi) = \calR(b) \cap \calL(a).
+  \]
+  By Green's Lemma, we have the following isomorphism
+  \[
+    \begin{tikzcd}[row sep = small]
+        \calL(ab)
+          \arrow[r, yshift=0.5mm, "\rho_{\xi}"]
+        &\calL(a)
+          \arrow[l, yshift=-0.5mm, "\rho_{b}"]
+        &[-1.5em]
+        \\
+        \calH(b)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[r, yshift=0.5mm, "\rho_{\xi}"]
+        &\calH(b\xi)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[l, yshift=-0.5mm, "\rho_b"]
+          \arrow[equal, r]
+        &[-1.5em] \calR(b) \cap \calL(a),
+      \end{tikzcd}
+  \]
+  and it's easy to verify $b\xi$ is an idempotent.
+
+  Conversely, suppose $\calL(a) \cap \calR(b)$ contains an idempotent $e$, then there exists $s, s', t, t' \in S^1$ such that
+  \[
+    \begin{cases*}
+      te = a\\
+      t'a = e
+    \end{cases*}
+    \land 
+    \begin{cases*}
+      es = b\\
+      bs' = e
+    \end{cases*}.
+  \]
+  We found that
+  \[
+    \begin{cases*}
+      ab = ab\\
+      abs' = a
+    \end{cases*}
+    \Leftrightarrow ab \calR a
+    \land 
+    \begin{cases*}
+      ab = ab\\
+      t'ab = b
+    \end{cases*}
+    \Leftrightarrow ab \calL b,
+  \]
+  thus $\calH(ab) = \calR(a) \cap \calL(b)$. And the following isomorphism also stems from Green's Lemma.
+  \[
+    \begin{tikzcd}[row sep = small]
+        \calL(a)
+          \arrow[r, yshift=0.5mm, "\rho_{b}"]
+        &\calL(ab)
+          \arrow[l, yshift=-0.5mm, "\rho_{s'}"]
+        &[-1.5em]
+        \\
+        \calH(a)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[r, yshift=0.5mm, "\rho_{b}"]
+        &\calH(ab)
+          \arrow[phantom, u, description, sloped, "\subset"]
+          \arrow[l, yshift=-0.5mm, "\rho_{s'}"]
+          \arrow[equal, r]
+        &[-1.5em] \calR(a) \cap \calL(b),
+      \end{tikzcd}
+  \]
+\end{proof}
+
+
+
+
+
+
+% Some definitions are listed below.
+\begin{definition}
+  Let $S$ be a semigroup, we have the following definitions:
+  \begin{itemize} 
+    \item suppose $U < S$ is a subsemigroup, the green's equivalence $\calL^U$ originated from $U$ is defined as $\{ (a, b) \in U^2: U^1 a = U^1 b \}$, and the similar definitions apply to the remaining equivalences;
+    \item $\idm(S)$ is the set of all idempotents of $S$;
+    \item $R \in \Eqv(S)$ is \textit{idempotent-separating} if $R \cap \idm(S)^2 = \Delta_{\idm(S)}$, that is, each $R$-class contains no more than one idempotent.
+\end{itemize}
+\end{definition}
+% \begin{itemize} 
+%   \item Suppose $U < S$ is a subsemigroup, the green's equivalence $\calL^U$ originated from $U$ is defined as $\{ (a, b) \in U^2: U^1 a = U^1 b \}$. The similar definitions apply to the remaining equivalences.
+%   \item $\idm(S)$ is the set of all idempotents of $S$.
+%   \item $R \in \Eqv(S)$ is \textit{idempotent-separating} if $R \cap \idm(S)^2 = \Delta_{\idm(S)}$, that is, each $R$-class contains no more than one idempotent.
+% \end{itemize}
+
+If $S$ is regular, then $a \calL b \Leftrightarrow S^1a = S^1b \Leftrightarrow Sa = Sb$, since $\exists b \in S(aba = a)$, which implies for all $a \in S$, $S^1 a = Sa$. In fact, to define the Green's Equivalences on a regular semigroup, we can drop all reference to $S^1$.
+
+
+
+\begin{proposition}
+  Let $S$ be a regular semigroup and $a, b \in S$. Then
+  \begin{enumerate}
+    \item\label{green-rs-prop3-1} $(a, b) \in \calL \Leftrightarrow \exists a' \in \inv(a) \exists b' \in \inv(b) (a'a = b'b)$,
+    \item\label{green-rs-prop3-2} $(a, b) \in \calR \Leftrightarrow \exists a' \in \inv(a) \exists b' \in \inv(b) (aa' = bb')$,
+    \item\label{green-rs-prop3-3} $(a, b) \in \calH \Leftrightarrow \exists a' \in \inv(a) \exists b' \in \inv(b) (a'a = b'b \land aa' = bb')$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  Since $S$ is regular, each element has an inverse. Suppose $a \calL b$ and $a', b'$ are inverses of $a, b $ respectively. To prove \ref{green-rs-prop3-1}, the following diagram says it all.
+%   \begin{center}
+%     \begin{tikzpicture}
+%       \draw (0,0) rectangle (1,1);
+%     \end{tikzpicture}
+%   \end{center}
+\end{proof}
+
+
+
+
+As for the equivalences on subsemigroup $U$, it can be easily verified that $\calL^U \subset \calL \cap U^2$, the similar conclusions apply for remaining equivalences. However, this inclusion could be proper.
+
+% \begin{example}
+%   Suppose $S$ is the free group generated by set $\{a\}$, namely,
+%   \[
+%     S = \bmrm{F}_{\cate{Grp}}(\{a\}) = \{ \cdots, a^{-1}, e, a, \cdots \}.
+%   \]
+%   And $U = \{ a, a^2, \cdots  \}$ is a subsemigroup of it. Then,
+%   \[
+%     \calL^U = \cdots = \calJ^U = \Delta_U,
+%   \]
+%   while
+%   \[
+%     \calL \cap U^2 = \cdots = \calJ^U \cap U^2 = U^2.
+%   \]
+% \end{example}
+
+
+\begin{proposition}
+  If $U$ is a regular subsemigroup of semigroup $S$, then all $\calL, \calR, \calH$ satisfy $X^U = X \cap U^2$, where $X \in \{ \calL, \calR, \calH \}$.
+\end{proposition}
+
+
+
+
+
+
+
+
+
+\begin{proposition}
+  Suppose $S$ is a regular semigroup and $\calC \in \Cge(S)$, then $S / \calC$ is regular.
+\end{proposition}
+
+
+
+
+
+% % % \begin{lemma}[Lallement's Lemma]
+% % %   Suppose $S$ is a regular semigroup and $C \in \Cge(S)$, if $[a]$ is an idempotent in $S/C$, then, there exists an idempotent $e$ such that $[a] = [e]$. Moreover, $e$ can be chosen so that $\calR(e) \leq \calR(a) \land \calL(e) \leq \calL(a)$.
+% % % \end{lemma}
+
+% The following result usually known as Lallement's Lemma. Suppose $S$ is a regular semigroup, there are two equivalent propositions.
+% \begin{lemma}
+\begin{lemma}[Lallement] 
+  \label{lemma:green-rs-lallement}
+  Suppose $S$ is a regular semigroup, the following two propositions are equivalent.
+  \begin{enumerate}
+    \item\label{green-rs-lallement-1} Given $\calC \in \Cge(S)$, if $\calC(a)$ is an idempotent in $S/\calC$, then there exists an idempotent $e$ such that $\calC(a) = \calC(e)$.
+    \item\label{green-rs-lallement-2} Given morphism $\phi: S \to T$, if $\phi(a)$ is an idempotent, then there exists an idempotent $e \in S$ such that $\phi(e) = f$.
+  \end{enumerate}
+\end{lemma}
+% \begin{nabls}{LAL}
+%   \nabitem{green-regs-lalemma-1} Given $\calC \in \Cge(S)$; if $\calC(a)$ is an idempotent in $S/\calC$, then there exists an idempotent $e$ such that $\calC(a) = \calC(e)$.
+%   \nabitem{green-regs-lalemma-2}  Given morphism $\phi: S \to T$; if $\phi(a)$ is an idempotent, then there exists an idempotent $e \in S$ such that $\phi(e) = f$.
+% \end{nabls}
+
+\begin{proof}
+  To proof \ref{green-rs-lallement-1}, suppose $\calC(a) = \calC(a^2)$, let $x$ be the inverse of $a^2$ and $e = axa$. We then proceed to prove the equivalence of these two propositions. 
+
+  Suppose \ref{green-rs-lallement-1} holds, $f \in \im \phi$ is an idempotent. Clearly $\ker \phi = \{(a, b): \phi(a) = \phi(b)\} \in \Cge(S)$. Let $a \in \phi^{-1}(f)$, it can be verified that $[\ker \phi] (a) \in S / \ker \phi$ is an idempotent. And it follows that there exists idempotent $e \in S$ and $[\ker \phi] (a) = [\ker \phi] (e)$.
+
+  Conversely, suppose \ref{green-rs-lallement-2} holds, $\calC \in \Cge(S)$, $\phi: S \to S / \calC$ and $\phi(a)$ is an idempotent. Thus, there exists an idempotent $e$ such that $\phi(a) = \phi(e)$.
+\end{proof}
+
+
+
+
+
+
+\begin{proposition}
+  If $S$ is regular, $\calC \in \Cge(S)$ is idempotent-separating iff $\calC \subset \calH$. 
+\end{proposition}
+\begin{proof}
+  Assume $\calC \subset \calH$, it follows that
+  \[
+    \Delta_{\idm(S)} \subset \calC \cap \idm(S)^2 \subset \calH \cap \idm(S)^2 \subset \Delta_{\idm(S)}.
+  \]
+
+  For the converse, if $\calC$ is idempotent-separating and $a \calC b$. Let $a' $ be the inverse of $a$, we can draw the following conclusions in sequence:
+  \begin{itemize}
+    \item $aa' \calC ba'$
+    \item $\calC(ba') = \calC(aa')$ is idempotent
+    \item By \ref{green-rs-lallement-1} of Lemma \ref{lemma:green-rs-lallement}, there exists idempotent $e \in S$ such that 
+    \[ 
+      \calC(e) = \calC(ba') \land \calR(e) \leq \calR(ba') \land e = aa',
+    \]
+    the assertion $e = aa'$ stems from $\calC$ is idempotent separating
+    \item By \ref{green-rs-props2-1} of Proposition \ref{prop:green-rs-props2}, $\calR(a) = \calR(aa') = \calR(e) \leq \calR(ba') \leq \calR(b)$.
+  \end{itemize}
+  A dual argument shows that $\calL(a) \leq \calL(b)$:
+  \begin{itemize}
+    \item $a'a \calC a'b$
+    \item $\calC(a'b) = \calC(a'a)$ is idempotent
+    \item $\exists e \in S \left( e \text{ is idempotent} \land \calC(e) = \calC(a'b) \land \calL(e) \leq \calL(a'b) \land e = a'a \right)$
+    \item $\calL(a) = \calL(a'a) = \calL(e) \leq \calL(a'b) \leq \calL(b)$.
+  \end{itemize}
+  Similarly, assume that $b' \in \inv(b)$ is chosen, then we have:
+  \begin{itemize}
+    \item $ab' \calC bb'$
+    \item $\calC(ab') = \calC(bb')$ is idempotent
+    \item there exists idempotent $e \in S$ such that $\calC(e) = \calC(ab') \land \calR(e) \leq \calR(ab') \land e = bb'$
+    \item $\calR(b) = \calR(bb') = \calR(e) \leq \calR(ab') \leq \calR(a)$.
+  \end{itemize}
+\end{proof}

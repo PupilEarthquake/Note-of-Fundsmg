@@ -179,7 +179,7 @@ where $R_i$ is the element in $P(X^2)$, forms a semigroup. To see this, it is su
 \begin{definition}
   \label{def:intro-relations-bds} \hfill \par
   \begin{enumerate}
-    \item\label{intro-relations-bds-1} $R(x):= \{ y\in X: (x, y) \in R \}$;
+    \item\label{intro-relations-bds-1} $R(x):= \{ y\in X: (x, y) \in R \}$, and so, $R$ can be viewed as a mapping $x \mapsto R(x)$;
     \item\label{intro-relations-bds-2} $R(A):= \bigcup_{x \in A}R(x)$;
     \item\label{intro-relations-bds-3} $R^{\op}:= \{ (y, x): (x, y) \in R \}$;
     \item\label{intro-relations-bds-4} $\Delta_X: \{ (x, x): x\in X \}$;
@@ -280,7 +280,7 @@ We then introduce the definitions of partial orders and equivalent relations fro
   Given a set $X$, a partition $\calA$ is a family of disjoint subsets of $X$ satisfying $\bigsqcup \calA = X$. There exists a bijection
   \[
     \begin{tikzcd}[row sep = small]
-      &\{ R \in P(X^2): \text{equivalence relation} \}
+      &\{ R \in P(X^2): \text{equivalent relation} \}
         \arrow[r, leftrightarrow, "1:1"]
       &\{ \calA \in P(X): \text{partition} \}
       \\
@@ -440,9 +440,9 @@ so, both symbol $\land$ and $\lor$ on lattice $\Eqv(S)$ and $\Eqv(S)$ represent 
 \end{definition}
 
 
-Based on this, we obtain some properties.
+Based on this, we obtain the following propositions.
 \begin{proposition}
-  \label{prop:intro-ideal-props}\hfill\par
+  \label{prop:intro-ideal-props}(...)
   \begin{enumerate}
     \item\label{intro-ideal-props-1} Every $\re(I)$ is a congruence, thus, 
     \item\label{intro-ideal-props-2} $S / \re(I) = \{ I \} \sqcup \{ \{x\}: x \in S \smallsetminus I \}$ forms a semigroup;

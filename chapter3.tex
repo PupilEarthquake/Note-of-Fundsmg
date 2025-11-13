@@ -1,0 +1,436 @@
+\chapter{Simple and $0$-simple Groups}
+
+\section{Basics}
+
+\begin{definition}
+Let $S$ be a semigroup, we then define the following concepts and symbols.
+\begin{itemize}
+  \item $\Idl(S), \Ldl(S), \Rdl(S)$ refer the set of all ideals, left-ideals and right-ideals of $S$ respectively.
+  \item $\Idl^*(S), \Ldl^*(S), \Rdl^*(S)$ refer the set of all nonzero ideals, left-ideals and right-ideals of $S$ respectively.
+  \item $S^*$ is the set of all nonzero elements of $S$.
+  \item $\idm^* S$ is the set of all nonzero idempotents of $S$.
+  \item  $S$ is simple if
+    \begin{itemize}
+    \item $S$ does \textit{not} have a $0$,
+    \item $\Idl(S) = \{ S \}$.
+  \end{itemize}
+  \item $S$ is $0$-simple if 
+  \begin{itemize}
+    \item $S$ has a $0$,
+    \item $S^2 \neq \zset$,
+    \item $\Idl(S) = \{\zset, S\}$.
+  \end{itemize}
+  \item $I \in \min \Idl^*(S)$ is a $0$-minimal ideal.
+  \item $I \in \min \Idl(S)$ is a minimal ideal.
+  \item $K(S)$ is the unique minimal ideal (if it exists).
+\end{itemize}
+\end{definition}
+
+
+\begin{proposition}
+  \label{prop:zssandzs-basics-props1} Suppose $S$ is a semigroup without a $0$, the following statements are equivalent:
+  \begin{itemize}
+    \item $S$ is simple;
+    \item $\calJ = S^2$;
+    \item $\forall a \in S (SaS = S)$. 
+  \end{itemize}
+  Besides, if $S$ is a semigroup with a $0$, the following statements are equivalent:
+  \begin{itemize}
+    \item $S$ is $0$-simple;
+    \item $\calJ = (S^*)^2 \sqcup \{ (0, 0)\}$;
+    \item $\forall a \in S^* (SaS = S)$.
+  \end{itemize}
+\end{proposition}
+% \begin{nabls}{SGE}
+%   \nabitem{spgrp-spgrp-sgeqps-1} The following propositions are equivalent: \par
+%     \begin{enumerate}
+%       \item $S$ is simple,
+%       \item $\calJ = S^2$,
+%       \item $\forall a \in S (SaS = S)$. 
+%     \end{enumerate}
+%     \nabitem{spgrp-spgrp-sgeqps-2} Analogously, these propositions are also equivalent:\par
+%     \begin{enumerate}
+%       \item $S$ is $0$-simple,
+%       \item $\calJ = (S \smallsetminus \zset)^2 \sqcup \{ (0, 0)\}$,
+%       \item $\forall a \in S \smallsetminus \zset (SaS = S)$.
+%     \end{enumerate}
+% \end{nabls}
+
+
+\begin{proposition}
+  \label{prop:zssandzs-basics-props2} Let $S$ be a semigroup, we have the following propositions.
+  \begin{enumerate}
+    \item\label{zssandzs-basics-props2-1} $S$ has no $0$, then $\min \Idl S$ is unique;
+    \item\label{zssandzs-basics-props2-2} $S$ has no $0$, then $I = \min \Idl S$ is simple;
+    \item\label{zssandzs-basics-props2-3} if $I$ is the $0$-minimal ideal, then either $I^2 = \zset$ or $I$ is simple; 
+    \item\label{zssandzs-basics-props2-4} $\{ B \in \Idl S: I \subsetneq B \subsetneq J \} = \emptyset$, then $J / \re{I}$ is either $0$-simple or null.
+  \end{enumerate}
+\end{proposition}
+% \begin{nabls}{SGP}
+%   \nabitem{spgrp-spgrp-sgp-1} $S$ has no $0$, then $\min \Idl S$ is unique.
+%   \nabitem{spgrp-spgrp-sgp-2} $S$ has no $0$, then $I = \min \Idl S$ is simple.
+%   \nabitem{spgrp-spgrp-sgp-3} $S$ is a semigroup, $I$ is the $0$-minimal ideal, then either $I^2 = \zset$ or $I$ is simple.
+%   \nabitem{spgrp-spgrp-sgp-4} $S$ is a semigroup, $\{ B \in \Idl S: I \subsetneq B \subsetneq J \} = \emptyset$, then $J / \rho_{I}$ is either $0$-simple or null.
+% \end{nabls}
+
+
+
+\begin{definition}
+  \label{prop:zssandzs-basics-props3} For any $a \in S$, we arrive at two complementary cases as follows.
+  \begin{enumerate}
+    \item $\calJ(a) \in \min S / \calJ$, then
+    \begin{itemize}
+      \item $\calJ(a) = (a) = K(S)$.
+    \end{itemize}
+    \item $\calJ(a) \notin \min S / \calJ$, then
+    \begin{itemize}
+      \item $U(a):= \{ b \in (a): \calJ(b) < \calJ(a) \} \neq \emptyset$;
+      \item $(a) = U(a) \sqcup \calJ(a)$, $U(a) = \bigsqcup\{ \calJ(b): (b) \subsetneq (a) \}$;
+      \item $(a) / \re{U(a)}$ is either $0$-simple or null.
+    \end{itemize}
+  \end{enumerate}
+  These results, $K(S)$ and $(a)/\re{U(a)}$, consist the \textit{principal factors} of $S$.
+\end{definition}
+
+% \begin{nabls}{SGPF}
+%   \nabitem{spgrp-spgrp-sgpf-k} $\calJ(a) \in \min S / \calJ$, then
+%   \begin{itemize}
+%     \item $\calJ(a) = (a) = K(S)$.
+%   \end{itemize}
+%   \nabitem{spgrp-spgrp-sgpf-notk} $\calJ(a) \notin \min S / \calJ$, then
+%   \begin{itemize}
+%     \item $U(a):= \{ b \in (a): \calJ(b) < \calJ(a) \} \neq \emptyset$,
+%     \item $(a) = U(a) \sqcup \calJ(a)$, $U(a) = \bigsqcup\{ \calJ(b): (b) \subsetneq (a) \}$,
+%     \item $(a) / \rho_{U(a)}$ is either $0$-simple or null.
+%   \end{itemize}
+% \end{nabls}
+% These results, $K(S)$ and $(a)/\rho_{U(a)}$, consist the \textit{principal factors} of $S$.
+
+
+
+
+
+
+\section{Completely $0$-simple Semigroups}
+
+% Here are some brief definitions.
+
+\begin{definition}
+  Let $S$ be a semigroup and $\idm S$ be the set of idempotents of $S$, we then introduce the follows:
+  \begin{itemize}
+  \item a partial order on $\idm S$ is naturally defined as $f \leq e \Leftrightarrow f = fe = ef$;
+  \item $e \in \min \idm^* S$ is called a primitive idempotent;
+  \item $S$ is completely $0$-simple \textcolor{red}{(CZS)} if
+  \begin{itemize}
+    \item $S$ has a $0$,
+    \item $S$ is $0$-simple,
+    \item $\exists \min \idm^* S$.
+  \end{itemize}
+\end{itemize}
+\end{definition}
+
+
+
+
+
+\begin{proposition}
+  \label{prop:zssandzs-czss-props1}
+  Let $S$ be a CZSS, in which $e$ is a primitive idempotent, then
+  \begin{enumerate}
+    \item\label{zssandzs-czss-props1-1} $\calR(e) = eS \smallsetminus \zset$, dually, $\calL(e) = Se \smallsetminus \zset$;
+    \item\label{zssandzs-czss-props1-2} $\forall a \in S^* (\calL(a) = aS \smallsetminus \zset)$, dually, $\forall a \in S^* (\calR(a) = Sa \smallsetminus \zset)$;
+    \item\label{zssandzs-czss-props1-3} $\calD = (S^*)^2 \sqcup \{ (0, 0) \}$;
+    \item\label{zssandzs-czss-props1-4} $S$ is regular;
+    \item\label{zssandzs-czss-props1-5} $ab \neq 0 \Rightarrow \left( a\neq 0 \land b \neq 0 \land a \calD b \land ab \in \calR(a) \cap \calL(b) \right)$;
+    \item\label{zssandzs-czss-props1-6} for any $\calH$-class $H \subset S^*$,
+    \begin{itemize}
+      \item either $(\exists a, b \in H (ab \neq 0)) \Leftrightarrow H \text{ is a group} \Leftrightarrow (\forall a, b \in H (ab \neq 0)) $;
+      \item or $(\exists a, b \in H (ab = 0)) \Leftrightarrow H^2 = \zset \Leftrightarrow (\forall a, b \in H (ab = 0)) $.
+    \end{itemize} 
+  \end{enumerate} 
+\end{proposition}
+
+
+
+
+
+
+
+\begin{definition}
+  \label{def:zssandzs-czss-ressmat0}
+  Given sets $I$ and $\Lambda$, a group $G$, and a mapping $P: \Lambda \times I \to G^0$, which can be viewed as a matrix, satisfying the condition of regular that $\forall \lambda \in \Lambda \exists i \in I (P(\lambda, i) \neq 0)$ and that $\forall i \in I \exists \lambda \in \Lambda (P(\lambda, i) \neq 0)$. The Rees matrix $M^0[G, I, \Lambda, P]$ contains the following matters:
+  \begin{itemize}
+    \item $\{ a E_{i, \lambda}: a\in G^0 \land (i, \lambda) \in I \times \Lambda \}$;
+    \item a binary operation imposed on the set above, that is,
+    \[
+      \circ: (a E_{i, \lambda}, b E_{j, \mu}) \mapsto a E_{i, \lambda} P b E_{j, \mu} = (aP(\lambda, i)b) E_{i, \mu}.
+    \]
+  \end{itemize}
+  It can be verified that $M^0[G, I, \Lambda, P]$ consists a CZSS (see \cite[Lemma 3.2.2]{John-FundSmg}).
+\end{definition}
+
+
+
+
+
+
+\begin{theorem}
+  \label{theo:zssandzs-czss-ressmat0}
+  Any CZSS $S$ is isomorphic to a Ress matrix $M^0[G, I, \Lambda, P]$.
+\end{theorem}
+\begin{proof}
+  Let $I = (S / \calR) \smallsetminus \zset$ and $\Lambda = (S / \calL) \smallsetminus \zset$. For any $a \in S \smallsetminus \zset$, $\calR(a)$ contains an idempotent $e$ by \ref{green-rs-props1-7} of Proposition \ref{prop:green-rs-props1}, thus $\calR(a) \cap \calL(e)$ is a group. Similarly, $\calL(a)$ contains an idempotent $f$ that makes $\calL(a) \cap \calR(f)$ is a group. Hence, we may conclude that $\forall i \in I \exists \lambda \in \Lambda (i \cap \lambda \text{ is a group})$ and that $\forall \lambda \in \Lambda \exists i \in I (i \cap \lambda \text{ is a group})$. Suppose $G = \tilde{i} \cap \tilde{\lambda}$ is a group, and let $q \in \prod_{\lambda} (\lambda \cap \tilde{i})$, $r \in \prod_{i} (\tilde{\lambda} \cap i)$. Let the mapping $P: \Lambda \times I \to G^0$ send $(\lambda, i)$ to $q(\lambda)r(i)$. Then, it can be verified that the following mapping is an isomorphism.
+  \[
+    \begin{tikzcd}[row sep = small]
+      M^0[G, I, \Lambda, P]
+        \arrow[r, "\sim"]
+      & S
+      \\
+      aE_{i, \lambda}
+        \arrow[r, mapsto]
+      & r(i) a q(\lambda)
+    \end{tikzcd}
+  \]
+\end{proof}
+
+
+
+
+
+
+\begin{proposition}
+  If $S$ is $0$-simple, $L \in \min \Ldl^* S$, then
+  \begin{enumerate}
+    \item $L^2 \neq 0 \Rightarrow \forall a \in L \smallsetminus \zset (L = Sa)$;
+    \item $S = LS = \bigcup_{s \in S} Ls$;
+    \item when $Ls \neq \zset$, $Ls \in \min \Ldl^* S$. 
+  \end{enumerate}
+\end{proposition}
+
+
+
+
+
+\begin{proposition}
+  Let $S$ be a CZSS containing at least one $0$-minimal left-ideal and at least one $0$-minimal right-ideal. Then, for every $0$-minimal left-ideal $L$, there exists a $0$-minimal right-ideal $R$ such that
+  \begin{enumerate}
+    \item $LR = S$;
+    \item $RL$ is a $0$-group;
+    \item the identity of $RL$ is the primitive idempotent of $RL$.
+  \end{enumerate}
+\end{proposition}
+
+
+
+
+
+\begin{proposition}
+  Suppose $S $ has a $0$, the following propositions are equivalent:
+  \begin{enumerate}
+    \item $S$ is $0$-completely simple;
+    \item $S$ is group bounded, namely, $\forall a \in S \exists n$ such that $a^n$ lies in a subgroup of $S$;
+    \item $\exists \min S / \calL \land \exists \min S / \calR$;
+    \item $\exists \min \Ldl^* S \land \exists \min \Rdl^* S$.
+  \end{enumerate}
+\end{proposition}
+
+
+
+
+
+
+\section{Completely Simple Semigroups}
+
+Most of the conclusions about the CSS are similar to that CZSS has. 
+
+\begin{proposition}
+  \label{prop:zssandzs-css-props1}
+  Let $S$ be a CSS, in which $e$ is a primitive idempotent, then
+  \begin{enumerate}
+    \item\label{zssandzs-css-props1-1} $\calR(e) = eS$, a dual conclusion applies to the case of $\calL$;
+    \item\label{zssandzs-css-props1-2} $\forall a \in S (\calR(a) = aS^1)$, a dual conclusion applies to the case of $\calL$;
+    \item\label{zssandzs-css-props1-3} $\calD = S^2$; 
+    \item\label{zssandzs-css-props1-4} $S$ is regular;
+    \item\label{zssandzs-css-props1-5} $\forall a \in S (\calR(a) = aS)$, a dual conclusion applies to the case of $\calL$;
+    \item\label{zssandzs-css-props1-6} $\forall a, b \in S (ab \in \calR(a) \cap \calL(b))$;
+    \item\label{zssandzs-css-props1-7} any $\calH$-class $H \subset S$ is a group.
+  \end{enumerate} 
+\end{proposition}
+
+
+\begin{proof}
+  \ref{zssandzs-css-props1-1} Clearly $\calR(e) \subset eS$. For the reverse, for any $a = es \in eS$, there exists $z, t \in S$ such that $zat=e$. Let $x = eze$, $y = te$ and $f = ayx$. Follow the manner analogous to \cite[Lemma 3.2.4]{John-FundSmg}, it can be verified that $f^2 = f$ and $ef = fe = e$. Since $e \in \min \idm S$, it follows $e = f$ and $a \in \calR(e)$.
+
+  \ref{zssandzs-css-props1-2} Clearly $\calR(a) \subset aS^1$. Now suppose that $b \in a S^1$, and select $z, t \in S$ such that $zet = a$. Thus, $b = zeu$ for some $u in S$. By \ref{zssandzs-css-props1-1}, we obtain that $eu \in eS = \calR(e)$ and that $es \in \calR(e)$, hence $zeu \calR zet$.
+
+  \ref{zssandzs-css-props1-3} For any $a, b \in S$, it follows that $ab \in aS^1 \cap S^1b = \calR(a) \cap \calL(b)$, thus, $a \calD b$.
+
+  \ref{zssandzs-css-props1-4} Observe that $D = S$, that $D$ has an idempotent $e$, and apply \ref{green-rs-props1-3} of Proposition \ref{prop:green-rs-props1}. 
+
+  \ref{zssandzs-css-props1-5} Since $S$ is regular by \ref{zssandzs-css-props1-4}, so for any $a \in S$, there exists $x \in S$ such that $a = axa \in aS$.
+
+  \ref{zssandzs-css-props1-6} The proof is excerpted from the process of proof of \ref{zssandzs-css-props1-2}.
+
+  \ref{zssandzs-css-props1-7} It is sufficient to show that any $\calH$-class satisfies $H^2 \cap H \neq \emptyset$ and apply the Green's Theorem. Certainly, $\forall a, b \in H$, we have $ab \calR a, ab \calL b, a\calR b, a\calL b$, thus $ab \calH a$.
+\end{proof}
+
+
+
+
+\begin{definition}
+   Given sets $I$ and $\Lambda$, group $G$, and mapping $P: \Lambda \times I \to G$, which can be viewed as a matrix. The Rees matrix $M[G, I, \Lambda, P]$ contains the following matters:
+  \begin{itemize}
+    \item $\{ a E_{i, \lambda}: a\in G \land (i, \lambda) \in I \times \Lambda \}$,
+    \item a binary operation imposed on the set above, that is,
+    \[
+      \circ: (a E_{i, \lambda}, b E_{j, \mu}) \mapsto a E_{i, \lambda} P b E_{j, \mu} = (aP(\lambda, i)b) E_{i, \mu}.
+    \]
+  \end{itemize}
+  It can be verified that $M[G, I, \Lambda, P]$ is a CSS. Note that we do not need to let $P$ be regular, which is different from the case of CZSS, for $P$ has no zero output.
+\end{definition}
+
+
+
+
+\begin{theorem}
+  Every CSS is isomorphic to a Rees matrix $M[G, I, \Lambda, P]$, the process of construction is similar to the case of CZSS. In particular, $P$ can be normal, in the sense that the first row and the first column of $P$ only contain identity.
+\end{theorem}
+\begin{proof}
+  The proof of former can be found in \ref{theo:zssandzs-czss-ressmat0}. For the latter, see \cite[Theorem 3.4.2]{John-FundSmg}.
+\end{proof}
+
+
+
+
+
+
+
+\begin{proposition}
+  \label{prop:zssandzs-css-props2}
+  If $S$ is simple and $L \in \min \Ldl S$, then
+  \begin{enumerate}
+    \item\label{zssandzs-css-props2-1} $\forall a \in L (L = Sa)$;
+    \item\label{zssandzs-css-props2-2} $S = LS = \bigcup_{s\in S}Ls$;
+    \item\label{zssandzs-css-props2-3} every $Ls$ belongs to $\min \Ldl S$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \ref{zssandzs-css-props2-1} $Sa$ is a left-ideal contained in $L$, thus it must equal to $L$.
+
+  \ref{zssandzs-css-props2-2} Observe that $LS$ is an ideal of $S$.
+
+  \ref{zssandzs-css-props2-3} Suppose $B \subset Ls$ is a left-ideal. Let $A = \{ x \in L: xs \in B \}$, a left-ideal contained in $L$, needs to coincide with $L$. So $B = As = L$.
+\end{proof}
+
+
+
+
+
+
+\begin{proposition}
+  \label{prop:zssandzs-css-props3}
+  Let $S$ be a CSS containing at least one minimal left-ideal and at least one minimal right-ideal. Then, for every minimal left-ideal $L$, there exists a minimal right-ideal $R$ such that
+  \begin{enumerate}
+    \item\label{zssandzs-css-props3-1} $LR = S$;
+    \item\label{zssandzs-css-props3-2} $RL$ is a group;
+    \item\label{zssandzs-css-props3-3} the identity of $RL$ is the primitive idempotent.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \ref{zssandzs-css-props3-1} Clearly, $LR$ is an ideal of $S$.
+
+  \ref{zssandzs-css-props3-2} It is sufficient to prove that for all $a \in RL$, $RLa = aRL = RL$. Observe that $RL \subset R \cap L$, so $a \in R$, and by \ref{zssandzs-css-props2-3} of Proposition \ref{prop:zssandzs-css-props2}, we obtain that $R = aS$. Thus, $S = LR = LaS$, where $La \subset L$ is a left-ideal on the ground of $a \in L$, so it follows that $La = L$. Hence, we conclude that $RLa = RL$. The proof of $aRL = RL$  proceeds in the similar manner.
+
+  \ref{zssandzs-css-props3-3} Suppose that $e \in RL$ is the identity of group, and that $f \leq e$, namely $ef = fe = f$. Observe that $eSe = eS^2e = RL$, thus, $f = efe \in RL$, which coincides with $e$.
+\end{proof}
+
+
+
+
+
+
+\begin{proposition}
+  \label{prop:zssandzs-css-props4}
+  If $S$ is simple, the following propositions are equivalent:
+  \begin{enumerate}
+    \item\label{zssandzs-css-props4-1} $S$ is CS;
+    \item\label{zssandzs-css-props4-2} $S$ is CR, namely, every element of $S$ lies in a subgroup of $S$;
+    \item\label{zssandzs-css-props4-3} $\exists \min S / \calL \land \exists \min S / \calR$;
+    \item\label{zssandzs-css-props4-4} $\exists \min \Ldl S \land \exists \min \Rdl S$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \ref{zssandzs-css-props4-1} $\Rightarrow$ \ref{zssandzs-css-props4-2} According to \ref{zssandzs-css-props1-7} of Proposition \ref{prop:zssandzs-css-props1}, $S$ is the disjoint union of group $\calH$-calsses.
+
+  \ref{zssandzs-css-props4-2} $\Rightarrow$ \ref{zssandzs-css-props4-3} Suppose $\calJ(a) \leq \calJ(b)$, since $S$ is simple, one can select $u, x, y$ in $S$ such that $a = ub$ and $b = xay = xuby$. We denote by $g = xu$, by $g^{-1}$ the inverse of $g$ in the group contains $g$, and by $e$ the identity equal to $g^{-1}g$. Observe that $eb = egby = gby = b$, thus, $b = g^{-1}gb = g^{-1}xub = g^{-1}xa$. Furthermore, we have $a = ub$, and it implies that $a \calJ b$. 
+
+  \ref{zssandzs-css-props4-3} $\Rightarrow$ \ref{zssandzs-css-props4-4} Assume the contrary situation that there is no $\min \Ldl S$. Then, for any $S^1 a \in \Ldl S$, there exists a left-ideal $B \subsetneq S^1a$. For any $b \in B$, it follows that $S^1 b \subset S^1 B \subset B \subsetneq S^1a$, that is, $\calL(b) < \calL(a)$. And this means $S / \calL$ has no minimal element.
+
+  \ref{zssandzs-css-props4-4} $\Rightarrow$ \ref{zssandzs-css-props4-1} By Proposition \ref{prop:zssandzs-css-props3}, $S$ is a simple semigroup with a primitive idempotent.
+\end{proof}
+
+
+
+
+\begin{proposition}
+  Let $S$ be a semigroup without $0$, the following conditions are equivalent:
+  \begin{enumerate}
+    \item $S$ is CS;
+    \item $S$ is regular, and satisfies that for any $a, b, c \in S$,
+    \[
+      (ca = cb \land ac = bc) \Rightarrow a = b;
+    \]
+    \item $S$ is regular, and for all $a \in S$ 
+    \[
+      aba = a \Rightarrow bab = b;
+    \]
+    \item $S$ is regular and every idempotent is primitive.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  See \cite[Theorem 3.3.3]{John-FundSmg}.
+\end{proof}
+
+
+
+
+
+
+
+
+
+\begin{theorem}
+  Two Rees matrix semigroups 
+  \[
+    M^0[G_1, I_1, \Lambda_1, P_1], M^0[G_2, I_2, \Lambda_2, P_2]
+  \]
+  are isomorphic, if and only if there exists
+  \begin{itemize}
+    \item a group isomorphism $\theta: G_1 \xrightarrow{\sim} G_2$,
+    \item a set isomorphism $\psi: I_1 \xrightarrow{\sim} I_2$,
+    \item a set isomorphism $\chi: \Lambda_1 \xrightarrow{\sim} \Lambda_2$,
+    \item two mappings $u \in G_2^{I_1}$ and $v \in G_2^{\Lambda_1}$,
+  \end{itemize}
+  such that
+  \[
+    \theta(P_1(\lambda, i)) = v(\lambda)P_2(\chi(\lambda), \psi(i)) u(i).
+  \]
+\end{theorem}
+\begin{proof}
+  See \cite[Theorem 3.4.1]{John-FundSmg}.
+\end{proof}
+
+
+
+
+
+\begin{theorem}
+  Any Rees matrix $M^0[G, I, \Lambda, P]$ is isomorphic to another $M^0[G, I, \Lambda, R]$, where $R$ is normal, in the sense that the first row and the first column of $R$ only contain identity.
+\end{theorem}
+\begin{proof}
+  See \cite[Theorem 3.4.3]{John-FundSmg}. 
+\end{proof}
+
+

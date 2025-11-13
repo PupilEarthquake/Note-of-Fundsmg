@@ -1,0 +1,293 @@
+\chapter{Completely Regular Semigroups}
+
+
+\section{Completely Regular Semigroups and Clifford Semigroups}
+
+
+\begin{definition}
+  A completely regular semigroup (CRS) contains data $(S, m(-, -), (-)')$, in which $S$ is a set; $m: S^2 \to S$ is a mapping satisfying the condition of associative that for all $a, b, c $ in $S$, $m(a, m(b, c)) = m(m(a. b), c)$, namely, $(S, m)$ forms a semigroup; and $(-)'$ is a mapping satisfying
+  \begin{itemize}
+    \item $\forall a \in S ((a')' = a)$;
+    \item $\forall a \in S (aa' = a'a)$;
+    \item $\forall a \in S (aa'a = a)$.
+  \end{itemize}
+\end{definition}
+
+
+
+\begin{definition}
+  A Clifford semigroup is a CRS $(S, \cdot, (-)')$ satisfies for all $, y \in S$
+  \[
+    (xx')(yy') = (yy')(xx').
+  \]
+\end{definition}
+
+
+\begin{definition}
+  A center of a semigroup $S$ is defined as 
+  \[
+    Z(S) = \{ a \in S: \forall x\in S (xa = ax) \}.
+  \]
+\end{definition}
+
+
+
+% From the definition above, we arrive at some brief natures. Suppose $S$ is a c.r.s, then
+% \begin{nabls}{CRP1}
+%   \nabitem{crgrp-crgrp-crp1-1} for $a \in S$, $a'aa' = a'$, thus $a' \in \inv(a)$;
+%   \begin{proof}
+%     \[
+%       a'aa' = a'(a')'a' = a'.
+%     \]
+%   \end{proof}
+%   \nabitem{crgrp-crgrp-crp1-2} for all $a \in S$, all $a', aa'. a'a$ belong to $\calH(a)$;
+%   \begin{proof}
+%     Observe that $a'$ is the inverse of $a$, that $aa' \in \calR(a) \cap \calL(a')$ and $a'a \in \calR(a') \cap \calL(a)$ by \ref{green-rg-reb-aa}, and that $aa' = a'a$. Thus, $\calR(a) \cap \calL(a') = \calR(a') \cap \calL(a)$, which implies $\calR(a) \cap \calR(a') \neq \emptyset$ and $\calL(a) \cap \calL(a') \neq \emptyset$, so we may deduce that $a \calR a'$ and $a \calL a'$.
+%   \end{proof}
+%   \nabitem{crgrp-crgrp-crp1-3} if $e \in S$ is an idempotent, $e = e' = ee' = e'e$.
+%   \begin{proof}
+%     \[
+%       e = ee'e = eee' = ee', e' = e'ee' = e'e = ee' = e.
+%     \]
+%   \end{proof}
+% \end{nabls}
+
+
+
+
+
+% \begin{proposition}
+%   \label{prop:crgrp-crgrp-eqp}
+%   Let $S$ be a semigroup, the following propositions are equivalent.
+%   \begin{enumerate}
+%     \item\label{crgrp-crgrp-eqp1-1} $S$ is c.r.;
+%     \item\label{crgrp-crgrp-eqp1-2} every element is $S$ lies in a subgroup of $S$;
+%     \item\label{crgrp-crgrp-eqp1-3} every $\calH$-class is a group.
+%   \end{enumerate}
+% \end{proposition}
+% \begin{proof}
+%   \ref{crgrp-crgrp-eqp1-1} $\Rightarrow$ \ref{crgrp-crgrp-eqp1-2} Given a c.r.s $(S, \cdot, (-)')$, for any $a \in S$, let $e = a'a = aa'$. Then by \ref{crgrp-crgrp-crp1-1}, $a$ belongs to a group $\calH(e)$.
+
+%   \ref{crgrp-crgrp-eqp1-2} $\Rightarrow$ \ref{crgrp-crgrp-eqp1-3} Given a semigroup $(S, \cdot)$ that each element $a$ lies in a subgroup $G_a$ of $S$, define the mapping $(-)'$ that sends $a$ to its inverse in $G_a$. Then, from $aa' = a'a =: e_a$ and $e_a a = a e_a = a$, it follows that $a \calH e_a$, where $\calH(e_a)$ is a group, for $e_a$ is an idempotent.
+
+%   \ref{crgrp-crgrp-eqp1-3} $\Rightarrow$ \ref{crgrp-crgrp-eqp1-1} Suppose $(S, \cdot)$ is a semigroup that every $\calH$-calss is a group. It's easy to verify that the mapping, $(-)'$, sending $a$ to its inverse $a' \in \calH(a)$, together with the presupposed structure on $S$, forms a c.r.s.
+% \end{proof}
+
+
+
+
+
+
+
+
+% \begin{proposition}
+%   Suppose $S$ is a semigroup, the following statements are equivalent:
+%   \begin{enumerate}
+%     \item\label{crgrp-crgrp-eqp2-1} $S$ is c.s.
+%     \item\label{crgrp-crgrp-eqp2-2} $S$ is c.r, and for all $x, y \in S$, $xx' = (xyx)(xyx)'$;
+%     \item\label{crgrp-crgrp-eqp2-3} $S$ is c.r and simple.
+%   \end{enumerate}
+% \end{proposition}
+% \begin{proposition}
+%   \ref{crgrp-crgrp-eqp2-1} $\Rightarrow$ \ref{crgrp-crgrp-eqp2-2} By \ref{spgrp-css-cssp7} of Proposition \ref{spgrp-css-cssp}, every $\calH$-class of $S$ is a group, so we let $(-)'$ be the mapping that sending $a$ to its inverse within $\calH(a)$. Let $x, y \in S$, by \ref{spgrp-css-cssp6} of Proposition \ref{spgrp-css-cssp}, we obtain that $xy \in \calR(x) \cap \calL(y)$ and that $xyx \in \calR(xy) \cap \calL(x)$, in which $\calR(xy) = \calR(x)$. Thus, $xyx \in \calH(x)$. Hence, $xx' = (xyx)(xyx)'$.
+
+%   \ref{crgrp-crgrp-eqp2-2} $\Rightarrow$ \ref{crgrp-crgrp-eqp2-3} Suppose $(S, \cdot, (-)')$ is a c.r.s and $a, b \in S$. Then 
+%   \[
+%     a = aa'a = a\cdot b \cdot a(aba)'a,
+%   \]
+%   and so $\calJ(a) \leq \calJ(b)$. By interchanging the role of $a$ and $b$, we may equally show that $\calJ(b) \leq \calJ(a)$. Thus, $\calJ(a) = \calJ(b)$ for any $a , b$ in $S$, and so $\calJ = S^2$, which implies $S$ is simple by \ref{spgrp-spgrp-sgeqps-1}.
+
+%   \ref{crgrp-crgrp-eqp2-3} $\Rightarrow$ \ref{crgrp-crgrp-eqp2-1} This is a direct conclusion of Proposition \ref{spgrp-css-spps}.
+% \end{proposition}
+
+
+
+
+
+% Regarding the last derivation above, we have an even stronger conclusion.
+
+% \begin{proposition}
+%   \label{prop:crgrp-crgrp-idmispri}
+%   Suppose $(S, \cdot, (-)')$ is simple and c.r, then every idempotent of $S$ is primitive.
+% \end{proposition}
+% \begin{proof}
+%   Let $e, f$ be two idempotents of $S$, and $e \leq f$, namely, $ef = fe = e$. Since $S$ is simple, there exists $z, t \in S$ such that $e = zft$. Let $x = ezf$ and $y = fte$, then, it can be verified that
+%   \[
+%     xfy = e, ex = xf = e, fy = ye = y.
+%   \] 
+%   On the other hand, $S$ is c.r, so $x$ lies in a group $\calH$-class, in which there exists an identity $e_x$ satisfies $e_x x = x e_x = x$ and $x'x = xx' = e_x$. Observe that
+%   \[
+%     f = e_x f = e_x e f = e_x xfyf = xfy = e,
+%   \]
+%   so we may conclude that every idempotent of $S$ is primitive.
+% \end{proof}
+
+
+
+
+
+
+
+% We Stipulate that $\cate{Css}$ denotes the category of all c.s.s., which is a full subcategory of the semigroup category $\cate{Smg}$. A partially ordered set $(I, \leq)$ can be made into a category, where for any elements $i, j$ of $I$,
+% \[
+%   i \to j \Leftrightarrow j \leq i.
+% \]
+% Similarly, a semilattice can also be made into a category in the same manner.
+
+
+
+
+
+
+
+% \begin{definition}
+%   We say that $(S, \cdot)$ is a semilattice of CSSs (GRPs), if
+%   \begin{itemize}
+%     \item $(I, \leq, \land)$ is a semilattice;
+%     \item $\alpha: I \to \Ob(\cate{Css})$ is a mapping;
+%     \item as a set, $S = \bigsqcup \alpha(i)$ and each $(\alpha(i), \cdot)$ is a subsemigroup of $(S, \cdot)$;
+%     \item for any $i, j$ in $I$, $\alpha(i) \cdot \alpha(j) \subset \alpha(i\land j)$.
+%   \end{itemize}
+
+%   Furthermore, we say that $(S, \cdot)$ is a strong semilattice of CSSs, if
+%   \begin{itemize}
+%     \item $(I, \leq, \land)$ is a semilattice;
+%     \item $\alpha: I \to \cate{Css}$ is a functor;
+%     \item $S = \bigsqcup_{i \in I} \alpha(i)$;
+%     \item for any $(x, i), (y, j) \in S$
+%     \[
+%       (x, i)\cdot (y, j) = (\alpha_{i \to i\land j}(x)\alpha_{j \to i\land j}(y), i\land j),
+%     \]
+%     thus still it holds that $((x, i)(y, j))(z, k) = (x, i)((y, j)(z, k))$, that $\alpha(i) \cdot \alpha(j) \subset \alpha(i\land j)$, and that each $\alpha(i) \xhookrightarrow{\enspace} S$ is a subsemigroup.
+%     \end{itemize}
+% \end{definition}
+
+
+
+
+
+
+
+% \begin{proposition}
+%   \label{prop:crgrp-crgrp-jc}
+%   Suppose $(S, \cdot, (-)')$ is c.r., then
+%   \begin{enumerate}
+%     \item\label{crgrp-crgrp-jc-1} $\forall a \in S (\calJ(a) = \calJ(a^2))$;
+%     \item\label{crgrp-crgrp-jc-2} $\forall a, b \in S (\calJ(ab) = \calJ(ba))$;
+%     \item\label{crgrp-crgrp-jc-3} $\calJ$ is a congruence, thus, $(S/\calJ, \ast)$ is a semigroup, where $\calJ(a) \ast \calJ(b) := \calJ(ab)$.
+%     \item\label{crgrp-crgrp-jc-4} $\calJ(a) \leq \calJ(b) \Leftrightarrow \calJ(a) = \calJ(a)\ast \calJ(b)$, thus $(\calJ, \leq, \land)$ consists a semilattice, where $\calJ(a)\land \calJ(b) := \inf \{ \calJ(a), \calJ(b) \} = \calJ(a)\ast \calJ(b)$;
+%     \item\label{crgrp-crgrp-jc-5} $S$ is a semilattice of CSSs.
+%   \end{enumerate}
+% \end{proposition}
+
+% \begin{proof}
+%   \ref{crgrp-crgrp-jc-1} Notice that $a'a^2 = a, aa = a^2$ and that $a^2a' = a, aa=a^2$, clearly $a \calH a^2$, thus $a \calJ a^2$.
+
+%   \ref{crgrp-crgrp-jc-2} For any $a, b \in S$, 
+%   \[
+%     \calJ(ab) = \calJ(abab) \leq \calJ(ba).
+%   \]
+%   Similarly we have $\calJ(ba) \leq \calJ(ab)$, so $\calJ(ab) = \calJ(ba)$.
+
+%   \ref{crgrp-crgrp-jc-3} If $a \calJ b$, then $b = xay, a = ubv$ for some $x,y,u,v$ in $S^1$. If $c \in S$, then
+%   \[
+%     \calJ(ca) = \calJ(cubv) \leq \calJ(cub) = \calJ(ubc) \leq \calJ(bc) = \calJ(cb);
+%   \]
+%   similarly one can establish that $\calJ(cb) \leq \calJ(ca)$. By virtue of previous result we obtain $\calJ(ac) = \calJ(bc)$, and so $\calJ$ is a congruence.
+
+%   \ref{crgrp-crgrp-jc-4} Hitherto we have established that $(S/\calJ, \ast)$ is a commutative semigroup, in which every element is idempotent. If $\calJ(a) = \calJ(ab)$, then $(a) = (ab) \subset (b)$, and it follows that $\calJ(a) \leq \calJ(b)$. Conversely, suppose $\calJ(a) \leq \calJ(b)$, there exists $x, y \in S^1$ such that $xby=a$, and so
+%   \[
+%     \calJ(a) = \calJ(a^2) = \calJ(axby) \leq \calJ(axb) = \calJ(bax) \leq \calJ(ba) = \calJ(ab).
+%   \]
+%   By $(ab) \subset (a)$ we also have $\calJ(ab) \leq \calJ(a)$. Thus, $\calJ(ab) = \calJ(a)$.
+
+%   \ref{crgrp-crgrp-jc-5} We shall show that every $\calJ(p) \in S/\calJ$ is a CSS. Here we denote by $A$ the set $\calJ(p)$ for convenience. The property $\calJ(p)\cdot \calJ(p) \subset \calJ(p^2) = \calJ(p)$ give that $A$ is a semigroup. We assert that $\calJ^A = A^2$, thus it is simple, and since it is also c.r., it must be c.s. For any $a, b \in A$, there exists $x,y,u,v \in S$ such that $xay = b, ubv = a$. There exists idempotents $e, f$ so that $a \in \calH(e) \subset A$ and $b \in \calH(f) \subset A$ on the grounds of $S$ is c.r. Hence
+%   \[
+%     fxayf = fbf = b, eubvf = eae = a;
+%   \]
+%   it's clear that $\calJ(fx) \geq \calJ(fxayf) = \calJ(b) = A$, and similarly $yf, eu, ve$ are all in $A$. The equations above mean that $a \calJ^A b$, thus $\calJ^A = A^2$.
+
+%   To show that $A$ is c.r., observe that any $a \in A$ lies in a group $\calH(a) \subset \calJ(p)$, thus by Proposition \ref{prop:crgrp-crgrp-eqp}, it is a c.r.s.
+
+%   To complete this proof, we define the mapping $\idd: S/\calJ \to S/\calJ: \alpha \mapsto \alpha$, view $(S/\calJ, \leq, \land)$ as a semilattice, $S$ as the disjoint union $\bigsqcup_{\alpha \in S/\calJ} \idd (\alpha)$. Since for any $\calJ$-calsses $\alpha$ and $\beta$, $\alpha \cdot \beta \subset \alpha \land \beta$, $S$ becomes a semilattice of CSSs.
+% \end{proof}
+
+
+
+
+
+
+
+% \begin{proposition}
+%   A strong semilattice of CRSs is also a CRS.
+% \end{proposition}
+% \begin{proof}
+%   The multiplication defined on $S$ is as follows: for any $(x, i), (y, j) \in S$
+%   \[
+%     (x, i)\cdot (y, j) = (\alpha_{i \to i\land j}(x)\alpha_{j \to i\land j}(y), i\land j),
+%   \]
+%   still it holds that $((x, i)(y, j))(z, k) = (x, i)((y, j)(z, k))$ and that $\alpha(i) \cdot \alpha(j) \subset \alpha(i\land j)$.
+%   Define the mapping $(a, i) \mapsto (a', i)$, where $a'$ is the result of $(-)'$ belongs to CRS $\alpha(i)$. Thus, 
+%   \[
+%     (a, i)(a', i) = (\alpha_{i \to i\land i}(a)\alpha_{i \to i \land i}(a'), i\land i) = (aa', i);
+%   \]
+%   the remaining verifications are all straightforward.
+% \end{proof}
+
+
+
+
+
+
+
+
+
+
+% \begin{theorem}
+%   \label{theo:crgrp-crgrp-clfeqs}
+%   Suppose $S$ is a semigroup, then the following statements are equivalent:
+%   \begin{enumerate}
+%     \item\label{crgrp-crgrp-clfeqs-1} $S$ is a Clifford semigroup;
+%     \item\label{crgrp-crgrp-clfeqs-2} $S$ is a semilattice of groups;
+%     \item\label{crgrp-crgrp-clfeqs-3} $S$ is a strong semilattice of groups;
+%     \item\label{crgrp-crgrp-clfeqs-4} $S$ is regular, and $\idm S \subset Z(S)$;
+%     \item\label{crgrp-crgrp-clfeqs-5} $S$ is regular, and $\calD^S \cap (\idm S)^2  = \Delta_{\idm S}$.
+%   \end{enumerate}
+% \end{theorem}
+
+% \begin{proof}
+%   \ref{crgrp-crgrp-clfeqs-1} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-2} Let $S$ be a Clifford semigroup, by \ref{crgrp-crgrp-jc-5} of Proposition \ref{prop:crgrp-crgrp-jc}, we first obtain that $S$ is a semilattice of CSSs. Consider a particular CSS $S_i$. Since every idempotent $e = ee'$, the idempotents in $S_i$ are commutative. By Proposition \ref{prop:crgrp-crgrp-idmispri}, every idempotent in $S_i$ is primitive, then for any $e, f \in \idm S_i$,
+%   \[
+%     e(ef) = ef(e) = ef, f(ef) = (ef)f = ef,
+%   \]
+%   which means that $ef \leq e$ and $ef \leq f$. Since  both $e, f$ are primitive, $e = ef = f$, that is, $S_i$ contains only one idempotent. According to the property that any $\calH$-class of the CSS $S_i$ is a group, which naturally contains an idempotent, so we may deduce that $S_i$ has only one $\calH$-class, implying $S_i$ is a group.
+
+%   \ref{crgrp-crgrp-clfeqs-2} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-3} This statement essentially says that the mapping $\alpha: I \to \Ob(\cate{Grp})$ within a semilattice of groups can be used to construct a functor. As will be evident in the proof below, the well-behaved properties of groups make this upgrade straightforward.  We denote the element in $\alpha(i)$ by $x_i$. Observe that $\left(\bigsqcup_{i \in I}\alpha(i), \cdot\right)$ as a semilattice of groups, satisfies $\alpha(i) \cdot \alpha(j) \subset \alpha(i\land j)$ and every $(\alpha(i), \cdot)$ is the subsemigroup of $\left(\bigsqcup_{i \in I}\alpha(i), \cdot\right)$.
+  
+%   Suppose $i \to j$, define the mapping $\alpha_{i \to j}: \alpha(i) \to \alpha(j)$ as $x_i \mapsto e_j \cdot x_i$, where $e_j$ is the identity of group $\alpha(j)$, and the remaining verifications proceed in these parts:
+%   \begin{itemize}
+%     \item for any $i \to j$, $\alpha_{i \to j}$ is a morphism;
+%     \item for any $i\in \Ob(I)$, $\alpha_{i \to i} = \idd_{\alpha(i)}$;
+%     \item for any $i \to j \to k$ within $I$, $\alpha_{j \to k}\circ \alpha_{i \to j} = \alpha_{i \to k}$;
+%     \item for any $i, j \in \Ob(I)$, the multiplication that presupposed on $S$ coincides with the multiplication defined as follows,
+%     \[
+%       x_i \bullet y_j = \alpha_{i \to i\land j}(x) \cdot \alpha_{j \to i\land j}(y).
+%     \]
+%   \end{itemize}
+%   See \cite[Theorem 4.2.1]{John-FundSmg} for details.
+
+%   \ref{crgrp-crgrp-clfeqs-3} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-4} Defining $x'_i := x_i^{-1}$ which lies in the group $\alpha(i)$, makes $S$ a regular semigroup. Its idempotents are the identity elements $e_i$ of the group $\alpha(i)$. For any $x_j \in \alpha(j) \subset S$,
+%   \[
+%     e_i\cdot x_j = \alpha_{i \to i\land j} (e_i) \alpha_{j \to i\land j} (x_j) =  e_{i\land j} \alpha_{j \to i\land j} (x_j) = \alpha_{j \to i\land j} (x_j) = x_j \cdot e_i,
+%   \]
+%   thus, $\idm S \subset Z(S)$.
+
+%   \ref{crgrp-crgrp-clfeqs-4} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-5}  Suppose $e \calD f$, by (...) there exists $a$ and its inverse $a'$ such that $a'a = f, aa'=e$. So we have
+%   \[
+%     e = e^2 = aa'aa' = afa' = faa' = a'aaa' = a'ae = a'ea = a'aa'a = f^2 = f.
+%   \]
+
+%   \ref{crgrp-crgrp-clfeqs-5} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-1} If a $\calD$-calss contains a single idempotent $e$, then $\calD(e)$ is regular, and for any $a \in \calD(e)$ there exists $x$ such that  $axa = a$. It follows that $ax$ is an idempotent belongs to $\calR(a)$, then so it equals to $e$; similarly $xa = e$. From $ea = a$ and $ae = a$, we obtain $a \calH e$, thus $\calD(e) = \calH(e)$. 
+% \end{proof}
+
+ 
