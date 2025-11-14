@@ -156,40 +156,75 @@ We Stipulate that a partially ordered set $(I, \leq)$ can be made into a categor
 \]
 In particular, a semilattice can also be made into a category in the same manner.
 
-Given a category $\calC$ and a small category $I$, one can define a functor $\Delta_I$, which maps each $S$ to the functor $\Delta_I(S)$ that sends $i$ to $S$ and $i\to j$ to $\idd_S$, and maps each morphism $S \to T$ in $\calC$ to the morphism of functors $\Delta_I(S) \to \Delta_I(T)$ that send every $i$ to the certain morphism $S \to T$.
+% Given a category $\calC$ and a small category $I$, and $\alpha\in \calC^I$ is an object of functor category. one can define a functor $\Delta_I$, which maps each $S$ to the functor $\Delta_I(S): I \to \calC$ that sends $i$ to $S$ and $i\to j$ to $\idd_S$, and maps each morphism $S \to T$ in $\calC$ to the morphism of functors $\Delta_I(S) \to \Delta_I(T)$ that send every $i$ to the certain morphism $S \to T$.
 
-A colimit $\varinjlim \alpha$ of functor $\alpha: I \to \calC$, is the initial object within the comma category $(j_{\alpha}, \Delta_I)$, that is, for any pair $(L, f)$, in which $L$ is an object of $\calC$ and $f: \alpha \to \Delta_I(L)$ is a morphism of functors, there exists unique morphism $\phi: \varinjlim \alpha \to L$ that makes the following diagram commutes.
-\[
-  \begin{tikzcd}
-    \alpha
-      \arrow[r]
-      \arrow[rd, "f"']
-    &\Delta_I(\varinjlim \alpha)
-      \arrow[d, dashed, "\exists !"', "\Delta_I(\phi)"]
-    \\
-    &\Delta_I(L)
-  \end{tikzcd}
-\] 
-
-
-
+% A colimit $\varinjlim \alpha$ of functor $\alpha: I \to \calC$, is the initial object within the comma category $(j_{\alpha}, \Delta_I)$, that is, for any pair $(L, f)$, in which $L$ is an object of $\calC$ and $f: \alpha \to \Delta_I(L)$ is a morphism of functors, there exists unique morphism $\phi: \varinjlim \alpha \to L$ that makes the following diagram commutes.
+% \[
+%   \begin{tikzcd}
+%     \alpha
+%       \arrow[r]
+%       \arrow[rd, "f"']
+%     &\Delta_I(\varinjlim \alpha)
+%       \arrow[d, dashed, "\exists !"', "\Delta_I(\phi)"]
+%     \\
+%     &\Delta_I(L)
+%   \end{tikzcd}
+% \] 
+% The definition of limits is similar, it can be found in any category textbook, and we omit it here.
 
 
 
 
-\begin{proposition}
-  \label{prop:crs-crsandcli-smltsofsmg}
+
+
+\begin{definition}
+  \label{def:crs-crsandcli-smltsofsmg}
   Let $(I, \leq, \land)$ be a semilattice, $\alpha: I \to \cate{Smg}$ be a functor and $S$ be the set $\bigsqcup_{i\in I}\alpha(i)$. Define a multiplication on $S$ as
   \[
-    (x, i)(y, j) := (\alpha_{i \to i \land j}(x) \alpha_{j \to i\land j}(y), i \land j);
+    (x, i)\ast(y, j) := (\alpha_{i \to i \land j}(x) \alpha_{j \to i\land j}(y), i \land j);
   \]
   and a family of functions $\iota(i): \alpha(i) \to S$ that maps $x$ to $(x, i)$ for every $i \in I$, which are in fact the natural inclusions. Then, it can be verified that:
   \begin{enumerate}
-    \item\label{crs-crsandcli-smltsofsmg-1} the multiplication defined above is well-defined;
-    \item\label{crs-crsandcli-smltsofsmg-2} each $\iota(i): \alpha(i) \to S$ is a morphism of semigroups;
-    \item\label{crs-crsandcli-smltsofsmg-3} $S$, together with the morphism of functors $\iota = [i \mapsto \iota(i)]: \alpha \to \Delta_I(S)$, forms the colimit of $\alpha$.
-  \end{enumerate} 
-\end{proposition}
+    \item\label{crs-crsandcli-smltsofsmg-1} each $\iota(i): \alpha(i) \to S$ is a morphism of semigroups, but the series of these morphisms, $\iota = [i\mapsto \iota(i)]$, may not consist a natural transformation between $\alpha \to \Delta_I(S)$;
+    \item\label{crs-crsandcli-smltsofsmg-2} the set $S$, together with the multiplication defined above, forms a semigroup;
+    \item\label{crs-crsandcli-smltsofsmg-3} for any $i, j$ in $I$, $\alpha(i) \ast \alpha(j) \subset \alpha(i\land j)$;
+    \item\label{crs-crsandcli-smltsofsmg-4} for any semigroup $L$ and the morphism $f: \alpha \to \Delta_I(L)$, there exists unique morphism $\phi: S \to L$ which is given by $(x, i) \mapsto f(i)(x)$ such that for any $i \in I$ the following diagram commuts.
+    \[
+      \begin{tikzcd}
+        \alpha(i)
+          \arrow[r, hook, "\iota(i)"]
+          \arrow[rd, "f(i)"']
+        &S
+          \arrow[d, dashed, "\exists !"', "\phi"]
+        \\
+        &L
+      \end{tikzcd}
+    \]
+  \end{enumerate}
+  Hence, we call the semigroup $(S, \ast)$ the \textit{strong semilattice of semigroups}.
+\end{definition}
+
+
+
+
+
+
+
+\begin{definition}
+  Let $(I, \leq, \land)$ be a semilattice, $(S, \ast)$ be a semigroup, $\alpha: I \to \Ob(\cate{Smg})$ be a mapping and $(\iota(i): \alpha(i) \hookrightarrow S)_{i \in I}$ be a series of semigroup monomorphisms. We say that $S$ is the \textit{lattice of semigroups} if
+  \begin{enumerate}
+    \item $\alpha(i) \ast \alpha(j) \subset \alpha(i\land j)$;
+    \item under the perspective of set, $S = \bigsqcup_{i \in I} \alpha(i)$.
+  \end{enumerate}
+\end{definition}
+
+
+
+
+
+
+
+The above two definitions, the strong semilattice of semigroups and the semilattice of semigroups, can generalize to the cases of CRSs, CSSs and groups.
 
 
 
@@ -198,6 +233,19 @@ A colimit $\varinjlim \alpha$ of functor $\alpha: I \to \calC$, is the initial o
 
 
 \begin{proposition}
+  Suppose $I$ is a semilattice and $\alpha: I \to \cate{Css}$ is a functor, then still is a CSS the semigroup $(S, \ast)$ constructed by Definition \ref{def:crs-crsandcli-smltsofsmg}.
+\end{proposition}
+\begin{proof}
+  For any element $(x, i)$ in $S$, let $(x, i)'$ be $(x', i)$ where $x'$ is the inverse of $x$ within $\calH(x)$ by the property of CSSs that every $\calH$-calss is a group. It can be verified that $(-)'$ satisfies the conditions of \ref{crs-crsandcli-props3-2} of Proposition \ref{prop:crs-crsandcli-props3}, and so it is a CSS.
+\end{proof}
+
+
+
+
+
+
+
+\begin{example}
   Let $\alpha: I \to \cate{Smg}$ be a functor, where $I$ is a filtered category (a partial ordered set is of course filtered). Let $S$ be the set $\bigsqcup_{i \in I}\alpha(i)$. The relation, $(x, i) \sim (y, j) \Leftrightarrow \exists k \in \Ob(I)$ such that $i \rightarrow k \leftarrow j$ and $\alpha_{i \to k}(x) = \alpha_{j \to k}(y)$, is an equivalence relation. We denote by $[x, i]$ the equivalence class of $(x, i)$. Define a multiplication on $S/\sim$ as 
   \[
     [x, i][y, j] := [\alpha_{i \to k}(x) \alpha_{j \to k}(y), k],
@@ -205,10 +253,24 @@ A colimit $\varinjlim \alpha$ of functor $\alpha: I \to \calC$, is the initial o
   and a family of functions $\iota(i): \alpha(i) \to S/\sim$ that maps $x$ to $[x, i]$. Then, it can be verified that:
   \begin{enumerate}
     \item the multiplication defined above is well defined, thus $S/\sim$ forms a semigroup;
-    \item each $\iota(i)$ is a morphism of semigroups;
-    \item $S/\sim$, together with the morphism of functors $\iota = (\iota(i))_i: \alpha \to \Delta_I(S/\sim)$, forms the colimit of $\alpha$.
+    \item each $\iota(i)$ is a morphism of semigroups, and the series of these morphisms $\iota = [i \mapsto \iota(i)]$ is a natural transformation between functors $\alpha$ and $\Delta_I(S)$;
+    \item $S/\sim$, together with the morphism of functors $\iota$, forms the colimit of $\alpha$.
   \end{enumerate}
-\end{proposition}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -243,49 +305,49 @@ A colimit $\varinjlim \alpha$ of functor $\alpha: I \to \calC$, is the initial o
 
 
 
-% \begin{proposition}
-%   \label{prop:crgrp-crgrp-jc}
-%   Suppose $(S, \cdot, (-)')$ is CR., then
-%   \begin{enumerate}
-%     \item\label{crgrp-crgrp-jc-1} $\forall a \in S (\calJ(a) = \calJ(a^2))$;
-%     \item\label{crgrp-crgrp-jc-2} $\forall a, b \in S (\calJ(ab) = \calJ(ba))$;
-%     \item\label{crgrp-crgrp-jc-3} $\calJ$ is a congruence, thus, $(S/\calJ, \ast)$ is a semigroup, where $\calJ(a) \ast \calJ(b) := \calJ(ab)$.
-%     \item\label{crgrp-crgrp-jc-4} $\calJ(a) \leq \calJ(b) \Leftrightarrow \calJ(a) = \calJ(a)\ast \calJ(b)$, thus $(\calJ, \leq, \land)$ consists a semilattice, where $\calJ(a)\land \calJ(b) := \inf \{ \calJ(a), \calJ(b) \} = \calJ(a)\ast \calJ(b)$;
-%     \item\label{crgrp-crgrp-jc-5} $S$ is a semilattice of CSSs.
-%   \end{enumerate}
-% \end{proposition}
+\begin{proposition}
+  \label{prop:crs-crsandcli-jc}
+  Let $(S, \cdot, (-)')$ be a CRS, then
+  \begin{enumerate}
+    \item\label{crs-crsandcli-jc-1} $\forall a \in S (\calJ(a) = \calJ(a^2))$;
+    \item\label{crs-crsandcli-jc-2} $\forall a, b \in S (\calJ(ab) = \calJ(ba))$;
+    \item\label{crs-crsandcli-jc-3} $\calJ$ is a congruence, thus $(S/\calJ, \ast)$ is a semigroup, where $\calJ(a) \ast \calJ(b) := \calJ(ab)$.
+    \item\label{crs-crsandcli-jc-4} $\calJ(a) \leq \calJ(b) \Leftrightarrow \calJ(a) = \calJ(a)\ast \calJ(b)$, thus $(\calJ, \leq, \land)$ consists a semilattice, where $\calJ(a)\land \calJ(b) := \inf \{ \calJ(a), \calJ(b) \} = \calJ(a)\ast \calJ(b)$;
+    \item\label{crs-crsandcli-jc-5} $S$ is a semilattice of CSSs.
+  \end{enumerate}
+\end{proposition}
 
-% \begin{proof}
-%   \ref{crgrp-crgrp-jc-1} Notice that $a'a^2 = a, aa = a^2$ and that $a^2a' = a, aa=a^2$, clearly $a \calH a^2$, thus $a \calJ a^2$.
+\begin{proof}
+  \ref{crs-crsandcli-jc-1} Notice that $a'a^2 = a, aa = a^2$ and that $a^2a' = a, aa=a^2$, clearly $a \calH a^2$, thus $a \calJ a^2$.
 
-%   \ref{crgrp-crgrp-jc-2} For any $a, b \in S$, 
-%   \[
-%     \calJ(ab) = \calJ(abab) \leq \calJ(ba).
-%   \]
-%   Similarly we have $\calJ(ba) \leq \calJ(ab)$, so $\calJ(ab) = \calJ(ba)$.
+  \ref{crs-crsandcli-jc-2} For any $a, b \in S$, 
+  \[
+    \calJ(ab) = \calJ(abab) \leq \calJ(ba).
+  \]
+  Similarly we have $\calJ(ba) \leq \calJ(ab)$, so $\calJ(ab) = \calJ(ba)$.
 
-%   \ref{crgrp-crgrp-jc-3} If $a \calJ b$, then $b = xay, a = ubv$ for some $x,y,u,v$ in $S^1$. If $c \in S$, then
-%   \[
-%     \calJ(ca) = \calJ(cubv) \leq \calJ(cub) = \calJ(ubc) \leq \calJ(bc) = \calJ(cb);
-%   \]
-%   similarly one can establish that $\calJ(cb) \leq \calJ(ca)$. By virtue of previous result we obtain $\calJ(ac) = \calJ(bc)$, and so $\calJ$ is a congruence.
+  \ref{crs-crsandcli-jc-3} If $a \calJ b$, then $b = xay, a = ubv$ for some $x,y,u,v$ in $S^1$. If $c \in S$, then
+  \[
+    \calJ(ca) = \calJ(cubv) \leq \calJ(cub) = \calJ(ubc) \leq \calJ(bc) = \calJ(cb);
+  \]
+  similarly one can establish that $\calJ(cb) \leq \calJ(ca)$. By virtue of previous result we obtain $\calJ(ac) = \calJ(bc)$, and so $\calJ$ is a congruence.
 
-%   \ref{crgrp-crgrp-jc-4} Hitherto we have established that $(S/\calJ, \ast)$ is a commutative semigroup, in which every element is idempotent. If $\calJ(a) = \calJ(ab)$, then $(a) = (ab) \subset (b)$, and it follows that $\calJ(a) \leq \calJ(b)$. Conversely, suppose $\calJ(a) \leq \calJ(b)$, there exists $x, y \in S^1$ such that $xby=a$, and so
-%   \[
-%     \calJ(a) = \calJ(a^2) = \calJ(axby) \leq \calJ(axb) = \calJ(bax) \leq \calJ(ba) = \calJ(ab).
-%   \]
-%   By $(ab) \subset (a)$ we also have $\calJ(ab) \leq \calJ(a)$. Thus, $\calJ(ab) = \calJ(a)$.
+  \ref{crs-crsandcli-jc-4} Hitherto we have established that $(S/\calJ, \ast)$ is a commutative semigroup, in which every element is idempotent. If $\calJ(a) = \calJ(ab)$, then $(a) = (ab) \subset (b)$, and it follows that $\calJ(a) \leq \calJ(b)$. Conversely, suppose $\calJ(a) \leq \calJ(b)$, there exists $x, y \in S^1$ such that $xby=a$, and so
+  \[
+    \calJ(a) = \calJ(a^2) = \calJ(axby) \leq \calJ(axb) = \calJ(bax) \leq \calJ(ba) = \calJ(ab).
+  \]
+  By $(ab) \subset (a)$ we also have $\calJ(ab) \leq \calJ(a)$. Thus, $\calJ(ab) = \calJ(a)$.
 
-%   \ref{crgrp-crgrp-jc-5} We shall show that every $\calJ(p) \in S/\calJ$ is a CSS. Here we denote by $A$ the set $\calJ(p)$ for convenience. The property $\calJ(p)\cdot \calJ(p) \subset \calJ(p^2) = \calJ(p)$ give that $A$ is a semigroup. We assert that $\calJ^A = A^2$, thus it is simple, and since it is also CR., it must be c.s. For any $a, b \in A$, there exists $x,y,u,v \in S$ such that $xay = b, ubv = a$. There exists idempotents $e, f$ so that $a \in \calH(e) \subset A$ and $b \in \calH(f) \subset A$ on the grounds of $S$ is CR. Hence
-%   \[
-%     fxayf = fbf = b, eubvf = eae = a;
-%   \]
-%   it's clear that $\calJ(fx) \geq \calJ(fxayf) = \calJ(b) = A$, and similarly $yf, eu, ve$ are all in $A$. The equations above mean that $a \calJ^A b$, thus $\calJ^A = A^2$.
+  \ref{crs-crsandcli-jc-5} We shall show that every $\calJ(p) \in S/\calJ$ is a CSS. Here we denote by $A$ the set $\calJ(p)$ for convenience. The property $\calJ(p)\cdot \calJ(p) \subset \calJ(p^2) = \calJ(p)$ give that $A$ is a semigroup. We assert that $\calJ^A = A^2$, thus it is simple, and due to it is also CR, it must be CS. For any $a, b \in A$, there exists $x,y,u,v \in S$ such that $xay = b, ubv = a$. There exists idempotents $e, f$ such that $a \in \calH(e) \subset A$ and $b \in \calH(f) \subset A$ on the grounds of $S$ is CR. Hence
+  \[
+    fxayf = fbf = b, eubvf = eae = a;
+  \]
+  it's clear that $\calJ(fx) \geq \calJ(fxayf) = \calJ(b) = A$, and similarly all of $yf, eu, ve$ are in $A$. The equations above mean that $a \calJ^A b$, thus $\calJ^A = A^2$.
 
-%   To show that $A$ is CR., observe that any $a \in A$ lies in a group $\calH(a) \subset \calJ(p)$, thus by Proposition \ref{prop:crgrp-crgrp-eqp}, it is a c.r.s.
+  To show that $A$ is CR, observe that any $a \in A$ lies in a group $\calH(a) \subset \calJ(p)$.
 
-%   To complete this proof, we define the mapping $\idd: S/\calJ \to S/\calJ: \alpha \mapsto \alpha$, view $(S/\calJ, \leq, \land)$ as a semilattice, $S$ as the disjoint union $\bigsqcup_{\alpha \in S/\calJ} \idd (\alpha)$. Since for any $\calJ$-calsses $\alpha$ and $\beta$, $\alpha \cdot \beta \subset \alpha \land \beta$, $S$ becomes a semilattice of CSSs.
-% \end{proof}
+  To complete this proof, define the mapping $\idd: S/\calJ \to S/\calJ: \alpha \mapsto \alpha$, where $(S/\calJ, \leq, \land)$ can be viewed as a semilattice. On the other hand $S$ is the disjoint union $\bigsqcup_{\alpha \in S/\calJ} \alpha$; and for any $\calJ$-calsses $\alpha$ and $\beta$, $\alpha \cdot \beta \subset \alpha \land \beta$; thus, $S$ becomes a semilattice of CSSs.
+\end{proof}
 
 
 
@@ -318,51 +380,51 @@ A colimit $\varinjlim \alpha$ of functor $\alpha: I \to \calC$, is the initial o
 
 
 
-% \begin{theorem}
-%   \label{theo:crgrp-crgrp-clfeqs}
-%   Suppose $S$ is a semigroup, then the following statements are equivalent:
-%   \begin{enumerate}
-%     \item\label{crgrp-crgrp-clfeqs-1} $S$ is a Clifford semigroup;
-%     \item\label{crgrp-crgrp-clfeqs-2} $S$ is a semilattice of groups;
-%     \item\label{crgrp-crgrp-clfeqs-3} $S$ is a strong semilattice of groups;
-%     \item\label{crgrp-crgrp-clfeqs-4} $S$ is regular, and $\idm S \subset Z(S)$;
-%     \item\label{crgrp-crgrp-clfeqs-5} $S$ is regular, and $\calD^S \cap (\idm S)^2  = \Delta_{\idm S}$.
-%   \end{enumerate}
-% \end{theorem}
+\begin{theorem}
+  \label{theo:crs-crsandcli-clis}
+  Suppose $S$ is a semigroup, then the following statements are equivalent:
+  \begin{enumerate}
+    \item\label{crs-crsandcli-clis-1} $S$ is a Clifford semigroup;
+    \item\label{crs-crsandcli-clis-2} $S$ is a semilattice of groups;
+    \item\label{crs-crsandcli-clis-3} $S$ is a strong semilattice of groups;
+    \item\label{crs-crsandcli-clis-4} $S$ is regular, and $\idm S \subset Z(S)$;
+    \item\label{crs-crsandcli-clis-5} $S$ is regular, and $\calD^S \cap (\idm S)^2  = \Delta_{\idm S}$.
+  \end{enumerate}
+\end{theorem}
 
-% \begin{proof}
-%   \ref{crgrp-crgrp-clfeqs-1} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-2} Let $S$ be a Clifford semigroup, by \ref{crgrp-crgrp-jc-5} of Proposition \ref{prop:crgrp-crgrp-jc}, we first obtain that $S$ is a semilattice of CSSs. Consider a particular CSS $S_i$. Since every idempotent $e = ee'$, the idempotents in $S_i$ are commutative. By Proposition \ref{prop:crgrp-crgrp-idmispri}, every idempotent in $S_i$ is primitive, then for any $e, f \in \idm S_i$,
-%   \[
-%     e(ef) = ef(e) = ef, f(ef) = (ef)f = ef,
-%   \]
-%   which means that $ef \leq e$ and $ef \leq f$. Since  both $e, f$ are primitive, $e = ef = f$, that is, $S_i$ contains only one idempotent. According to the property that any $\calH$-class of the CSS $S_i$ is a group, which naturally contains an idempotent, so we may deduce that $S_i$ has only one $\calH$-class, implying $S_i$ is a group.
+\begin{proof}
+  \ref{crs-crsandcli-clis-1} $\Rightarrow$ \ref{crs-crsandcli-clis-2} Let $S$ be a Clifford semigroup, by \ref{crs-crsandcli-jc-5} of Proposition \ref{prop:crs-crsandcli-jc}, we first obtain that $S$ is a semilattice of CSSs. Consider a particular CSS $S_i$. Since every idempotent $e = ee'$, the idempotents in $S_i$ are commutative. By Proposition \ref{prop:crgrp-crgrp-idmispri}, every idempotent in $S_i$ is primitive, then for any $e, f \in \idm S_i$,
+  \[
+    e(ef) = ef(e) = ef, f(ef) = (ef)f = ef,
+  \]
+  which means that $ef \leq e$ and $ef \leq f$. Since  both $e, f$ are primitive, $e = ef = f$, that is, $S_i$ contains only one idempotent. According to the property that any $\calH$-class of the CSS $S_i$ is a group, which naturally contains an idempotent, so we may deduce that $S_i$ has only one $\calH$-class, implying $S_i$ is a group.
 
-%   \ref{crgrp-crgrp-clfeqs-2} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-3} This statement essentially says that the mapping $\alpha: I \to \Ob(\cate{Grp})$ within a semilattice of groups can be used to construct a functor. As will be evident in the proof below, the well-behaved properties of groups make this upgrade straightforward.  We denote the element in $\alpha(i)$ by $x_i$. Observe that $\left(\bigsqcup_{i \in I}\alpha(i), \cdot\right)$ as a semilattice of groups, satisfies $\alpha(i) \cdot \alpha(j) \subset \alpha(i\land j)$ and every $(\alpha(i), \cdot)$ is the subsemigroup of $\left(\bigsqcup_{i \in I}\alpha(i), \cdot\right)$.
+  \ref{crs-crsandcli-clis-2} $\Rightarrow$ \ref{crs-crsandcli-clis-3} This statement essentially says that the mapping $\alpha: I \to \Ob(\cate{Grp})$ within a semilattice of groups can be used to construct a functor. As will be evident in the proof below, the well-behaved properties of groups make this upgrade straightforward.  We denote the element in $\alpha(i)$ by $x_i$. Observe that $\left(\bigsqcup_{i \in I}\alpha(i), \cdot\right)$ as a semilattice of groups, satisfies $\alpha(i) \cdot \alpha(j) \subset \alpha(i\land j)$ and every $(\alpha(i), \cdot)$ is the subsemigroup of $\left(\bigsqcup_{i \in I}\alpha(i), \cdot\right)$.
   
-%   Suppose $i \to j$, define the mapping $\alpha_{i \to j}: \alpha(i) \to \alpha(j)$ as $x_i \mapsto e_j \cdot x_i$, where $e_j$ is the identity of group $\alpha(j)$, and the remaining verifications proceed in these parts:
-%   \begin{itemize}
-%     \item for any $i \to j$, $\alpha_{i \to j}$ is a morphism;
-%     \item for any $i\in \Ob(I)$, $\alpha_{i \to i} = \idd_{\alpha(i)}$;
-%     \item for any $i \to j \to k$ within $I$, $\alpha_{j \to k}\circ \alpha_{i \to j} = \alpha_{i \to k}$;
-%     \item for any $i, j \in \Ob(I)$, the multiplication that presupposed on $S$ coincides with the multiplication defined as follows,
-%     \[
-%       x_i \bullet y_j = \alpha_{i \to i\land j}(x) \cdot \alpha_{j \to i\land j}(y).
-%     \]
-%   \end{itemize}
-%   See \cite[Theorem 4.2.1]{John-FundSmg} for details.
+  Suppose $i \to j$, define the mapping $\alpha_{i \to j}: \alpha(i) \to \alpha(j)$ as $x_i \mapsto e_j \cdot x_i$, where $e_j$ is the identity of group $\alpha(j)$, and the remaining verifications proceed in these parts:
+  \begin{itemize}
+    \item for any $i \to j$, $\alpha_{i \to j}$ is a morphism;
+    \item for any $i\in \Ob(I)$, $\alpha_{i \to i} = \idd_{\alpha(i)}$;
+    \item for any $i \to j \to k$ within $I$, $\alpha_{j \to k}\circ \alpha_{i \to j} = \alpha_{i \to k}$;
+    \item for any $i, j \in \Ob(I)$, the multiplication that presupposed on $S$ coincides with the multiplication defined as follows,
+    \[
+      x_i \bullet y_j = \alpha_{i \to i\land j}(x) \cdot \alpha_{j \to i\land j}(y).
+    \]
+  \end{itemize}
+  See \cite[Theorem 4.2.1]{John-FundSmg} for details.
 
-%   \ref{crgrp-crgrp-clfeqs-3} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-4} Defining $x'_i := x_i^{-1}$ which lies in the group $\alpha(i)$, makes $S$ a regular semigroup. Its idempotents are the identity elements $e_i$ of the group $\alpha(i)$. For any $x_j \in \alpha(j) \subset S$,
-%   \[
-%     e_i\cdot x_j = \alpha_{i \to i\land j} (e_i) \alpha_{j \to i\land j} (x_j) =  e_{i\land j} \alpha_{j \to i\land j} (x_j) = \alpha_{j \to i\land j} (x_j) = x_j \cdot e_i,
-%   \]
-%   thus, $\idm S \subset Z(S)$.
+  \ref{crs-crsandcli-clis-3} $\Rightarrow$ \ref{crs-crsandcli-clis-4} Defining $x'_i := x_i^{-1}$ which lies in the group $\alpha(i)$, makes $S$ a regular semigroup. Its idempotents are the identity elements $e_i$ of the group $\alpha(i)$. For any $x_j \in \alpha(j) \subset S$,
+  \[
+    e_i\cdot x_j = \alpha_{i \to i\land j} (e_i) \alpha_{j \to i\land j} (x_j) =  e_{i\land j} \alpha_{j \to i\land j} (x_j) = \alpha_{j \to i\land j} (x_j) = x_j \cdot e_i,
+  \]
+  thus, $\idm S \subset Z(S)$.
 
-%   \ref{crgrp-crgrp-clfeqs-4} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-5}  Suppose $e \calD f$, by (...) there exists $a$ and its inverse $a'$ such that $a'a = f, aa'=e$. So we have
-%   \[
-%     e = e^2 = aa'aa' = afa' = faa' = a'aaa' = a'ae = a'ea = a'aa'a = f^2 = f.
-%   \]
+  \ref{crs-crsandcli-clis-4} $\Rightarrow$ \ref{crs-crsandcli-clis-5}  Suppose $e \calD f$, by (...) there exists $a$ and its inverse $a'$ such that $a'a = f, aa'=e$. So we have
+  \[
+    e = e^2 = aa'aa' = afa' = faa' = a'aaa' = a'ae = a'ea = a'aa'a = f^2 = f.
+  \]
 
-%   \ref{crgrp-crgrp-clfeqs-5} $\Rightarrow$ \ref{crgrp-crgrp-clfeqs-1} If a $\calD$-calss contains a single idempotent $e$, then $\calD(e)$ is regular, and for any $a \in \calD(e)$ there exists $x$ such that  $axa = a$. It follows that $ax$ is an idempotent belongs to $\calR(a)$, then so it equals to $e$; similarly $xa = e$. From $ea = a$ and $ae = a$, we obtain $a \calH e$, thus $\calD(e) = \calH(e)$. 
-% \end{proof}
+  \ref{crs-crsandcli-clis-5} $\Rightarrow$ \ref{crs-crsandcli-clis-1} If a $\calD$-calss contains a single idempotent $e$, then $\calD(e)$ is regular, and for any $a \in \calD(e)$ there exists $x$ such that  $axa = a$. It follows that $ax$ is an idempotent belongs to $\calR(a)$, then so it equals to $e$; similarly $xa = e$. From $ea = a$ and $ae = a$, we obtain $a \calH e$, thus $\calD(e) = \calH(e)$. 
+\end{proof}
 
  
