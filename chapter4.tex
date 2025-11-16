@@ -510,6 +510,36 @@ where $\bm{x}_k = (x_{k,i})_{i \in I}$. A family of projection $p_j:\prod_{i} X_
   \]
 \end{definition}
 
+If every $X$ has a free algebra, given a mapping $f: X \to Y$, by the definition above, there exist a unique morphism $\bmrm{F}(f)$ such that the diagram below commutes. This implies $\bmrm{F}$ can be made into a functor. In fact, $\begin{tikzcd}
+  \cate{Set}
+    \arrow[r, bend left=30, "\bmrm{F}"]
+  &\cate{Aj}
+    \arrow[l, bend left=30, "U"]
+\end{tikzcd}$ is an adjunction pair.
+\[
+  \begin{tikzcd}
+    X
+      \arrow[r, hook]
+      \arrow[d, "f"']
+    &U\bmrm{F}(X)
+      \arrow[d, dashed, "\bmrm{F}f"]
+    \\
+    Y
+      \arrow[r, hook]
+    &U\bmrm{F}(Y)
+  \end{tikzcd}
+\]
+
+
+
+
+
+
+
+
+
+
+
 Free algebras exist, and a construction will be given here. Let $F_0$ be the set $X \sqcup \Omega \sqcup \{ (, ) \}$. Note that we are still examining this problem within the framework of the ZFC system, and both the elements of $\Omega$ and the parentheses ``('', ``)'' can be replaced by some set. Besides this, we denote by $\bmrm{On}$ the class of all ordinals and by $\bmrm{V}$ the class of all sets. 
 
 
@@ -525,7 +555,7 @@ Free algebras exist, and a construction will be given here. Let $F_0$ be the set
 
 Let $S$ be the free semigroup $\bmrm{F}_{\cate{Smg}}(X \sqcup \Omega \sqcup \{ (, ) \})$. For any element $\omega \in \Omega$, define the function $H_{\omega}: S \to S$ as $(u_1, \cdots, u_{\ar \omega}) \mapsto \omega((u_1)(u_2)\cdots(u_{\ar \omega}))$. The set $\bmrm{F}$ is set to be the smallest set containing $F_0$ and closed under every $H_{\omega}$, that is,
 \[
-  \bmrm{F} := \left\{ T \subset S: F_0 \subset T \land \left( \forall \omega \in \Omega, \forall u \in T (H_{\omega}(u) \in T) \right) \right\}.
+  \bmrm{F} := \left\{ T \subset S: F_0 \subset T \land \left( \forall \omega \in \Omega, \forall \bm{u} \in T^{\ar \omega} (H_{\omega}(\bm{u}) \in T) \right) \right\}.
 \]
 Furthermore, from $F_0$, one can recursively define a mapping $\bmrm{On} \to \bmrm{V}$:
 \begin{align*}
@@ -614,3 +644,178 @@ then it follows that
   \item if $\gamma$ is a limit ordinal and for every $\alpha < \gamma$, $\alpha \in C$, then $\gamma \in C$.
 \end{itemize}
 By transfinite induction, we may conclude that $C = \theta$.
+
+
+
+
+
+\begin{definition}
+  The \textit{variety} $\calV$ is a subset of $\Ob(\cate{Aj})$, satisfies the properties:
+  \begin{itemize}
+    \item $S \in \calV $ and $T$ is the subalgebra of $S$, then $T \in \calV$;
+    \item $S \in \calV$ and there exist an epimorphism $f: S \to T$, then $T \in \calV$;
+    \item given a small set $I$, $S_i \in \calV$ for any $i \in I$, them $\prod_i S_i \in \calV$.  
+  \end{itemize}
+  Furthermore, a variety could be naturally made into a full subcategory of $\cate{Aj}$.
+\end{definition}
+
+
+
+
+
+
+\begin{definition}
+  Given a set $X$, the $\calV$-\textit{free algebra} $\bmrm{F}_{\calV}(X)$ is an object of $\calV$ satisfies for any $L \in \Ob{\calV}$ and any mapping $f: X \to L$, there exist a unique morphism $\psi$ such that the following diagram commutes:
+  \[
+    \begin{tikzcd}
+      X
+        \arrow[r, hook, "\iota"]
+        \arrow[rd, "f"']
+      &\bmrm{F}_{\calV}(X)
+        \arrow[d, dashed, "\phi"]
+      \\
+      &L
+    \end{tikzcd}
+  \]
+\end{definition}
+
+
+
+
+
+
+
+
+To construct the $\bmrm{F}_{\calV}(X)$, and to facilitate the subsequent descriptions in this section, we define the following notations.
+\begin{definition}
+  Let $X$ be a set, then
+  \begin{itemize}
+    \item for any $S \in \Ob \calV$, $\fker(f,X,S):=\ker\left[\bmrm{F}(X) \xrightarrow{\bar{f}} S\right]$, where $\bar{f}$ is derived from the definition of free algebra;
+    \item $c_{\calV}(X) := \bigcap_{(f, S) \in \calO} \fker(f, X, S)$, where $\calO = \{ (f, S) \in \Mor(\cate{Set}) \times \Ob(\calV): f \in \Hom_{\cate{Set}}(X, S) \}$;
+    \item for $u, v$ in $\bmrm{F}(X)$, $\ceq(X, u, v):= \left\{ S \in \Ob(\calV): (u, v) \in \bigcap_{f \in \Hom_{\cate{Set}}(X, S)} \fker(f, X, S) \right\}$;
+    \item given a binary relation $R \subset \bmrm{F}(X)^2$, the equational class $\ceq(X, R):= \bigcap_{(u,v)\in R}\ceq(X, u, v)$.
+  \end{itemize}
+\end{definition}
+
+
+
+
+
+
+Now we may observe that for any $S \in \Ob \calV$ and mapping $f: X \to S$, there exist unique morphism $\hat{f}: \bmrm{F}(X) / c_{\calV}(X)$, due to the commutative diagram below.
+\[
+  \begin{tikzcd}
+    X
+      \arrow[r, hook]
+      \arrow[rd, "f"']
+    &\bmrm{F}(X)
+      \arrow[r, two heads]
+      \arrow[d, dashed, "\exists !"', "\bar{f}"]
+    &\bmrm{F}(X) / c_{\calV}(X)
+      \arrow[ld, dashed, "\exists !"', "\hat{f}"]
+    \\
+    &S
+    &
+  \end{tikzcd}
+\]
+And the issue lies in proving that $\bmrm{F}(X) / c_{\calV}(X) \in \Ob \calV$. 
+
+
+Notice that every $\bmrm{F}(X) / \fker(f, X, S) \simeq \im \bar{f} \subset S$ is a subalgebra, and so is an element of $\calV$. Define a morphism $\Theta$
+\[
+  \begin{tikzcd}[row sep = small]
+    \bmrm{F}(X)
+      \arrow[r]
+    & \prod_{(f, S) \in \calO} \bmrm{F}(X) / \fker(f, X, S) \\
+    u
+      \arrow[r, mapsto]
+    &\left[ (f, S) \mapsto  \fker(f, X, S)(u) \right]
+  \end{tikzcd}
+\]
+where $\calO = \{ (f, S) \in \Mor(\cate{Set}) \times \Ob(\calV): f \in \Hom_{\cate{Set}}(X, S) \}$. Then, 
+\[
+  \Theta(u) = \Theta(v) \Leftrightarrow c_{\calV}(X)(u) = c_{\calV}(X)(v),
+\]
+and it follows that 
+\[
+  \bmrm{F}(X) /  c_{\calV}(X) \simeq \im \Theta \subset \prod_{(f, S) \in \calO} \bmrm{F}(X) / \fker(f, X, S) \in \Ob \calV,
+\]
+which implies $\bmrm{F}(X) /  c_{\calV}(X) \in \Ob \calV$. Hence, $\begin{tikzcd}[column sep = small]
+   X
+      \arrow[r, hook]
+    &\bmrm{F}(X)
+      \arrow[r, two heads]
+    &\bmrm{F}(X) / c_{\calV}(X)
+\end{tikzcd}$ consists the $\calV$-free algebra of $X$.
+
+
+
+
+
+
+\begin{theorem}
+  As a set, $\calV$ is a variety if and on if it is an equational class $\ceq(X, R)$. 
+\end{theorem}
+\begin{proof}
+  Given a set $X$ and a relation $R \subset \bmrm{F}(X)^2$, we assert that $\ceq(X, R)$ is a variety. The proof proceeds in three parts:
+  \begin{enumerate}
+    \item for any $ S\in \ceq(X, R)$ and subalgebra  $T \subset S$, $T \in \ceq(X, R)$, since for any $f \to T$ the following diagram commutes, and so $\forall (u,v) \in R (\bar f (u) = \bar f (v))$.
+    \[
+      \begin{tikzcd}
+        X
+          \arrow[r, hook]
+          \arrow[rd, "f"'] 
+        &\bmrm{F}(X)
+          \arrow[d, dashed, "\bar{f}"]
+          \arrow[rd, dashed, "\bar{f}"]
+        &
+        \\
+        &T
+          \arrow[r, hook, "\subset"]
+        &S
+      \end{tikzcd}
+    \]
+    \item For any $ S\in \ceq(X, R)$ and the epimorphism  $\pi: S \to T$, $T \in \ceq(X, R)$. For any $f: S \to T$, let $g \in \prod_{x \in X}\pi^{-1}f(x)$, then $X \xrightarrow{g} S \xrightarrow{\pi} T = f$. By the commutativity of the diagram below, $\bar f(u) = \bar f(v)$ for any $(u, v) \in R$.
+    \[
+      \begin{tikzcd}
+        X
+          \arrow[r, hook]
+          \arrow[rd, "f"']
+          \arrow[rdd, "\exists g"'] 
+        &\bmrm{F}(X)
+          \arrow[d, dashed, "\bar{f}"]
+          \arrow[dd, dashed, bend left=50, "\bar g"]
+        \\
+        &T
+        \\
+        &S
+          \arrow[u, two heads, "\pi"']
+      \end{tikzcd}
+    \] 
+    \item Suppose $I$ is small and $S_i \in \ceq(X, R)$, then so does $\prod_{i \in I}S_i$. This is from the following commutative diagram, in which $p_i$ is the projection, which implies that 
+    \[
+      \forall j \in I (p_j\bar f(u) = p_j \bar f(v)) \Leftrightarrow \bar f(u) = \bar f (v)
+    \]
+    for every $(u, v) \in R$.
+    \[
+      \begin{tikzcd}
+        X
+          \arrow[r, hook]
+          \arrow[rd, "f"']
+          \arrow[rdd] 
+        &\bmrm{F}(X)
+          \arrow[d, dashed, "\bar{f}"]
+          \arrow[dd, dashed, bend left=50, "p_j \bar f"]
+        \\
+        &\prod_{i\in I}S_i
+          \arrow[d, "p_j"]
+        \\
+        &S_i
+      \end{tikzcd}
+    \]
+  \end{enumerate}
+
+  Conversely, given a variety $\calV$ and a countably finite set $X$, we assert that $\calV = \ceq(X, c_{\calV}(X))$. The containment $\calV \subset \ceq(X, c_{\calV}(X))$ is easy to verify. For the reverse, let $S \in \ceq(X, c_{\calV}(X))$. Choose an infinite set $Y$ that $|Y| \geq |X|$ and $|Y| \geq |S|$. We shall show that $S$ is the image of morphism $[\bmrm{F}_{\calV}(Y) \twoheadrightarrow S]$, and so $S \in \calV$. 
+
+  Suppose $(u, v) \in c_{\calV}(Y)$, then $u,v \in \bmrm{F}(Y)$, each of them can be viewed as a series of finite length that every coordinate belongs to set $Y \sqcap \Omega \sqcup \{(, )\}$ respectively, and so could it be viewed as a function which has a finite domain contained in $\Z_{\geq 1}$ and a finite image contained in $Y \sqcap \Omega \sqcup \{(, )\}$. Let $Y_0 = (\im u \cup \im v) \cap Y$, clearly it is a finite set. Let $X_0 \subset X$, and we may find a function $\xi_0: X \hookrightarrow Y$ that satisfies $\xi_0(X_0) = Y_0$.
+\end{proof}
