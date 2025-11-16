@@ -434,4 +434,183 @@ The above two definitions, the strong semilattice of semigroups and the semilatt
   \]
 \end{proof}
 
- 
+
+
+
+
+
+
+
+\section{Varieties}
+
+\begin{definition}
+  An $\Omega$-algebra contains data $(X, \Omega, \ar, \ot)$, where $X$ is a set and the set $\Omega$ is called operator domain. The arity $\ar$ is a function $\Omega \to \Z_{\geq 0}$ and $\ot$ is a function sends each $\omega \in \Omega$ to a certain operator $\ot(\omega): X^{\ar(\omega)} \to X$. In the case that $\ar(\omega) = 0$, $\ot(\omega)$ is set to a constant function.
+\end{definition}
+
+
+
+Particularly, when $\Omega$ contains two elements with the arity of $2$ and $1$ respectively, we call the system $(2,1)$-algebra. A semigroup is a $(2)$-algebra.
+
+In this section, if not specified, $\Omega$ is viewed as a finite set.
+
+
+
+\begin{definition}
+  Given the data $(\Omega, \ar)$, the category of $\Omega$-algebras $\Omega\text{-}\cate{Aj}$ contains the following data:
+  \begin{itemize}
+    \item objects: all $\Omega$-algebras in which every $\Omega$-algebra as a set is a $\calU$-small set, where $\calU$ is a Grothendieck universe;
+    \item $\Hom((X, \Omega, \ar, \ot_X), (Y, \Omega, \ar, \ot_Y))$: function $f:X \to Y$ satisfies for all $\omega \in \Omega$, 
+    \[
+      f(\ot_X \omega(x_1, \cdots, x_{\ar \omega})) = \ot_Y \omega (f(x_1), \cdots, f(x_{\ar \omega}));
+    \]
+    \item morphisms: the union of all $\Hom$ sets;
+    \item composition: the composition of functions.
+  \end{itemize}
+\end{definition}
+
+
+
+
+
+
+Let $I$ be a discrete $\calU$-small category, $\cate{Aj}$ be a category of $\Omega$-algebras and $\beta: I \to \cate{Aj}$ be a functor. The image of $\beta$ is an $\Omega$-algebra denoted as $(X_i, \Omega, \ar, \ot_i)$. For every $\omega \in \Omega$, define the function $\ot \omega: (\prod_i X_i)^{\ar \omega} \to \prod_i X_i$ as follows
+\[
+  (\bm{x}_1, \cdots, \bm{x}_{\ar \omega}) \mapsto \left( \ot \omega (x_{1, i}, \cdots, x_{\ar \omega, i}) \right)_{i \in I},
+\]
+where $\bm{x}_k = (x_{k,i})_{i \in I}$. A family of projection $p_j:\prod_{i} X_i \to X_j$ is given by $(x_i)_i \mapsto x_j$. We may deduce that for any $\Omega$-algebra $L$ and the natural transformation $f: \Delta(L) \to \beta$, there exists unique morphism $\phi$ that makes the following diagram commutes, that is, $\cate{Aj}$ possesses products.
+\[
+  \begin{tikzcd}
+    \Delta(\prod_i X_i)
+      \arrow[r, "p"]
+    &\beta
+    \\
+    \Delta(L)
+      \arrow[ru, "f"']
+      \arrow[u, dashed, "\exists !", "\phi"']
+    &
+  \end{tikzcd}
+\]
+
+
+
+
+
+\begin{definition}
+  For any set $X$, the \textit{free algebra} of $X$, denoted as $\bmrm{F}(X)$, is the initial object within the comma category $(j_X, U)$, in which $U: \cate{Aj} \to \cate{Set}$ is a forgetful functor. In other words, for any $\Omega$-algebra $L$ and the mapping $f: X \to L$, there exists unique \textit{morphism} $\phi$ that makes the following diagram commutes.
+  \[
+    \begin{tikzcd}
+      X
+        \arrow[r, hook, "\iota"]
+        \arrow[rd, "f"']
+      &U\bmrm{F}(X)
+        \arrow[d, dashed, "\phi"]
+      \\
+      &UL
+    \end{tikzcd}
+  \]
+\end{definition}
+
+Free algebras exist, and a construction will be given here. Let $F_0$ be the set $X \sqcup \Omega \sqcup \{ (, ) \}$. Note that we are still examining this problem within the framework of the ZFC system, and both the elements of $\Omega$ and the parentheses ``('', ``)'' can be replaced by some set. Besides this, we denote by $\bmrm{On}$ the class of all ordinals and by $\bmrm{V}$ the class of all sets. 
+
+
+
+\begin{theorem}[Transfinite Recursion]
+  Let $G: \bmrm{V} \to \bmrm{V}$ be a function, $\theta \in \bmrm{On}$, then there exists unique function $a: \theta \to \bmrm{V}$ such that for any $\alpha < \theta$
+  \[
+    a(\alpha) = G(a|_{\alpha}).
+  \]
+\end{theorem}
+
+
+
+Let $S$ be the free semigroup $\bmrm{F}_{\cate{Smg}}(X \sqcup \Omega \sqcup \{ (, ) \})$. For any element $\omega \in \Omega$, define the function $H_{\omega}: S \to S$ as $(u_1, \cdots, u_{\ar \omega}) \mapsto \omega((u_1)(u_2)\cdots(u_{\ar \omega}))$. The set $\bmrm{F}$ is set to be the smallest set containing $F_0$ and closed under every $H_{\omega}$, that is,
+\[
+  \bmrm{F} := \left\{ T \subset S: F_0 \subset T \land \left( \forall \omega \in \Omega, \forall u \in T (H_{\omega}(u) \in T) \right) \right\}.
+\]
+Furthermore, from $F_0$, one can recursively define a mapping $\bmrm{On} \to \bmrm{V}$:
+\begin{align*}
+  & F_0 = F_0 \\
+  & F_{\alpha + 1} := F_{\alpha} \cup \{ H_{\omega}(\bm{u}): \omega \in \Omega \land \bm{u} \in (F_{\alpha})^{\ar \omega} \}\\
+  &\text{(}\gamma\text{ is a limit ordinal) } F_{\gamma} := \bigcup_{\beta < \gamma} F_{\beta}.
+\end{align*}
+
+\begin{lemma}
+  $F_{\aleph_0 + 1} = F_{\aleph_0} = \bmrm{F}$.
+\end{lemma}
+\begin{proof}
+  It can be verified that $F_{\aleph_0}$ satisfies the properties that it contains $F_0$ and closed under every $H_{\omega}$. By definition of $\bmrm{F}$, it follows that $\bmrm{F} \subset F_{\aleph_0}$. Conversely, since $F_0 \subset \bmrm{F}$, so $F_1 \subset \bmrm{F}$, and so every $F_{\alpha} \subset \bmrm{F}$, where $\alpha \leq \aleph_0$.
+
+  Clearly $F_{\aleph_0} \subset F_{\aleph_0 + 1} $, and the proof of reverse containment is straightforward.
+\end{proof}
+
+
+
+
+
+
+We assert that $\bmrm{F}$, together with the mapping $H: \omega \mapsto H_{\omega}$, forms an $\Omega$-algebra, and even becomes the free $\omega$-algebra of set $X$. The embedding mapping $\iota: X \hookrightarrow \bmrm{F}$ is obvious, and to let $\phi$ be a homomorphism and ensure the diagram
+\begin{equation}
+  \label{eq:crs-var-freeaj}
+  \begin{tikzcd}
+    X
+      \arrow[r, hook, "\iota"]
+      \arrow[rd, "f"']
+    &\bmrm{F}
+      \arrow[d, dashed, "\phi"]
+    \\
+    &L
+  \end{tikzcd}
+\end{equation}
+commutes, we define $\phi$ recursively as follows. Let $\theta = \aleph_0 + 1$ and $G: \bmrm{V} \to \bmrm{V}$ be the function:
+\[
+  \begin{tikzcd}[row sep = small]
+    \bmrm{V}
+      \arrow[r, "G"]
+    &\bmrm{V}
+    \\
+    \emptyset
+      \arrow[r, mapsto]
+    &\left[ \phi_0: F_0 \to L: x \mapsto f(x) \right]
+    \\
+    \left\{ f_{\alpha}: F_{\alpha} \to L \right\}_{\alpha \leq \lambda}
+      \arrow[r, mapsto]
+    &f_{\lambda + 1}
+    \\
+    \text{else}
+      \arrow[r, mapsto]
+    &\chi_0 \notin L ,
+  \end{tikzcd}
+\]
+where $f_{\lambda+1}$ is defined as:
+\[
+  u \mapsto 
+  \left\{
+    \begin{aligned}
+      &f_{\lambda}(u) & u \in F_{\lambda} \\
+      &\ot \omega (f_{\lambda}(a_1), \cdots, f_{\lambda}(a_{\ar \omega})) & u = H_{\omega}(a_1,\cdots, a_{\ar \omega}) \land a_i \in F_{\lambda} \land u \notin F_{\lambda}.
+    \end{aligned}
+  \right.
+\]
+Thus, by the transfinite recursion, there exists unique $a: \theta \to \bmrm{V}$, such that sends
+\begin{align*}
+  &0 \to [\phi_0: F_0 \to L],\\
+  &1 \to [\phi_1: F_1 \to L], \\
+  &\vdots\\
+  &\aleph_0 \to [\phi: F_{\aleph_0} \to L],
+\end{align*}
+in which $\phi|_{F_{\alpha}} = \phi_{\alpha}$ for any $\alpha < \aleph_0$. And so it can be verified that $\phi$ is a morphism.
+
+
+
+
+To prove the uniqueness, suppose $\phi, \psi$ are morphisms that both make the diagram (\ref{eq:crs-var-freeaj}) commutes. Let 
+\[
+  C = \{ \alpha < \theta : \phi|_{F_{\alpha}} = \psi|_{F_{\alpha}}\},
+\]
+then it follows that
+\begin{itemize}
+  \item $0 \in C$:
+  \item $\alpha \in C \Rightarrow \alpha + 1 \in C$;
+  \item if $\gamma$ is a limit ordinal and for every $\alpha < \gamma$, $\alpha \in C$, then $\gamma \in C$.
+\end{itemize}
+By transfinite induction, we may conclude that $C = \theta$.
