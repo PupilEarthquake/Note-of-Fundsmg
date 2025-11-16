@@ -473,7 +473,7 @@ In this section, if not specified, $\Omega$ is viewed as a finite set.
 
 
 
-Let $I$ be a discrete $\calU$-small category, $\cate{Aj}$ be a category of $\Omega$-algebras and $\beta: I \to \cate{Aj}$ be a functor. The image of $\beta$ is an $\Omega$-algebra denoted as $(X_i, \Omega, \ar, \ot_i)$. For every $\omega \in \Omega$, define the function $\ot \omega: (\prod_i X_i)^{\ar \omega} \to \prod_i X_i$ as follows
+Let $I$ be a discrete $\calU$-small category, $\cate{Aj}$ be a category of $\Omega$-algebras and $\beta: I \to \cate{Aj}$ be a functor. The image of one certain $i \in I$ under $\beta$ is an $\Omega$-algebra denoted as $(X_i, \Omega, \ar, \ot_i)$. For every $\omega \in \Omega$, define the function $\ot \omega: (\prod_i X_i)^{\ar \omega} \to \prod_i X_i$ as follows
 \[
   (\bm{x}_1, \cdots, \bm{x}_{\ar \omega}) \mapsto \left( \ot \omega (x_{1, i}, \cdots, x_{\ar \omega, i}) \right)_{i \in I},
 \]
@@ -496,14 +496,14 @@ where $\bm{x}_k = (x_{k,i})_{i \in I}$. A family of projection $p_j:\prod_{i} X_
 
 
 \begin{definition}
-  For any set $X$, the \textit{free algebra} of $X$, denoted as $\bmrm{F}(X)$, is the initial object within the comma category $(j_X, U)$, in which $U: \cate{Aj} \to \cate{Set}$ is a forgetful functor. In other words, for any $\Omega$-algebra $L$ and the mapping $f: X \to L$, there exists unique \textit{morphism} $\phi$ that makes the following diagram commutes.
+  For any set $X$, the \textit{free algebra} of $X$, denoted as $\bmrm{F}(X)$, is the initial object within the comma category $(j_X, U)$, in which $U: \cate{Aj} \to \cate{Set}$ is a forgetful functor. In other words, for any $\Omega$-algebra $L$ and the mapping $f: X \to L$, there exists unique \textit{morphism} $\bar f$ that makes the following diagram commutes.
   \[
     \begin{tikzcd}
       X
         \arrow[r, hook, "\iota"]
         \arrow[rd, "f"']
       &U\bmrm{F}(X)
-        \arrow[d, dashed, "\phi"]
+        \arrow[d, dashed, "\bar f"]
       \\
       &UL
     \end{tikzcd}
@@ -553,7 +553,7 @@ Free algebras exist, and a construction will be given here. Let $F_0$ be the set
 
 
 
-Let $S$ be the free semigroup $\bmrm{F}_{\cate{Smg}}(X \sqcup \Omega \sqcup \{ (, ) \})$. For any element $\omega \in \Omega$, define the function $H_{\omega}: S \to S$ as $(u_1, \cdots, u_{\ar \omega}) \mapsto \omega((u_1)(u_2)\cdots(u_{\ar \omega}))$. The set $\bmrm{F}$ is set to be the smallest set containing $F_0$ and closed under every $H_{\omega}$, that is,
+Let $S$ be the free semigroup $\bmrm{F}_{\cate{Smg}}(X \sqcup \Omega \sqcup \{ (, ) \})$. For any element $\omega \in \Omega$, define the function $H_{\omega}: S^{\ar \omega} \to S$ as $(u_1, \cdots, u_{\ar \omega}) \mapsto \omega((u_1)(u_2)\cdots(u_{\ar \omega}))$. The set $\bmrm{F}$ is set to be the smallest set containing $F_0$ and closed under every $H_{\omega}$, that is,
 \[
   \bmrm{F} := \left\{ T \subset S: F_0 \subset T \land \left( \forall \omega \in \Omega, \forall \bm{u} \in T^{\ar \omega} (H_{\omega}(\bm{u}) \in T) \right) \right\}.
 \]
@@ -578,7 +578,7 @@ Furthermore, from $F_0$, one can recursively define a mapping $\bmrm{On} \to \bm
 
 
 
-We assert that $\bmrm{F}$, together with the mapping $H: \omega \mapsto H_{\omega}$, forms an $\Omega$-algebra, and even becomes the free $\omega$-algebra of set $X$. The embedding mapping $\iota: X \hookrightarrow \bmrm{F}$ is obvious, and to let $\phi$ be a homomorphism and ensure the diagram
+We assert that $\bmrm{F}$, together with the mapping $H: \omega \mapsto H_{\omega}$, forms an $\Omega$-algebra, and even becomes the free $\omega$-algebra of set $X$. The embedding mapping $\iota: X \hookrightarrow \bmrm{F}$ is obvious, to let $\phi$ be a homomorphism and ensure the diagram
 \begin{equation}
   \label{eq:crs-var-freeaj}
   \begin{tikzcd}
@@ -665,14 +665,14 @@ By transfinite induction, we may conclude that $C = \theta$.
 
 
 \begin{definition}
-  Given a set $X$, the $\calV$-\textit{free algebra} $\bmrm{F}_{\calV}(X)$ is an object of $\calV$ satisfies for any $L \in \Ob{\calV}$ and any mapping $f: X \to L$, there exist a unique morphism $\psi$ such that the following diagram commutes:
+  Given a set $X$, the $\calV$-\textit{free algebra} $\bmrm{F}_{\calV}(X)$ is an object of $\calV$ satisfies for any $L \in \Ob{\calV}$ and any mapping $f: X \to L$, there exist a unique morphism $\hat f$ such that the following diagram commutes:
   \[
     \begin{tikzcd}
       X
         \arrow[r, hook, "\iota"]
         \arrow[rd, "f"']
       &\bmrm{F}_{\calV}(X)
-        \arrow[d, dashed, "\phi"]
+        \arrow[d, dashed, "\hat f"]
       \\
       &L
     \end{tikzcd}
@@ -681,6 +681,21 @@ By transfinite induction, we may conclude that $C = \theta$.
 
 
 
+
+
+
+Now we return to the $(2)$-algebra, alternatively, we focus only on a certain binary operation on an $\Omega$-algebra, which works as a ``multiplication'' that $(x, y) \mapsto xy$, for we need to make use of congruence again. Suppose $X$ is a $(2,1)$-algebra, recall that $R \subset X^2$ is a congruence if $R$ is an equivalence and $(x, y) \in R \land (u,v) \in R \Rightarrow (xu, yv) \in R$. Assume that the morphism $f: X \to Y$ satisfies $R \subset \ker f$, then there exists a unique morphism that makes the following diagram commutes.
+\[
+  \begin{tikzcd}
+    X
+      \arrow[d, "f"']
+      \arrow[r, two heads, "R"]
+    &X/R
+      \arrow[ld, dashed, "\exists !"]
+    \\
+    Y
+  \end{tikzcd}
+\]
 
 
 
@@ -817,5 +832,87 @@ which implies $\bmrm{F}(X) /  c_{\calV}(X) \in \Ob \calV$. Hence, $\begin{tikzcd
 
   Conversely, given a variety $\calV$ and a countably finite set $X$, we assert that $\calV = \ceq(X, c_{\calV}(X))$. The containment $\calV \subset \ceq(X, c_{\calV}(X))$ is easy to verify. For the reverse, let $S \in \ceq(X, c_{\calV}(X))$. Choose an infinite set $Y$ that $|Y| \geq |X|$ and $|Y| \geq |S|$. We shall show that $S$ is the image of morphism $[\bmrm{F}_{\calV}(Y) \twoheadrightarrow S]$, and so $S \in \calV$. 
 
-  Suppose $(u, v) \in c_{\calV}(Y)$, then $u,v \in \bmrm{F}(Y)$, each of them can be viewed as a series of finite length that every coordinate belongs to set $Y \sqcap \Omega \sqcup \{(, )\}$ respectively, and so could it be viewed as a function which has a finite domain contained in $\Z_{\geq 1}$ and a finite image contained in $Y \sqcap \Omega \sqcup \{(, )\}$. Let $Y_0 = (\im u \cup \im v) \cap Y$, clearly it is a finite set. Let $X_0 \subset X$, and we may find a function $\xi_0: X \hookrightarrow Y$ that satisfies $\xi_0(X_0) = Y_0$.
+  Suppose $(u, v) \in c_{\calV}(Y)$, then $u,v \in \bmrm{F}(Y)$, each of them can be viewed as a series of finite length that every coordinate belongs to set $Y \sqcup \Omega \sqcup \{(, )\}$ respectively, and so could it be viewed as a function which has a finite domain contained in $\Z_{\geq 1}$ and a finite image contained in $Y \sqcup \Omega \sqcup \{(, )\}$. Let $Y_0 = (\im u \cup \im v) \cap Y$, clearly it is a finite set. Let $X_0 \subset X$, and we may find a function $\xi_0: X \hookrightarrow Y$ that satisfies $\xi_0(X_0) = Y_0$.
+
+  Since $X \xrightarrow{\xi_0} Y $ is an injection, there exists a left inverse of $\xi_0$ such that $X \xrightarrow{\xi_0} Y \xrightarrow{\eta_0} X = \idd_X$. The image of these two mappings under the functor $\bmrm{F}$ are denoted as $\xi$ and $\eta$ respectively. Thus, under the category of set, we have the following commutative diagram.
+  \[
+    \begin{tikzcd}
+      X_0
+        \arrow[r, hook]
+        \arrow[d, "\xi_0|_{X_0}"']
+      &X
+        \arrow[r, hook]
+        \arrow[d, "\xi_0"]
+        \arrow[dd, bend right=50, "\idd"']
+      &U\bmrm{F}(X)
+        \arrow[d, "U\xi"]
+        \arrow[dd, bend left=50, "\idd"]
+      \\
+      Y_0
+        \arrow[r, hook]
+      &Y
+        \arrow[r, hook]
+        \arrow[d, "\eta_0"]
+      &U\bmrm{F}(Y)
+        \arrow[d, "U\eta"]
+      \\
+      &X
+        \arrow[r, hook]
+      &U\bmrm{F}(X)
+    \end{tikzcd}
+  \]
 \end{proof}
+By the construction, there exists $u_0, v_0$ in $\bmrm{F}(X)$ such that $\xi(u_0) = u$ and $\xi(v_0) = v$, and it follows that $\eta(u) = u_0, \eta(v) = v_0$. 
+
+
+
+From the diagram below and the universal property of $\bmrm{F}(Y)$, $\overline{c_{\calV}(X)\eta\iota} =  c_{\calV}(X)\eta$. Since $(u, v) \in c_{\calV}(Y)$, namely, $\bar{f}(u) = \bar{f}(v)$ for any $f: Y \to S$, we obtain that $c_{\calV}\eta(u) = c_{\calV}\eta(v)$. Hence $(u_0, v_0) \in c_{\calV}(X)$.
+\[
+  \begin{tikzcd}
+    Y
+      \arrow[r, hook, "\iota"]
+      \arrow[rdd]
+    &U\bmrm{F}(Y)
+      \arrow[d, "\eta"]
+      \arrow[dd, bend left=50, dashed, "\exists !"]
+    \\
+    &U\bmrm{F}(X)
+      \arrow[d, "c_{\calV}(X)"]
+    \\
+    &U\bmrm{F}_{\calV}(X)
+  \end{tikzcd}
+\]
+
+
+For any epimorphism $\psi: \bmrm{F}(Y) \twoheadrightarrow S$, again, by the universal property of $\bmrm{F}(X)$, we obtain that $\overline{\psi\xi\iota} = \psi\xi$. since $S \in \ceq(X, c_{\calV}(X))$ and $(u_0, v_0) \in c_{\calV}(X)$, we may conclude that $\psi\xi(u_0) = \psi\xi(v_0)$, thus, $\psi(u) = \psi(v)$.
+\[
+  \begin{tikzcd}
+    X
+      \arrow[r, hook, "\iota"]
+      \arrow[rdd]
+    &U\bmrm{F}(X)
+      \arrow[d, "\xi"]
+      \arrow[dd, bend left=50, dashed, "\exists !"]
+    \\
+    &U\bmrm{F}(Y)
+      \arrow[d, two heads, "\psi"]
+    \\
+    &US
+  \end{tikzcd}
+\]
+
+Now we've established that for any $Y$ that not smaller than $X$ and $S$, and for any epimorphism $\bmrm{F}(Y) \twoheadrightarrow S$, $c_{\calV}(Y) \subset \ker \psi$. Hence, there exist a morphism that makes the following diagram commutes, and so $S \in \calV$.
+\[
+  \begin{tikzcd}
+    \bmrm{F}(Y)
+      \arrow[r, two heads, "\psi"]
+      \arrow[d, "c_{\calV}(Y)"']
+    &S
+    \\
+    \bmrm{F}_{\calV}(Y)
+      \arrow[ur, dashed, "\exists !"']
+    &
+  \end{tikzcd}
+\]
+
+
