@@ -444,14 +444,14 @@ The above two definitions, the strong semilattice of semigroups and the semilatt
 \section{Varieties}
 
 \begin{definition}
-  An $\Omega$-algebra contains data $(X, \Omega, \ar, \ot)$, where $X$ is a set and the set $\Omega$ is called operator domain. The arity $\ar$ is a function $\Omega \to \Z_{\geq 0}$ and $\ot$ is a function sends each $\omega \in \Omega$ to a certain operator $\ot(\omega): X^{\ar(\omega)} \to X$. In the case that $\ar(\omega) = 0$, $\ot(\omega)$ is set to a constant function.
+  An $\Omega$-algebra contains data $(X, \Omega, \ar, \ot)$, where, $X$ is a set, set $\Omega$ is called operator domain, the arity $\ar$ is a function $\Omega \to \Z_{\geq 1}$ and $\ot$ is still a function belongs to $\prod_{\omega \in \Omega} \Hom(X^{\ar X}, X)$.
 \end{definition}
 
 
 
-Particularly, when $\Omega$ contains two elements with the arity of $2$ and $1$ respectively, we call the system $(2,1)$-algebra. A semigroup is a $(2)$-algebra.
+Particularly, when $\Omega$ contains two elements with the arity of $2$ and $1$ respectively, we call the system $(2,1)$-algebra. A semigroup is a $(2)$-algebra; a group can be reckoned as a $(2,1,1)$-algebra.
 
-In this section, if not specified, $\Omega$ is viewed as a finite set.
+In this section, if not specified, $\Omega$ is set to be a finite set.
 
 
 
@@ -495,8 +495,57 @@ where $\bm{x}_k = (x_{k,i})_{i \in I}$. A family of projection $p_j:\prod_{i} X_
 
 
 
+
 \begin{definition}
-  For any set $X$, the \textit{free algebra} of $X$, denoted as $\bmrm{F}(X)$, is the initial object within the comma category $(j_X, U)$, in which $U: \cate{Aj} \to \cate{Set}$ is a forgetful functor. In other words, for any $\Omega$-algebra $L$ and the mapping $f: X \to L$, there exists unique \textit{morphism} $\bar f$ that makes the following diagram commutes.
+  $(U, \Omega, \ar, \ot_U)$ is the subalgebra of $(X, \Omega, \ar, \ot_X)$ if
+  \begin{itemize}
+    \item $U \subset X$;
+    \item for any $\omega \in \Omega$, $(\ot_X \omega) | U^{\ar \omega} = \ot_U \omega$.
+  \end{itemize}
+\end{definition}
+Additionally, if the subset $U \subset X$ satisfies $\ot_X (U^{\ar \omega}) \subset U$ for all $\omega$, the former can be viewed as a subalgebra with a natural definition of $\ot_U$.
+
+
+
+
+
+
+\begin{definition}
+  Given the algebra $(X, \Omega, \ar, \ot_X)$, $(X^2, \Omega, \ar, \ot_{X^2})$ is its product algebra, $C \subset X^2$ is a congruence if
+  \begin{itemize}
+    \item $C \in \Eqv(X)$,
+    \item $\ot_{X^2} \omega (C^{\ar \omega}) \subset C$.
+  \end{itemize} 
+\end{definition}
+Simply say, $x_1 C y_1 ,\cdots, x_m C y_m \Rightarrow x_1\cdots x_m C y_1 \cdots y_m$. Furthermore, we may notice that the intersection of a set of congruences is also a congruence.
+
+
+
+
+
+
+\begin{definition}
+  Let $X$ be an algebra, $C$ is its congruence, the algebra $X/C$ is defined as a set $\{ C(x): x\in X\}$ with the operators $\ot_{X/C} \omega: (C(x_1), \cdots, C(x_{\ar \omega})) \mapsto C(\ot_{X}\omega (x_1, \cdots, x_{\ar \omega}))$.
+\end{definition}
+If $f: X \to Y$ is a homomorphism, the relation $\ker f := \{ (x_1, x_2) \in X^2: f(x_1) = f(x_2) \}$ is a congruence, for $f(x_1\cdots x_m) = f(x_1) \cdots f(x_m) = f(y_1)\cdots f(y_m) = f(y_1\cdots y_m)$. Based on this, we may build the theorem commonly appears in algebra systems: if $C$ is a congruence contained in $\ker f$, then there exists a unique morphism $g$ that makes the following diagram commutes.
+\[
+  \begin{tikzcd}
+    X
+      \arrow[r, two heads]
+      \arrow[d, "f"']
+    & X/C
+      \arrow[ld, dashed, "\exists !"', "g"]
+    \\
+    Y
+  \end{tikzcd}
+\]
+
+
+
+
+
+\begin{definition}
+  For any set $X$, the \textit{free algebra} of $X$, denoted as $\bmrm{F}(X)$, is the initial object within the comma category $(j_X, U)$, in which $U: \cate{Aj} \to \cate{Set}$ is a forgetful functor. In other words, for any $\Omega$-algebra $L$ and the mapping $f: X \to L$, there exists a unique \textit{morphism} $\bar f$ that makes the following diagram commutes.
   \[
     \begin{tikzcd}
       X
@@ -555,7 +604,7 @@ Free algebras exist, and a construction will be given here. Let $F_0$ be the set
 
 Let $S$ be the free semigroup $\bmrm{F}_{\cate{Smg}}(X \sqcup \Omega \sqcup \{ (, ) \})$. For any element $\omega \in \Omega$, define the function $H_{\omega}: S^{\ar \omega} \to S$ as $(u_1, \cdots, u_{\ar \omega}) \mapsto \omega((u_1)(u_2)\cdots(u_{\ar \omega}))$. The set $\bmrm{F}$ is set to be the smallest set containing $F_0$ and closed under every $H_{\omega}$, that is,
 \[
-  \bmrm{F} := \left\{ T \subset S: F_0 \subset T \land \left( \forall \omega \in \Omega, \forall \bm{u} \in T^{\ar \omega} (H_{\omega}(\bm{u}) \in T) \right) \right\}.
+  \bmrm{F} := \bigcap \left\{ T \subset S: F_0 \subset T \land \left( \forall \omega \in \Omega, \forall \bm{u} \in T^{\ar \omega} (H_{\omega}(\bm{u}) \in T) \right) \right\}.
 \]
 Furthermore, from $F_0$, one can recursively define a mapping $\bmrm{On} \to \bmrm{V}$:
 \begin{align*}
@@ -602,9 +651,17 @@ commutes, we define $\phi$ recursively as follows. Let $\theta = \aleph_0 + 1$ a
       \arrow[r, mapsto]
     &\left[ \phi_0: F_0 \to L: x \mapsto f(x) \right]
     \\
-    \left\{ f_{\alpha}: F_{\alpha} \to L \right\}_{\alpha \leq \lambda}
+    \left\{ f_{\alpha}: F_{\alpha} \to L \right\}_{\alpha \leq \lambda < \aleph_0}
       \arrow[r, mapsto]
     &f_{\lambda + 1}
+    \\
+    \left\{ f_{\alpha}: F_{\alpha} \to L \right\}_{\alpha < \aleph_0}
+      \arrow[r, mapsto]
+    &\bigcup_{\beta < \aleph_0} \Gamma(f_{\beta})
+    \\
+    \left\{ f_{\alpha}: F_{\alpha} \to L \right\}_{\alpha \leq \aleph_0}
+      \arrow[r, mapsto]
+    &f_{\aleph_0 + 1}
     \\
     \text{else}
       \arrow[r, mapsto]
@@ -684,18 +741,18 @@ By transfinite induction, we may conclude that $C = \theta$.
 
 
 
-Now we return to the $(2)$-algebra, alternatively, we focus only on a certain binary operation on an $\Omega$-algebra, which works as a ``multiplication'' that $(x, y) \mapsto xy$, for we need to make use of congruence again. Suppose $X$ is a $(2,1)$-algebra, recall that $R \subset X^2$ is a congruence if $R$ is an equivalence and $(x, y) \in R \land (u,v) \in R \Rightarrow (xu, yv) \in R$. Assume that the morphism $f: X \to Y$ satisfies $R \subset \ker f$, then there exists a unique morphism that makes the following diagram commutes.
-\[
-  \begin{tikzcd}
-    X
-      \arrow[d, "f"']
-      \arrow[r, two heads, "R"]
-    &X/R
-      \arrow[ld, dashed, "\exists !"]
-    \\
-    Y
-  \end{tikzcd}
-\]
+% Now we return to the $(2)$-algebra, alternatively, we focus only on a certain binary operation on an $\Omega$-algebra, which works as a ``multiplication'' that $(x, y) \mapsto xy$, for we need to make use of congruence again. Suppose $X$ is a $(2,1)$-algebra, recall that $R \subset X^2$ is a congruence if $R$ is an equivalence and $(x, y) \in R \land (u,v) \in R \Rightarrow (xu, yv) \in R$. Assume that the morphism $f: X \to Y$ satisfies $R \subset \ker f$, then there exists a unique morphism that makes the following diagram commutes.
+% \[
+%   \begin{tikzcd}
+%     X
+%       \arrow[d, "f"']
+%       \arrow[r, two heads, "R"]
+%     &X/R
+%       \arrow[ld, dashed, "\exists !"]
+%     \\
+%     Y
+%   \end{tikzcd}
+% \]
 
 
 
@@ -706,9 +763,10 @@ To construct the $\bmrm{F}_{\calV}(X)$, and to facilitate the subsequent descrip
   Let $X$ be a set, then
   \begin{itemize}
     \item for any $S \in \Ob \calV$, $\fker(f,X,S):=\ker\left[\bmrm{F}(X) \xrightarrow{\bar{f}} S\right]$, where $\bar{f}$ is derived from the definition of free algebra;
-    \item $c_{\calV}(X) := \bigcap_{(f, S) \in \calO} \fker(f, X, S)$, where $\calO = \{ (f, S) \in \Mor(\cate{Set}) \times \Ob(\calV): f \in \Hom_{\cate{Set}}(X, S) \}$;
-    \item for $u, v$ in $\bmrm{F}(X)$, $\ceq(X, u, v):= \left\{ S \in \Ob(\calV): (u, v) \in \bigcap_{f \in \Hom_{\cate{Set}}(X, S)} \fker(f, X, S) \right\}$;
-    \item given a binary relation $R \subset \bmrm{F}(X)^2$, the equational class $\ceq(X, R):= \bigcap_{(u,v)\in R}\ceq(X, u, v)$.
+    \item $\MS_{\calV}(X):= \{ (f, S) \in \Mor(\cate{Set}) \times \Ob(\calV): f \in \Hom_{\cate{Set}}(X, S) \}$
+    \item $\rmc_{\calV}(X) := \bigcap_{(f, S) \in \MS_{\calV}(X)} \fker(f, X, S)$;
+    \item for $u, v$ in $\bmrm{F}(X)$, $\ec_{\calV}(X, u, v):= \left\{ S \in \Ob(\calV): (u, v) \in \bigcap_{f \in \Hom_{\cate{Set}}(X, S)} \fker(f, X, S) \right\}$;
+    \item given a binary relation $R \subset \bmrm{F}(X)^2$, the equational class $\ec_{\calV}(X, R):= \bigcap_{(u,v)\in R}\ec_{\calV}(X, u, v)$.
   \end{itemize}
 \end{definition}
 
@@ -741,19 +799,19 @@ Notice that every $\bmrm{F}(X) / \fker(f, X, S) \simeq \im \bar{f} \subset S$ is
   \begin{tikzcd}[row sep = small]
     \bmrm{F}(X)
       \arrow[r]
-    & \prod_{(f, S) \in \calO} \bmrm{F}(X) / \fker(f, X, S) \\
+    & \prod_{(f, S) \in \MS_{\calV}(X)} \bmrm{F}(X) / \fker(f, X, S) \\
     u
       \arrow[r, mapsto]
     &\left[ (f, S) \mapsto  \fker(f, X, S)(u) \right]
   \end{tikzcd}
 \]
-where $\calO = \{ (f, S) \in \Mor(\cate{Set}) \times \Ob(\calV): f \in \Hom_{\cate{Set}}(X, S) \}$. Then, 
+where $\MS_{\calV}(X) = \{ (f, S) \in \Mor(\cate{Set}) \times \Ob(\calV): f \in \Hom_{\cate{Set}}(X, S) \}$. Then, 
 \[
   \Theta(u) = \Theta(v) \Leftrightarrow c_{\calV}(X)(u) = c_{\calV}(X)(v),
 \]
 and it follows that 
 \[
-  \bmrm{F}(X) /  c_{\calV}(X) \simeq \im \Theta \subset \prod_{(f, S) \in \calO} \bmrm{F}(X) / \fker(f, X, S) \in \Ob \calV,
+  \bmrm{F}(X) /  c_{\calV}(X) \simeq \im \Theta \subset \prod_{(f, S) \in \MS_{\calV}(X)} \bmrm{F}(X) / \fker(f, X, S) \in \Ob \calV,
 \]
 which implies $\bmrm{F}(X) /  c_{\calV}(X) \in \Ob \calV$. Hence, $\begin{tikzcd}[column sep = small]
    X
@@ -769,12 +827,12 @@ which implies $\bmrm{F}(X) /  c_{\calV}(X) \in \Ob \calV$. Hence, $\begin{tikzcd
 
 
 \begin{theorem}
-  As a set, $\calV$ is a variety if and on if it is an equational class $\ceq(X, R)$. 
+  As a set, $\calV$ is a variety if and on if it is an equational class $\ec_{\calV}(X, R)$. 
 \end{theorem}
 \begin{proof}
-  Given a set $X$ and a relation $R \subset \bmrm{F}(X)^2$, we assert that $\ceq(X, R)$ is a variety. The proof proceeds in three parts:
+  Given a set $X$ and a relation $R \subset \bmrm{F}(X)^2$, we assert that $\ec_{\calV}(X, R)$ is a variety. The proof proceeds in three parts:
   \begin{enumerate}
-    \item for any $ S\in \ceq(X, R)$ and subalgebra  $T \subset S$, $T \in \ceq(X, R)$, since for any $f \to T$ the following diagram commutes, and so $\forall (u,v) \in R (\bar f (u) = \bar f (v))$.
+    \item for any $ S\in \ec_{\calV}(X, R)$ and subalgebra  $T \subset S$, $T \in \ec_{\calV}(X, R)$, since for any $f \to T$ the following diagram commutes, and so $\forall (u,v) \in R (\bar f (u) = \bar f (v))$.
     \[
       \begin{tikzcd}
         X
@@ -790,7 +848,7 @@ which implies $\bmrm{F}(X) /  c_{\calV}(X) \in \Ob \calV$. Hence, $\begin{tikzcd
         &S
       \end{tikzcd}
     \]
-    \item For any $ S\in \ceq(X, R)$ and the epimorphism  $\pi: S \to T$, $T \in \ceq(X, R)$. For any $f: S \to T$, let $g \in \prod_{x \in X}\pi^{-1}f(x)$, then $X \xrightarrow{g} S \xrightarrow{\pi} T = f$. By the commutativity of the diagram below, $\bar f(u) = \bar f(v)$ for any $(u, v) \in R$.
+    \item For any $ S\in \ec_{\calV}(X, R)$ and the epimorphism  $\pi: S \to T$, $T \in \ec_{\calV}(X, R)$. For any $f: S \to T$, let $g \in \prod_{x \in X}\pi^{-1}f(x)$, then $X \xrightarrow{g} S \xrightarrow{\pi} T = f$. By the commutativity of the diagram below, $\bar f(u) = \bar f(v)$ for any $(u, v) \in R$.
     \[
       \begin{tikzcd}
         X
@@ -807,7 +865,7 @@ which implies $\bmrm{F}(X) /  c_{\calV}(X) \in \Ob \calV$. Hence, $\begin{tikzcd
           \arrow[u, two heads, "\pi"']
       \end{tikzcd}
     \] 
-    \item Suppose $I$ is small and $S_i \in \ceq(X, R)$, then so does $\prod_{i \in I}S_i$. This is from the following commutative diagram, in which $p_i$ is the projection, which implies that 
+    \item Suppose $I$ is small and $S_i \in \ec_{\calV}(X, R)$, then so does $\prod_{i \in I}S_i$. This is from the following commutative diagram, in which $p_i$ is the projection, which implies that 
     \[
       \forall j \in I (p_j\bar f(u) = p_j \bar f(v)) \Leftrightarrow \bar f(u) = \bar f (v)
     \]
@@ -830,7 +888,7 @@ which implies $\bmrm{F}(X) /  c_{\calV}(X) \in \Ob \calV$. Hence, $\begin{tikzcd
     \]
   \end{enumerate}
 
-  Conversely, given a variety $\calV$ and a countably finite set $X$, we assert that $\calV = \ceq(X, c_{\calV}(X))$. The containment $\calV \subset \ceq(X, c_{\calV}(X))$ is easy to verify. For the reverse, let $S \in \ceq(X, c_{\calV}(X))$. Choose an infinite set $Y$ that $|Y| \geq |X|$ and $|Y| \geq |S|$. We shall show that $S$ is the image of morphism $[\bmrm{F}_{\calV}(Y) \twoheadrightarrow S]$, and so $S \in \calV$. 
+  Conversely, given a variety $\calV$ and a countably finite set $X$, we assert that $\calV = \ec_{\calV}(X, c_{\calV}(X))$. The containment $\calV \subset \ec_{\calV}(X, c_{\calV}(X))$ is easy to verify. If $(u, v) \in \rmc_{\calV}(X)$, then for any $S \in \Ob \calV$ and any morphism $f: X \to S$, $\bar f (u) = \bar f (v)$. This implies that every $S$ in $\calV$ is in $\ec_{\calV}(X, c_{\calV}(X))$. For the reverse, let $S \in \ec_{\calV}(X, c_{\calV}(X))$. Choose an infinite set $Y$ that $|Y| \geq |X|$ and $|Y| \geq |S|$. We shall show that $S$ is the image of an epimorphism $[\bmrm{F}_{\calV}(Y) \twoheadrightarrow S]$, and so $S \in \calV$. 
 
   Suppose $(u, v) \in c_{\calV}(Y)$, then $u,v \in \bmrm{F}(Y)$, each of them can be viewed as a series of finite length that every coordinate belongs to set $Y \sqcup \Omega \sqcup \{(, )\}$ respectively, and so could it be viewed as a function which has a finite domain contained in $\Z_{\geq 1}$ and a finite image contained in $Y \sqcup \Omega \sqcup \{(, )\}$. Let $Y_0 = (\im u \cup \im v) \cap Y$, clearly it is a finite set. Let $X_0 \subset X$, and we may find a function $\xi_0: X \hookrightarrow Y$ that satisfies $\xi_0(X_0) = Y_0$.
 
@@ -866,7 +924,7 @@ By the construction, there exists $u_0, v_0$ in $\bmrm{F}(X)$ such that $\xi(u_0
 
 
 
-From the diagram below and the universal property of $\bmrm{F}(Y)$, $\overline{c_{\calV}(X)\eta\iota} =  c_{\calV}(X)\eta$. Since $(u, v) \in c_{\calV}(Y)$, namely, $\bar{f}(u) = \bar{f}(v)$ for any $f: Y \to S$, we obtain that $c_{\calV}\eta(u) = c_{\calV}\eta(v)$. Hence $(u_0, v_0) \in c_{\calV}(X)$.
+From the diagram below and the universal property of $\bmrm{F}(Y)$, $\overline{c_{\calV}(X)\eta\iota} =  c_{\calV}(X)\eta$. Since $(u, v) \in c_{\calV}(Y)$, namely, $\bar{f}(u) = \bar{f}(v)$ for any $f: Y \to S$, we obtain that $c_{\calV}(X)\eta(u) = c_{\calV}(X)\eta(v)$. Hence $(u_0, v_0) \in c_{\calV}(X)$.
 \[
   \begin{tikzcd}
     Y
@@ -884,7 +942,7 @@ From the diagram below and the universal property of $\bmrm{F}(Y)$, $\overline{c
 \]
 
 
-For any epimorphism $\psi: \bmrm{F}(Y) \twoheadrightarrow S$, again, by the universal property of $\bmrm{F}(X)$, we obtain that $\overline{\psi\xi\iota} = \psi\xi$. since $S \in \ceq(X, c_{\calV}(X))$ and $(u_0, v_0) \in c_{\calV}(X)$, we may conclude that $\psi\xi(u_0) = \psi\xi(v_0)$, thus, $\psi(u) = \psi(v)$.
+For any epimorphism $\psi: \bmrm{F}(Y) \twoheadrightarrow S$, again, by the universal property of $\bmrm{F}(X)$, we obtain that $\overline{\psi\xi\iota} = \psi\xi$. since $S \in \ec_{\calV}(X, c_{\calV}(X))$ and $(u_0, v_0) \in c_{\calV}(X)$, we may conclude that $\psi\xi(u_0) = \psi\xi(v_0)$, thus, $\psi(u) = \psi(v)$.
 \[
   \begin{tikzcd}
     X
